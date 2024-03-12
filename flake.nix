@@ -41,6 +41,11 @@
           ./system/core/default.nix
           ./hosts/EVA-Unit01/default.nix
           ./system/modules/rt-audio.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./home/home.nix; 
+          }
         ];
       };
 
@@ -56,38 +61,13 @@
         modules = [
           ./system/core/default.nix
           ./hosts/EVA-Unit02/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./home/home.nix; 
+          }
         ];
       };
-    };
-
-    homeConfigurations = {
-      # Desktop Ryzen 5 5600X, Radeon 6700XT, 16GB RAM
-      "${username}@${desktop}" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit username;
-        };
-        # Home-manager configuration file and modules
-        modules = [
-          ./home/home.nix
-          ./home/modules/gaming.nix
-        ];
-      };
-
-      # Laptop Thinkpad E15 Gen 1, i5-10210U, 16GB RAM
-      "${username}@${laptop}" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs;
-          inherit username;
-        };
-        # Home-manager configuration file and modules
-        modules = [
-          ./home/home.nix
-        ];
-      };
-
     };
   };
 }
