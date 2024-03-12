@@ -26,4 +26,6 @@
   programs.matugen = {
     enable = true;
   };
+
+  # TODO add AGS files and source them
 }
