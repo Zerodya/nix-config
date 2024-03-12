@@ -10,6 +10,20 @@
   # Experimental
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Nixpkgs Unfree and Insecure
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-run"
+    ];
+    permittedInsecurePackages = [
+      "openssl-1.1.1w"
+      "electron-25.9.0"
+    ];
+  };
+
   # Bootloader
   boot = {
     # Systemd-boot
@@ -64,16 +78,6 @@
 
   # Flatpak
   services.flatpak.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-run"
-    ];
-  };
 
   # TODO move packages to home/programs/
   environment.systemPackages = with pkgs; [
