@@ -36,7 +36,7 @@
           inherit desktop; # pass desktop hostname
         };
         system = "x86_64-linux";
-        # NixOS configuration file and modules
+
         modules = [
           ./system/core/default.nix
           ./hosts/EVA-Unit01/default.nix
@@ -44,7 +44,11 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/home.nix; 
+            home-manager.users.${username} = import ./home/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
           }
         ];
       };
@@ -57,14 +61,18 @@
           inherit laptop; # pass laptop hostname
         };
         system = "x86_64-linux";
-        # NixOS configuration file and modules
+
         modules = [
           ./system/core/default.nix
           ./hosts/EVA-Unit02/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/home.nix; 
+            home-manager.users.${username} = import ./home/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
           }
         ];
       };
