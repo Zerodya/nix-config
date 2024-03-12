@@ -4,7 +4,7 @@
     ./ags
     ./hyprland
     ./programs
-    #./shell
+    ./shell
   ];
   
   home = {
