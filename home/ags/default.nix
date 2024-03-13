@@ -1,4 +1,4 @@
-{ inputs, pkgs, username, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [ 
     inputs.ags.homeManagerModules.default

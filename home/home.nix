@@ -1,4 +1,4 @@
-{ inputs, pkgs, username, ... }:
+{ username, ... }:
 {
   imports = [
     ./ags
