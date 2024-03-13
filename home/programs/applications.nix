@@ -58,5 +58,8 @@
 
     # Downloading
     qbittorrent
+
+    # LSP
+    nil
   ];
 }
