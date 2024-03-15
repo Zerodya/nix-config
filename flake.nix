@@ -40,8 +40,6 @@
         modules = [
           ./system/core/default.nix
           ./hosts/EVA-Unit01/default.nix
-          ./system/modules/rt-audio.nix
-          ./system/modules/gaming.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

@@ -3,7 +3,9 @@
 {
   imports = [
       ./hardware-configuration.nix
-      ./powersave.nix
+
+      # Modules
+      ../../system/modules/powersave.nix
   ];
 
   networking.hostName = laptop;
