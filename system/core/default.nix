@@ -166,45 +166,6 @@
     syncthing
     aria
     hyprshot
-  #Applications
-    #obsidian
-    floorp
-    sublime4
-    spotify
-    freetube
-    openrgb-with-all-plugins
-    beeper
-    brave
-    firefox
-    discord
-    vesktop
-    gradience
-    libsForQt5.kdenlive
-    krita
-    libreoffice
-    onlyoffice-bin
-    #lorien
-    tonelib-gfx
-    tonelib-jam
-    obs-studio
-    libsForQt5.okular
-    protonup-qt
-    protontricks
-    rpcs3
-    ryujinx
-    sunshine
-    telegram-desktop
-    tor-browser
-    mpv
-    vlc
-    qbittorrent
-    winetricks
-    bottles
-    pika-backup
-    cartridges
-    vscodium-fhs
-    youtube-music
-    teams-for-linux
   ];
 
   # Gnome
