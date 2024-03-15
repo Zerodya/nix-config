@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, ... }:
 
 {
 
@@ -90,7 +90,6 @@
     cargo
     kitty
     playerctl
-    brightnessctl
     polkit
     polkit_gnome
     libsForQt5.qt5.qtwayland
@@ -206,11 +205,6 @@
     vscodium-fhs
     youtube-music
     teams-for-linux
-  # Dotfiles
-    sassc # converts .sccs to .css (for ags)
-    inotify-tools
-    papirus-icon-theme
-    inputs.matugen.packages.${system}.default
   ];
 
   # Gnome

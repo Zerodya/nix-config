@@ -5,23 +5,28 @@
     inputs.matugen.nixosModules.default
   ];
 
+  # Dependencies
+  home.packages = with pkgs; [
+    sassc # converts .sccs to .css (for ags)
+    inotify-tools
+    papirus-icon-theme
+    inputs.matugen.packages.${system}.default
+    brightnessctl
+  ];
+
   programs.ags = {
     enable = true;
 
-    # null or path, leave as null if you don't want hm to manage the config
-    configDir = null;
+    configDir = ../ags;
 
-    # additional packages to add to gjs's runtime
-    extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-    ];
+    # extraPackages = with pkgs; [
+    #   gtksourceview
+    #   webkitgtk
+    #   accountsservice
+    # ];
   };
 
   programs.matugen = {
     enable = true;
   };
-
-  # TODO add AGS files and source them
 }
