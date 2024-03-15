@@ -45,7 +45,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/home.nix;
+            home-manager.users.${username} = import ./hosts/EVA-Unit01/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -69,7 +69,7 @@
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./home/home.nix;
+            home-manager.users.${username} = import ./hosts/EVA-Unit02/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;

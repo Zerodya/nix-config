@@ -3,7 +3,6 @@
   imports = [
     ./ags
     ./hyprland
-    ./modules
     ./programs
     ./shell
   ];
