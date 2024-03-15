@@ -2,6 +2,6 @@
   imports = [
     ../../home/home.nix
     
-    ../../modules/gaming.nix
+    ../../home/modules/gaming.nix
   ];
 }
