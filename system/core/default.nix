@@ -181,10 +181,6 @@
     source-han-sans # Japanese
   ];
 
-  # Screen lock
-  security.pam.services.swaylock = {};
-  security.pam.services.swaylock.fprintAuth = false;
-
   # Enable screen sharing
   xdg.portal.enable = true;
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
