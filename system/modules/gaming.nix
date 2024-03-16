@@ -13,7 +13,15 @@
     #remotePlay.openFirewall = true;
   };
 
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        softrealtime = "auto";
+        renice = 15;
+      };
+    };
+  };
   
   programs.corectrl = {
     enable = true;

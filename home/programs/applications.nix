@@ -43,15 +43,24 @@
     # Guitar
     tonelib-gfx
     tonelib-jam
+
+    # Audio tools
+    pavucontrol
+    qjackctl
     
     # PDF
     libsForQt5.okular
 
     # Theming
     gradience
+    lxappearance
+    nwg-look
     
     # Screen Rec
     obs-studio
+
+    # Webcam
+    gnome.cheese
 
     # Backup
     pika-backup
@@ -59,7 +68,10 @@
     # Downloading
     qbittorrent
 
-    # LSP
+    # Nix language server
     nil
+
+    # Disks
+    gparted
   ];
 }

@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 
 {
-
   imports = [
     ./users.nix
     ./security.nix
@@ -58,10 +57,12 @@
   # XServer
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true; # Display Manager
     xkb.layout = "us";
     xkb.variant = "";
   };
+
+  # Display Manager
+  services.xserver.displayManager.gdm.enable = true;
 
   # Pipewire
   services.pipewire = {
@@ -79,10 +80,11 @@
   # Flatpak
   services.flatpak.enable = true;
 
-  # TODO move packages to home/programs/
+  # TODO formatting and comments
   environment.systemPackages = with pkgs; [
-  #Essentials
-    vim 
+    vim
+    neovim
+    btop
     wget
     git
     gnumake
@@ -98,12 +100,7 @@
     adw-gtk3
     adwaita-qt
     adwaita-qt6
-    vulkan-headers
-    vulkan-loader
     corefonts
-    dxvk
-    vkd3d-proton
-    directx-headers
     glib
     glibc
     ffmpeg-full
@@ -122,50 +119,11 @@
     pciutils # lspci
     usbutils # lsusb
     libnotify
-    wlr-randr
     tree
     rar
-  #Cli
-    starship
-    neovim
-    btop
-    wl-gammarelay-rs
-    ddcutil
-    nvd
-    fastfetch
-    nix-output-monitor
-    nix-tree
-    scrcpy
-    nix-search-cli
-    nh
-  #Desktop
+
     gnome.gdm
     gnome.gnome-shell-extensions
-    swww
-    mako
-    swaylock-effects
-    swayidle
-  #Utilities
-    wl-clip-persist
-    nautilus-open-any-terminal
-    blueman   
-    gparted
-    gnome.cheese
-    wineWowPackages.stagingFull
-    pavucontrol
-    gamescope
-    lxappearance
-    nwg-look
-    vulkan-tools
-    qjackctl
-    mangohud
-    vkbasalt
-    steam-run
-    clinfo
-    openvpn
-    syncthing
-    aria
-    hyprshot
   ];
 
   # Gnome
