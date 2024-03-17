@@ -5,6 +5,7 @@
     ./hyprland
     ./programs
     ./shell
+    ./scripts
   ];
   
   home = {
