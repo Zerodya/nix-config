@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Your main monitor (change this)
+MONITOR="DP-1"
+
+# Turn monitor back on (you may want to change these options)
+hyprctl keyword monitor $MONITOR,highrr,auto,1
+
+# Get name of headless display 
+HEADLESS=$(hyprctl -j monitors | jq -r '.[] | select(.name | test("HEADLESS-"; "i")).name')
+
+# Remove headless virtual display
+hyprctl output remove "$HEADLESS"

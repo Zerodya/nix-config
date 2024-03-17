@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Your main monitor (change this)
+MONITOR="DP-1"
+
+# Create headless virtual display
+hyprctl output create headless
+
+# Disable the monitor
+hyprctl keyword monitor $MONITOR,disable
