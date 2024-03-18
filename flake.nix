@@ -22,8 +22,8 @@
 
   let
     username = "alpha";
-    desktop = "EVA-Unit01";
-    laptop = "EVA-Unit02";
+    desktop = "eva01";
+    laptop = "eva02";
   in 
   
   {
@@ -39,11 +39,11 @@
 
         modules = [
           ./system/core/default.nix
-          ./hosts/EVA-Unit01/default.nix
+          ./hosts/eva01/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/EVA-Unit01/home.nix;
+            home-manager.users.${username} = import ./hosts/eva01/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -63,11 +63,11 @@
 
         modules = [
           ./system/core/default.nix
-          ./hosts/EVA-Unit02/default.nix
+          ./hosts/eva02/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/EVA-Unit02/home.nix;
+            home-manager.users.${username} = import ./hosts/eva02/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
