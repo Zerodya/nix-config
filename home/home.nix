@@ -6,6 +6,7 @@
     ./programs
     ./shell
     ./scripts
+    ./wallpapers
   ];
   
   home = {
