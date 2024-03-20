@@ -11,6 +11,7 @@
     inotify-tools # for notifications
     papirus-icon-theme # for launcher icons
     inputs.matugen.packages.${system}.default # generates colors (not working rn)
+    brightnessctl # hard dependency for now, fix later
   ];
 
   programs.ags = {
