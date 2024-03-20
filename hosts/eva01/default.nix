@@ -11,36 +11,6 @@
 
   networking.hostName = desktop;
 
-  # Mountpoints
-  fileSystems."/home" = {
-    device = "UUID=a3a950b3-bf55-45b6-8ea2-9d0215de99a1";
-    fsType = "ext4";
-  };
-  fileSystems."none" = {
-    device = "UUID=848696e0-6850-4de9-9e0e-3f24d5a0483a";
-    fsType = "swap";
-  };
-  fileSystems."/mnt/linuxdisk" = {
-    device = "UUID=fae6a6f8-30e1-4720-8f9e-03e1b10fff3c";
-    fsType = "ext4";
-    options = ["rw" "user" "exec"];
-  };
-  fileSystems."/mnt/linuxdisk2" = {
-    device = "UUID=0d15747d-6d76-4c5c-9639-50b680ce95fb";
-    fsType = "ext4";
-    options = ["rw" "user" "exec"];
-  };
-  fileSystems."/mnt/winroot" = {
-    device = "UUID=20E6BB03E6BAD86C";
-    fsType = "ntfs-3g";
-    options = ["uid=1000" "gid=1000" "rw" "user" "exec" "umask=000"];
-  };
-  fileSystems."/mnt/windisk" = {
-    device = "UUID=54604BAA604B91A2";
-    fsType = "ntfs-3g";
-    options = ["uid=1000" "gid=1000" "rw" "user" "exec" "umask=000"];
-  };
-
   # Bootloader
   boot = {
     # Kernel
