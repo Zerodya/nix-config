@@ -8,10 +8,9 @@
   # Dependencies
   home.packages = with pkgs; [
     sassc # converts .sccs to .css (for ags)
-    inotify-tools
-    papirus-icon-theme
-    inputs.matugen.packages.${system}.default
-    brightnessctl
+    inotify-tools # for notifications
+    papirus-icon-theme # for launcher icons
+    inputs.matugen.packages.${system}.default # generates colors (not working rn)
   ];
 
   programs.ags = {

@@ -5,7 +5,7 @@
       ./hardware-configuration.nix
 
       # Modules
-      ../../system/modules/powersave.nix
+      ../../system/modules/battery.nix
   ];
 
   networking.hostName = laptop;

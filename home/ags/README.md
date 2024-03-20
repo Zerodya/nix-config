@@ -2,12 +2,7 @@ My AGS configuration, forked from [chadcat7](https://github.com/chadcat7/crystal
 
 Includes status bar, app launcher, notifications, and other widgets.
 
-Dependencies: 
-- `sassc` to convert `style/_style.scss` to `finalcss/style.css`
-- `inotifywait` for notifications
-- `papirus-icon-theme` for launcher icons
-- `matugen` generates colors (not working rn)
-- `services.upower` for battery support
+> Copy `.env.example` to `.env` and fill it with your details
 
 TO FIX:
 - Notifications popups not working
