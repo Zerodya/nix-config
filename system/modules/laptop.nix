@@ -20,6 +20,7 @@
 
       };
   };
+  services.power-profiles-daemon.enable = false; # Disable GNOME power profiles which conflicts with tlp
 
   # Temperature management daemon
   services.thermald.enable = true;

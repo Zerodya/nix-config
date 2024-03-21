@@ -6,7 +6,7 @@
 | [`modules/`](./modules) | Home modules that hosts can import in their `default.nix` |
 | [`programs/`](./programs) | User packages |
 | [`scripts/`](./scripts) | Some of my custom scripts |
-| [`shell/`](./shell) | My `kitty` configuration with `fish` and `starship` prompt |
+| [`shell/`](./shell) | My `kitty` terminal configuration with `fish` shell and `starship` prompt, as well as `git` |
 | [`wallpapers/`](./wallpapers) | Some of my wallpapers |
 
 This directory contains my dotfiles and the Home-Manager user configuration

@@ -10,9 +10,6 @@
   ];
 
   networking.hostName = laptop;
-  
-  # Wireless support via wpa_supplicant
-  networking.wireless.enable = true; 
 
   # Firewall
   networking.firewall = { 
