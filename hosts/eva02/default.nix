@@ -6,6 +6,7 @@
 
       # Modules
       ../../system/modules/laptop.nix
+      ../../system/modules/suspend-then-hibernate.nix
   ];
 
   networking.hostName = laptop;
