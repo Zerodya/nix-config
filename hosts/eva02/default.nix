@@ -5,7 +5,7 @@
       ./hardware-configuration.nix
 
       # Modules
-      ../../system/modules/battery.nix
+      ../../system/modules/laptop.nix
   ];
 
   networking.hostName = laptop;
