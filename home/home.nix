@@ -1,12 +1,7 @@
 { username, ... }:
 {
   imports = [
-    ./ags
-    ./hyprland
-    ./programs
-    ./shell
-    ./scripts
-    ./wallpapers
+    ../home
   ];
   
   home = {
