@@ -12,7 +12,7 @@
   ];
   
   # Configuration
-  home.file.".config/hypr" = {
+  xdg.configFile.hypr = {
      source = ../hyprland;
      recursive = true;
   };
