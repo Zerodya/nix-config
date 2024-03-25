@@ -1,6 +1,9 @@
 {
   # Hyprland extra configuration imported in host's home.nix
   wayland.windowManager.hyprland.extraConfig = ''
+
+    # EXTRA CONFIGURATION
+    
     # Run at boot
     source = ./eva01/autorun.conf
 
@@ -11,7 +14,7 @@
     }
 
     # Switch between keyboard layouts
-    bind = $mainMod, SPACE, exec, hyprctl switchxkblayout htltek-gaming-keyboard next
+    bind = $mod, SPACE, exec, hyprctl switchxkblayout htltek-gaming-keyboard next
 
     # Tearing
     general { 
@@ -24,9 +27,9 @@
     bind = , PAUSE, exec, ~/git/path/hyprfreeze/hyprfreeze -a
 
     # Turn monitor on
-    bind = $mainMod SHIFT, F1, exec, ~/scripts/screenON
+    bind = $mod SHIFT, F1, exec, ~/scripts/screenON
 
     # Restart audio streaming server
-    bind = $mainMod ALT, F, exec, ~/scripts/ffplay_server.sh
+    bind = $mod ALT, F, exec, ~/scripts/ffplay_server.sh
   '';
 }
