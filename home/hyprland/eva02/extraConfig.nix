@@ -7,9 +7,20 @@
     # Run at boot
     source = ./eva02/autorun.conf
 
-    # Smooth mouse input
+    # Touchpad input
+    device {
+      name = synps/2-synaptics-touchpad
+      sensitivity = 0.3
+    }
+
+    # Trackpoint input
+    device {
+      name = tpps/2-elan-trackpoint
+      sensitivity = -0.6
+    }
+
+    # Shared input
     input {
-        sensitivity = 0.3 # -1.3 - 1.3
         accel_profile = adaptive
 
         touchpad {
