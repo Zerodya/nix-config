@@ -28,7 +28,7 @@
 
     # Emulators
     ryujinx
-    rpcs3
+    #rpcs3
 
     # Mouse
     piper
