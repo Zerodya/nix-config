@@ -54,4 +54,6 @@
   # powertop auto tuning on startup
   powerManagement.powertop.enable = true;
   
+  # Disable Ethernet port
+  networking.interfaces.enp4s0.useDHCP = false;
 }
