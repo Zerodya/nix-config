@@ -6,7 +6,6 @@ Includes status bar, app launcher, notifications, and other widgets.
 
 TO FIX:
 - Notifications popups not working
-- Show battery only in laptop (done? test...)
 - Matugen colors based on wallpaper
 
 TODO:

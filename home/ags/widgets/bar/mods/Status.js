@@ -69,12 +69,10 @@ const batteryProgress = Widget.ProgressBar({
 });
 
 const Bat = () => {
-  if (!Battery.available) {
-    return null; // If no battery is available render nothing
-  }
   return Widget.Box({
     spacing: 2,
     class_name: "bar-battery",
+    visible: Battery.bind('available'),
     homogeneous: false,
     vertical: true,
     children: [
