@@ -1,7 +1,13 @@
 { username, ... }:
 {
   imports = [
-    ../home
+    ./ags
+    ./hyprland
+    ./programs
+    ./scripts
+    ./shell
+    ./swaylock
+    ./wallpapers
   ];
   
   home = {
