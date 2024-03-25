@@ -15,9 +15,8 @@
         CPU_MAX_PERF_ON_BAT = 20;
 
        # Save long term battery health
-       START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
-       STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
-
+       #START_CHARGE_THRESH_BAT0 = 40; # 40 and below it starts to charge
+       #STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
       };
   };
   services.power-profiles-daemon.enable = false; # Disable GNOME power profiles which conflicts with tlp
