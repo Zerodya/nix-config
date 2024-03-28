@@ -6,6 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     ags.url = "github:Aylur/ags";
 
     matugen.url = "github:/InioX/Matugen";
@@ -17,6 +19,7 @@
     self,
     nixpkgs,
     home-manager,
+    chaotic,
     ...
   } @ inputs:
 
@@ -49,6 +52,7 @@
               inherit username;
             };
           }
+          chaotic.nixosModules.default
         ];
       };
 
