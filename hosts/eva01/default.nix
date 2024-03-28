@@ -14,7 +14,7 @@
   # Bootloader
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernelParams = [ 
       "loglevel=3" 
       "quiet"
@@ -37,6 +37,9 @@
       "vm.max_map_count" = 2147483642; # SteamOS default
     };
   };
+
+  # sched_ext schedulers and tools
+  #environment.systemPackages =  [ pkgs.scx ];
 
   # Nix Store
   nix.optimise = {
