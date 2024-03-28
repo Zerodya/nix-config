@@ -18,14 +18,6 @@
     { device = "/dev/disk/by-uuid/4676-F685";
       fsType = "vfat";
     };
-  fileSystems."/home" = {
-    device = "UUID=a3a950b3-bf55-45b6-8ea2-9d0215de99a1";
-    fsType = "ext4";
-  };
-  fileSystems."none" = {
-    device = "UUID=848696e0-6850-4de9-9e0e-3f24d5a0483a";
-    fsType = "swap";
-  };
   # HDD
   fileSystems."/mnt/linuxdisk" = {
     device = "UUID=fae6a6f8-30e1-4720-8f9e-03e1b10fff3c";
@@ -51,7 +43,9 @@
     options = ["uid=1000" "gid=1000" "rw" "user" "exec" "umask=000"];
   };
 
-  swapDevices = [ ];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/848696e0-6850-4de9-9e0e-3f24d5a0483a"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
