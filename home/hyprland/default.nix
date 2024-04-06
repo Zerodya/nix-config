@@ -226,7 +226,7 @@
     ];
 
     bindr = [ # will trigger on release of a key.
-      "$mod, grave, hyprexpo:expo, toggle"
+      #"$mod, grave, hyprexpo:expo, toggle"
     ];
   };
 }
