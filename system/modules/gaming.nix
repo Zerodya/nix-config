@@ -2,8 +2,13 @@
 
 {
   chaotic = {
-    #mesa-git.enable = true;
+    mesa-git.enable = true;
     hdr.enable = true;
+
+    scx = { # sched_ext scheduler
+      enable = true;
+      scheduler = "scx_rustland";
+    };
   };
     
   # Programs

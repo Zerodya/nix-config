@@ -38,9 +38,6 @@
     };
   };
 
-  # sched_ext schedulers and tools
-  #environment.systemPackages =  [ pkgs.scx ];
-
   # Nix Store
   nix.optimise = {
     automatic = true;
