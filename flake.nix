@@ -6,6 +6,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     ags.url = "github:Aylur/ags";
