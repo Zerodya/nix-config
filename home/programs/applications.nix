@@ -43,6 +43,8 @@
     # Guitar
     tonelib-gfx
     tonelib-jam
+    reaper
+    neural-amp-modeler-lv2
 
     # Audio tools
     pavucontrol
@@ -73,5 +75,8 @@
 
     # Disks
     gparted
+
+    # Container
+    distrobox
   ];
 }
