@@ -195,6 +195,14 @@
     source-han-sans # Japanese
   ];
 
+  # Podman
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true; # Create a `docker` alias for podman, to use it as a drop-in replacement
+    defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other
+  };
+  virtualisation.oci-containers.backend = "podman";
+
   # Enable screen sharing
   xdg.portal.enable = true;
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
