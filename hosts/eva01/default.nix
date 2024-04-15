@@ -38,17 +38,6 @@
     };
   };
 
-  # Nix Store
-  nix.optimise = {
-    automatic = true;
-    dates = [ "12:00" ];
-  };
-  nix.gc = {
-    automatic = true;
-    dates = "12:00";
-    options = "--delete-older-than 7d";
-  };
-
   # Hardware
   hardware.opengl = {
     enable = true; # Mesa

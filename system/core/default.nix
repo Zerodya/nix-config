@@ -38,6 +38,17 @@
     ];
   };
 
+  # Nix Store
+  nix.gc = {
+    automatic = true;
+    dates = "12:00";
+    options = "--delete-older-than 4d";
+  };
+  nix.optimise = {
+    automatic = true;
+    dates = [ "12:30" ];
+  };
+
   # Bootloader
   boot = {
     # Systemd-boot
@@ -202,6 +213,14 @@
     defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other
   };
   virtualisation.oci-containers.backend = "podman";
+
+  # SSH
+  services.openssh = {
+    enable = true;
+    # settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+    #settings.PermitRootLogin = "yes";
+  };
 
   # Enable screen sharing
   xdg.portal.enable = true;
