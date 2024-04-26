@@ -16,8 +16,9 @@
 
     # Media
     spotify
-    freetube
+    feishin
     youtube-music
+    freetube
     mpv
     vlc
 
