@@ -2,7 +2,7 @@
 
 corectrl -m gaming
 
-HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')
+HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
 if [ "$HYPRGAMEMODE" = 1 ] ; then
     hyprctl --batch "\
         keyword animations:enabled 0;\
@@ -13,8 +13,7 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
         keyword general:border_size 1;\
         keyword decoration:rounding 0";
     notify-send "Gamemode enabled";
-    exit
-else
-    notify-send "Gamemode disabled";
+    exit 
 fi
 hyprctl reload
+notify-send "Gamemode disabled";
