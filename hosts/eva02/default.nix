@@ -4,6 +4,9 @@
   imports = [
       ./hardware-configuration.nix
 
+      # Desktop
+      ../../system/desktop/default.nix
+
       # Modules
       ../../system/modules/laptop.nix
       ../../system/modules/suspend-then-hibernate.nix

@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -15,43 +15,11 @@
       ];
   };
 
-  # Hyprland
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
   # Experimental
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Nixpkgs Unfree and Insecure
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-run"
-    ];
-    permittedInsecurePackages = [
-      "openssl-1.1.1w"
-      "electron-25.9.0"
-    ];
-  };
-
-  # Nix Store
-  nix.gc = {
-    automatic = true;
-    dates = "12:00";
-    options = "--delete-older-than 4d";
-  };
-  nix.optimise = {
-    automatic = true;
-    dates = [ "12:30" ];
-  };
-
-  # Bootloader
+  # Systemd-boot
   boot = {
-    # Systemd-boot
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
   };
@@ -63,6 +31,13 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # XServer
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
 
   # Time and Locale
   time.timeZone = "Europe/Rome";
@@ -80,15 +55,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # XServer
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    xkb.variant = "";
+  # Nix Store
+  nix.gc = {
+    automatic = true;
+    dates = "12:00";
+    options = "--delete-older-than 4d";
   };
-
-  # Display Manager
-  services.xserver.displayManager.gdm.enable = true;
+  nix.optimise = {
+    automatic = true;
+    dates = [ "12:30" ];
+  };
 
   # Pipewire
   services.pipewire = {
@@ -105,6 +81,20 @@
 
   # Flatpak
   services.flatpak.enable = true;
+
+  # Nixpkgs Unfree and Insecure
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-run"
+    ];
+    permittedInsecurePackages = [
+      "openssl-1.1.1w"
+      "electron-25.9.0"
+    ];
+  };
 
   # TODO formatting and comments
   environment.systemPackages = with pkgs; [
@@ -148,43 +138,8 @@
     tree
     rar
 
-    gnome.gdm
     gnome.gnome-shell-extensions
   ];
-
-  # Gnome
-  services.xserver.desktopManager.gnome.enable = true;
-  # Exclude Gnome packages
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-tour
-    gnome-text-editor
-    gnome-browser-connector
-    gnome-online-accounts
-    gnome-user-docs
-  ]) ++ (with pkgs.gnome; [
-    gnome-software
-    gnome-music
-    gnome-user-share
-    gnome-clocks
-    gnome-maps
-    gnome-weather
-    gnome-online-miners
-    gnome-contacts
-    gnome-font-viewer
-    gnome-system-monitor
-    gnome-initial-setup
-    gnome-music
-    gnome-terminal
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-    gnome-characters
-    totem # video player
-    tali # poker game
-    iagno # go game
-    hitori # sudoku game
-    atomix # puzzle game
-]);
 
   programs = {
     fish.enable = true;
@@ -221,10 +176,6 @@
     settings.KbdInteractiveAuthentication = false;
     #settings.PermitRootLogin = "yes";
   };
-
-  # Enable screen sharing
-  xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Do not change this
   system.stateVersion = "23.11";

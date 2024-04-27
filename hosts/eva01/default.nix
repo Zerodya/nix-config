@@ -4,9 +4,14 @@
   imports = [
       ./hardware-configuration.nix
 
+      # Desktop
+      ../../system/desktop/default.nix
+
       # Modules
       ../../system/modules/gaming.nix 
       ../../system/modules/rt-audio.nix
+
+    
   ];
 
   networking.hostName = desktop;
