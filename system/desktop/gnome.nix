@@ -35,7 +35,11 @@
     atomix # puzzle game
   ]);
 
-  # Fix `programs.ssh.askPassword` conflict between Gnome's `seahorse` and Plasma's `ksshaskpass`
-  programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.gnome.seahorse.out}/libexec/seahorse/ssh-askpass";
+  # Gnome theme for Qt apps
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
 
 }
