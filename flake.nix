@@ -56,7 +56,7 @@
         modules = [
           ./system/core/default.nix
 
-          ./system/desktop/core/default.nix
+          ./system/desktop/common/default.nix
           ./hosts/desktop/eva01/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -83,7 +83,7 @@
         modules = [
           ./system/core/default.nix
 
-          ./system/desktop/core/default.nix
+          ./system/desktop/common/default.nix
           ./hosts/desktop/eva02/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
@@ -109,7 +109,7 @@
         modules = [
           ./system/core/default.nix
 
-          ./system/server/core/default.nix
+          ./system/server/common/default.nix
           ./hosts/server/media/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
