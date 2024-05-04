@@ -5,11 +5,11 @@
       ./hardware-configuration.nix
 
       # Desktop
-      ../../system/desktop/environment/default.nix
+      ../../../system/desktop/environment/default.nix
 
       # Modules
-      ../../system/modules/laptop.nix
-      ../../system/modules/suspend-then-hibernate.nix
+      ../../../system/modules/laptop.nix
+      ../../../system/modules/suspend-then-hibernate.nix
   ];
 
   networking.hostName = laptop;

@@ -3,9 +3,9 @@
     ../../home/home.nix
 
     # Modules
-    ../../home/modules/laptop.nix
+    ../../../home/modules/laptop.nix
         
     # Hyprland extra config
-    ../../home/hyprland/eva02/extraConfig.nix
+    ../../../home/hyprland/eva02/extraConfig.nix
   ];
 }

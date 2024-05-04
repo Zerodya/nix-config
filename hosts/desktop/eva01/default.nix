@@ -5,11 +5,11 @@
       ./hardware-configuration.nix
 
       # Desktop
-      ../../system/desktop/environment/default.nix
+      ../../../system/desktop/environment/default.nix
 
       # Modules
-      ../../system/modules/gaming.nix 
-      ../../system/modules/rt-audio.nix
+      ../../../system/modules/gaming.nix 
+      ../../../system/modules/rt-audio.nix
 
     
   ];

@@ -5,7 +5,7 @@
       ./hardware-configuration.nix
 
       # Server
-      ../../system/desktop/environment/default.nix
+      ../../../system/desktop/environment/default.nix
   ];
 
   networking.hostName = media-server;
