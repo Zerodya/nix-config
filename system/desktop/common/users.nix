@@ -5,7 +5,7 @@
     isNormalUser = true;
     description = "alpha";
     uid = 1000;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "libvirtd" ];
     shell = pkgs.fish;
   };
   users.groups = {
