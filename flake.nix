@@ -44,7 +44,7 @@
   
   {
     nixosConfigurations = {
-      # Desktop Ryzen 5 5600X, Radeon 6700XT, 16GB RAM
+      # Desktop - Ryzen 5 5600X, Radeon 6700XT, 16GB RAM
       ${desktop} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -71,7 +71,7 @@
         ];
       };
 
-      # Laptop Thinkpad E15 Gen 1, i5-10210U, 16GB RAM
+      # Laptop - Thinkpad E15 Gen 1, i5-10210U, 16GB RAM
       ${laptop} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -97,7 +97,7 @@
         ];
       };
 
-      # LXC container for Jellyfin streaming
+      # Server - Media streaming with Jellyfin
       ${media-server} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -115,6 +115,110 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./hosts/server/media/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
+          }
+        ];
+      };
+
+      # Server - Miscellaneous services (Homepage, Pi-Hole, etc.)
+      ${misc-server} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit misc-server;
+        };
+        system = "x86_64-linux";
+
+        modules = [
+          ./system/core/default.nix
+
+          ./system/server/common/default.nix
+          ./hosts/server/misc/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./hosts/server/misc/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
+          }
+        ];
+      };
+
+      # Server - Public services (SearXNG, Piped, etc.)
+      ${public-server} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit public-server;
+        };
+        system = "x86_64-linux";
+
+        modules = [
+          ./system/core/default.nix
+
+          ./system/server/common/default.nix
+          ./hosts/server/public/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./hosts/server/public/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
+          }
+        ];
+      };
+
+      # Server - Music streaming with Navidrome
+      ${music-server} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit music-server;
+        };
+        system = "x86_64-linux";
+
+        modules = [
+          ./system/core/default.nix
+
+          ./system/server/common/default.nix
+          ./hosts/server/music/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./hosts/server/music/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
+          }
+        ];
+      };
+
+      # Server - Minecraft 
+      ${minecraft-server} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit minecraft-server;
+        };
+        system = "x86_64-linux";
+
+        modules = [
+          ./system/core/default.nix
+
+          ./system/server/common/default.nix
+          ./hosts/server/minecraft/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./hosts/server/minecraft/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;

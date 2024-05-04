@@ -1,4 +1,4 @@
-{ media-server, ... }:
+{ misc-server, ... }:
 
 {
   imports = [
@@ -8,6 +8,6 @@
       ../../../system/server/common/default.nix
   ];
 
-  networking.hostName = media-server;
+  networking.hostName = misc-server;
 
 }

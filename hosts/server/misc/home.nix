@@ -8,13 +8,13 @@
   programs.home-manager.enable = true;
 
 
-  home.file."docker-compose/streaming-stack" = {
-     source = ../../../home/docker-compose/streaming-stack;
+  home.file."docker-compose/homepage" = {
+     source = ../../../home/docker-compose/homepage;
      executable = true;
   };
 
-  home.file."docker-compose/torrent-stack" = {
-     source = ../../../home/docker-compose/torrent-stack;
+  home.file."docker-compose/pihole" = {
+     source = ../../../home/docker-compose/pihole;
      executable = true;
   };
   

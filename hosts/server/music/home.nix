@@ -8,13 +8,13 @@
   programs.home-manager.enable = true;
 
 
-  home.file."docker-compose/streaming-stack" = {
-     source = ../../../home/docker-compose/streaming-stack;
+  home.file."docker-compose/navidrome" = {
+     source = ../../../home/docker-compose/navidrome;
      executable = true;
   };
 
-  home.file."docker-compose/torrent-stack" = {
-     source = ../../../home/docker-compose/torrent-stack;
+  home.file."docker-compose/slskd" = {
+     source = ../../../home/docker-compose/slskd;
      executable = true;
   };
   
