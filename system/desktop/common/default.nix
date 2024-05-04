@@ -12,7 +12,7 @@
     trusted-public-keys = [
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-      ];
+    ];
   };
 
   # Systemd-boot
@@ -23,7 +23,7 @@
   
   zramSwap = {
     enable = true;
-    algorithm = "lz4";
+    algorithm = "zstd";
   };
 
   # Nix Store
@@ -55,7 +55,6 @@
 
   # Nixpkgs Unfree and Insecure
   nixpkgs.config = {
-    allowUnfree = true;
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
       "steam"
       "steam-original"
@@ -63,17 +62,12 @@
     ];
     permittedInsecurePackages = [
       "openssl-1.1.1w"
-      "electron-25.9.0"
     ];
   };
 
   # TODO formatting and comments
   environment.systemPackages = with pkgs; [
-    vim
     neovim
-    btop
-    wget
-    git
     gnumake
     rustc
     cargo
@@ -101,19 +95,12 @@
     yad
     socat
     slurp
-    jq
-    psmisc # killall/pstree/...
-    pciutils # lspci
-    usbutils # lsusb
     libnotify
-    tree
-    rar
 
     gnome.gnome-shell-extensions
   ];
 
   programs = {
-    fish.enable = true;
     kdeconnect.enable = true;
     dconf.enable = true; # Gnome/KDE theming?
     adb.enable = true;
@@ -131,22 +118,6 @@
     font-awesome # Icons
     source-han-sans # Japanese
   ];
-
-  # Podman
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true; # Create a `docker` alias for podman, to use it as a drop-in replacement
-    defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other
-  };
-  virtualisation.oci-containers.backend = "podman";
-
-  # SSH
-  services.openssh = {
-    enable = true;
-    # settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-    #settings.PermitRootLogin = "yes";
-  };
 
   # Virt-Manager and QEMU
   programs.virt-manager.enable = true;
