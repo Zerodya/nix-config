@@ -4,7 +4,7 @@
   users.users.${username} = {
     isNormalUser = true;
     uid = 1000;
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
   };
   users.groups = {
