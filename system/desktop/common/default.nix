@@ -87,7 +87,7 @@
     ffmpeg-full
     i2c-tools
     python3
-    nodejs_21
+    nodejs_22
     unzip
     xdotool
     xorg.xprop
