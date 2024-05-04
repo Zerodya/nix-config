@@ -5,7 +5,7 @@
       ./hardware-configuration.nix
 
       # Desktop
-      ../../system/desktop/default.nix
+      ../../system/desktop/environment/default.nix
 
       # Modules
       ../../system/modules/gaming.nix 

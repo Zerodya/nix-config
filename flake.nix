@@ -31,8 +31,15 @@
 
   let
     username = "alpha";
+
     desktop = "eva01";
     laptop = "eva02";
+
+    media-server = "media";
+    misc-server = "misc";
+    public-server = "public";
+    music-server = "music";
+    minecraft-server = "minecraft";
   in 
   
   {
@@ -48,11 +55,13 @@
 
         modules = [
           ./system/core/default.nix
-          ./hosts/eva01/default.nix
+
+          ./system/desktop/core/default.nix
+          ./hosts/desktop/eva01/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/eva01/home.nix;
+            home-manager.users.${username} = import ./hosts/desktop/eva01/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -73,11 +82,13 @@
 
         modules = [
           ./system/core/default.nix
-          ./hosts/eva02/default.nix
+
+          ./system/desktop/core/default.nix
+          ./hosts/desktop/eva02/default.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/eva02/home.nix;
+            home-manager.users.${username} = import ./hosts/desktop/eva02/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -85,6 +96,33 @@
           }
         ];
       };
+
+      # LXC container for Jellyfin streaming
+      ${media-server} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit media-server;
+        };
+        system = "x86_64-linux";
+
+        modules = [
+          ./system/core/default.nix
+
+          ./system/server/core/default.nix
+          ./hosts/server/media/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./hosts/server/media/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
+          }
+        ];
+      };
+
     };
   };
 }

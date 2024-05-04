@@ -9,5 +9,6 @@ TO FIX:
 - Matugen colors based on wallpaper
 
 TODO:
+- Add battery percentage, wattage, and time remaining in panel
 - Add media control in bar
 - Highlight top/selected app in Launcher
