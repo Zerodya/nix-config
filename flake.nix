@@ -20,8 +20,6 @@
 
     #matugen.url = "github:/InioX/Matugen";
     matugen.url = "github:InioX/matugen?ref=v2.2.0"; # Temporary fix for build issue https://github.com/InioX/matugen/issues/70
-
-    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
   outputs = {
