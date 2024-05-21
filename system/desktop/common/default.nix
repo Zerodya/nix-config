@@ -140,6 +140,29 @@
   # MySQL
   services.mysql.enable = true;
 
+  # Stylix
+  stylix.fonts = {
+    serif = {
+      package = pkgs.noto-fonts;
+      name = "Noto Serif";
+    };
+
+    sansSerif = {
+      package = pkgs.noto-fonts;
+      name = "Noto Sans";
+    };
+
+    monospace = {
+      package = pkgs.fira-code-nerdfont;
+      name = "FiraCode Nerd Font Mono";
+    };
+
+    emoji = {
+      package = pkgs.noto-fonts-emoji;
+      name = "Noto Color Emoji";
+    };
+  };
+
   # Do not change this
   system.stateVersion = "23.11";
 }

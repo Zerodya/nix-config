@@ -25,6 +25,7 @@
     umu.url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
     umu.inputs.nixpkgs.follows = "nixpkgs";
 
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -33,6 +34,7 @@
     home-manager,
     chaotic,
     nixos-hardware,
+    stylix,
     ...
   } @ inputs:
 
@@ -75,6 +77,7 @@
             };
           }
           chaotic.nixosModules.default
+          stylix.nixosModules.stylix
         ];
       };
 
@@ -102,6 +105,7 @@
             };
           }
           nixos-hardware.lenovo-thinkpad-e14-intel
+          stylix.nixosModules.stylix
         ];
       };
 

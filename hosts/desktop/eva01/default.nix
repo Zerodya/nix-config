@@ -10,8 +10,6 @@
       # Modules
       ../../../system/modules/gaming.nix 
       ../../../system/modules/rt-audio.nix
-
-    
   ];
 
   networking.hostName = desktop;
@@ -91,6 +89,11 @@
     allowedUDPPortRanges = [ 
       { from = 1714; to = 1764; } # KDE Connect
     ];  
+  };
+
+  stylix = {
+    image = ../../../home/wallpapers/1.jpg;
+    polarity = "dark";
   };
 
 }

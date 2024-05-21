@@ -24,4 +24,10 @@
       { from = 1714; to = 1764; } # KDE Connect
     ];  
   };
+
+  stylix = {
+    image = ../../../home/wallpapers/2.png;
+    polarity = "light";
+  };
+  
 }
