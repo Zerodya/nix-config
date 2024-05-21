@@ -45,8 +45,8 @@
       gaps_in = 4;
       gaps_out = 12;
       border_size = 2;
-      #"col.active_border" = "rgba(8cb6ffff)"; # Set by Stylix
-      #"col.inactive_border" = "rgba(0c0e0faa)"; # Set by Stylix
+      #"col.active_border" = "rgba(8cb6ffff)"; ## set by Stylix
+      #"col.inactive_border" = "rgba(0c0e0faa)"; ## set by Stylix
 
       layout = "dwindle";
     };
@@ -64,7 +64,7 @@
       drop_shadow = false;
       shadow_range = 8;
       shadow_render_power = 2;
-      #"col.shadow" = "rgba(1a1a1aee)"; # Set by Stylix
+      #"col.shadow" = "rgba(1a1a1aee)"; ## set by Stylix
     };
 
     animations = {

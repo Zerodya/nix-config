@@ -3,8 +3,8 @@
     enable = true;
 
     font = {
-      #name = "FiraCode Nerd Font"; # set by Stylix
-      #size = 10; # set by Stylix
+      #name = "FiraCode Nerd Font"; ## set by Stylix
+      #size = 10; ## set by Stylix
     };
 
     shellIntegration.enableFishIntegration = true;
@@ -13,7 +13,7 @@
       confirm_os_window_close = 0;
       term = "xterm-256color";
 
-      #background_opacity = 1; # set by Stylix
+      #background_opacity = 1; ## set by Stylix
 
       window_padding_width = 5;
 
@@ -24,6 +24,7 @@
       tab_title_template = "{title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}";
     };
 
+    # Most of this is overwritten by Stylix
     extraConfig = ''
       # The basic colors
       background #0c0e0f
