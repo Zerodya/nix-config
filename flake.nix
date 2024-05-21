@@ -6,6 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
     #hyprland.url = "github:hyprwm/Hyprland";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; # Temporary fix for build issue https://github.com/hyprwm/Hyprland/issues/5891
@@ -31,6 +32,7 @@
     nixpkgs,
     home-manager,
     chaotic,
+    nixos-hardware,
     ...
   } @ inputs:
 
@@ -99,6 +101,7 @@
               inherit username;
             };
           }
+          nixos-hardware.lenovo-thinkpad-e14-intel
         ];
       };
 
