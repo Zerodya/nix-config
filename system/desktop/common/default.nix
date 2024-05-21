@@ -138,7 +138,10 @@
   };
 
   # MySQL
-  services.mysql.enable = true;
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
 
   # Stylix
   stylix.fonts = {
