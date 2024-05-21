@@ -4,6 +4,7 @@
   imports = [
     ./users.nix
     ./security.nix
+    ./stylix.nix
   ];
 
   # Cachix cache

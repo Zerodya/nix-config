@@ -3,8 +3,8 @@
     enable = true;
 
     font = {
-      name = "FiraCode Nerd Font";
-      size = 10;
+      #name = "FiraCode Nerd Font"; # set by Stylix
+      #size = 10; # set by Stylix
     };
 
     shellIntegration.enableFishIntegration = true;
@@ -13,7 +13,7 @@
       confirm_os_window_close = 0;
       term = "xterm-256color";
 
-      background_opacity = 1;
+      #background_opacity = 1; # set by Stylix
 
       window_padding_width = 5;
 
