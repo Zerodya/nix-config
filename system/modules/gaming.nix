@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{inputs, pkgs, ...}:
 
 {
   chaotic = {
@@ -10,8 +10,7 @@
       scheduler = "scx_rustland";
     };
   };
-    
-  # Programs
+
   programs = {
     steam = {
       enable = true;
@@ -40,4 +39,7 @@
       gpuOverclock.ppfeaturemask = "0xffffffff";
     };
   };
+
+  # UMU launcher
+  environment.systemPackages = [ inputs.umu.packages.${pkgs.system}.umu ];
 }

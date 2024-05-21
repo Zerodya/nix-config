@@ -20,6 +20,10 @@
 
     #matugen.url = "github:/InioX/Matugen";
     matugen.url = "github:InioX/matugen?ref=v2.2.0"; # Temporary fix for build issue https://github.com/InioX/matugen/issues/70
+
+    umu.url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
+    umu.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs = {
