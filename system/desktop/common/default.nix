@@ -137,6 +137,9 @@
     };
   };
 
+  # MySQL
+  services.mysql.enable = true;
+
   # Do not change this
   system.stateVersion = "23.11";
 }
