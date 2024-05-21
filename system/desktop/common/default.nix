@@ -1,10 +1,11 @@
-{ pkgs, lib, ... }:
-
 {
   imports = [
-    ./users.nix
+    ./audio.nix
+    ./packages.nix
     ./security.nix
     ./stylix.nix
+    ./users.nix
+    ./virtualization.nix
   ];
 
   # Cachix cache
@@ -21,11 +22,6 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
   };
-  
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-  };
 
   # Nix Store
   nix.gc = {
@@ -37,135 +33,15 @@
     automatic = true;
     dates = [ "12:30" ];
   };
-
-  # Pipewire
-  services.pipewire = {
+  
+  # Zram swap
+  zramSwap = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+    algorithm = "zstd";
   };
-  hardware.pulseaudio.enable = false;
 
   # Enable SSD TRIM timer https://www.reddit.com/r/NixOS/comments/rbzhb1/if_you_have_a_ssd_dont_forget_to_enable_fstrim/
   services.fstrim.enable = true;
-
-  # Flatpak
-  services.flatpak.enable = true;
-
-  # Nixpkgs Unfree and Insecure
-  nixpkgs.config = {
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-run"
-    ];
-    permittedInsecurePackages = [
-      "openssl-1.1.1w"
-    ];
-  };
-
-  # TODO formatting and comments
-  environment.systemPackages = with pkgs; [
-    neovim
-    gnumake
-    rustc
-    cargo
-    kitty
-    playerctl
-    polkit
-    polkit_gnome
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland
-    ntfs3g
-    adw-gtk3
-    adwaita-qt
-    adwaita-qt6
-    corefonts
-    glib
-    glibc
-    ffmpeg-full
-    i2c-tools
-    python3
-    nodejs_22
-    unzip
-    xdotool
-    xorg.xprop
-    xorg.xwininfo
-    yad
-    socat
-    slurp
-    libnotify
-
-    gnome.gnome-shell-extensions
-  ];
-
-  programs = {
-    kdeconnect.enable = true;
-    dconf.enable = true; # Gnome/KDE theming?
-    adb.enable = true;
-  };
-
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    fira-code-nerdfont
-    fira-code-symbols
-    inconsolata-nerdfont
-    terminus-nerdfont
-    iosevka
-    font-awesome # Icons
-    source-han-sans # Japanese
-  ];
-
-  # Virt-Manager and QEMU
-  programs.virt-manager.enable = true;
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      runAsRoot = true;
-      swtpm.enable = true;
-      ovmf = {
-        enable = true;
-        packages = [(pkgs.OVMF.override {
-          secureBoot = true;
-          tpmSupport = true;
-        }).fd];
-      };
-    };
-  };
-
-  # MySQL
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
-
-  # Stylix
-  stylix.fonts = {
-    serif = {
-      package = pkgs.noto-fonts;
-      name = "Noto Serif";
-    };
-
-    sansSerif = {
-      package = pkgs.noto-fonts;
-      name = "Noto Sans";
-    };
-
-    monospace = {
-      package = pkgs.fira-code-nerdfont;
-      name = "FiraCode Nerd Font Mono";
-    };
-
-    emoji = {
-      package = pkgs.noto-fonts-emoji;
-      name = "Noto Color Emoji";
-    };
-  };
 
   # Do not change this
   system.stateVersion = "23.11";
