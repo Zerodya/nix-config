@@ -2,7 +2,6 @@
 {
   imports = [ 
     inputs.ags.homeManagerModules.default
-    inputs.matugen.nixosModules.default
   ];
 
   # Dependencies
@@ -10,8 +9,8 @@
     sassc # converts .sccs to .css (for ags)
     inotify-tools # for notifications
     papirus-icon-theme # for launcher icons
-    inputs.matugen.packages.${system}.default # generates colors (not working rn)
     brightnessctl # hard dependency for now, fix later
+    jq # to parse stylix json colors in script
   ];
 
   programs.ags = {
@@ -26,7 +25,4 @@
     # ];
   };
 
-  programs.matugen = {
-    enable = true;
-  };
 }
