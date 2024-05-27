@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   # Experimental
@@ -72,4 +72,6 @@
   };
   virtualisation.oci-containers.backend = "podman";
 
+  # Do not change this
+  system.stateVersion = "23.11";
 }
