@@ -42,4 +42,7 @@
 
   # UMU launcher
   environment.systemPackages = [ inputs.umu.packages.${pkgs.system}.umu ];
+
+  # Waydroid Android emulator
+  virtualisation.waydroid.enable = true;
 }
