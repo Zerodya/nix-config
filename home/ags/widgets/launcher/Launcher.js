@@ -88,12 +88,12 @@ const box = Widget.Box({
 
 const launcher = Widget.Window({
   name: 'launcher',
-  popup: true,
   visible: false,
   keymode: "exclusive",
   anchor: ['top', 'left'],
   margins: [0, 0],
   child: box,
 })
+launcher.keybind("Escape", () => App.closeWindow("launcher"));
 
 export { launcher }

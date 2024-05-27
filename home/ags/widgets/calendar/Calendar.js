@@ -22,12 +22,12 @@ const Box = Widget.Box({
 const calendarbox = Widget.Window({
   name: 'calendarbox',
   visible: false,
-  popup: true,
   keymode: "exclusive",
   anchor: ['left', 'bottom', 'top'],
   margins: [0, 0],
   child: Box,
 })
+calendarbox.keybind("Escape", () => App.closeWindow("calendarbox"));
 
 export { calendarbox }
 

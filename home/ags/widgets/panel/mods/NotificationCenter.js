@@ -106,10 +106,10 @@ export default () => Widget.Box({
     Widget.Stack({
       transition: 'crossfade',
       transitionDuration: 150,
-      items: [
-        ['empty', Empty],
-        ['list', NotifBox]
-      ],
+      children: {
+        'empty': Empty,
+        'list': NotifBox
+      },
       setup: (self) => {
         self.hook(Notifications, (self) => {
           self.shown = (Notifications.notifications.length == 0 ? 'empty' : 'list')

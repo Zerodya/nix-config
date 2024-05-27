@@ -16,12 +16,12 @@ const Box = Widget.Box({
 const panel = Widget.Window({
   name: 'panel',
   visible: false,
-  popup: true,
   keymode: "exclusive",
   anchor: ['top', 'right', 'bottom'],
   margins: [0, 0],
   child: Box,
 })
+panel.keybind("Escape", () => App.closeWindow("panel"));
 
 export { panel }
 
