@@ -2,8 +2,8 @@
 
 # Paths
 GENERATED_JSON_PATH="$HOME/.config/stylix/generated.json"
-COLOR_SCSS_PATH="../style/_color.scss"
-FALLBACK_COLOR_SCSS_PATH="./default_color.scss"
+COLOR_SCSS_PATH="../style/_colors.scss"
+FALLBACK_COLOR_SCSS_PATH="./default_colors.scss"
 
 # Check if generated.json exists
 if [ -f "$GENERATED_JSON_PATH" ]; then
@@ -46,14 +46,14 @@ if [ -f "$GENERATED_JSON_PATH" ]; then
 \$accent: #$accent;
 EOL
 
-    echo "_color.scss file updated with Base16 colors from generated.json."
+    echo "_colors.scss file updated with Base16 colors from generated.json."
 else
-    # Fallback to default _color.scss
+    # Fallback to default _colors.scss
     if [ -f "$FALLBACK_COLOR_SCSS_PATH" ]; then
         cp "$FALLBACK_COLOR_SCSS_PATH" "$COLOR_SCSS_PATH"
-        echo "_color.scss file copied from fallback default_color.scss."
+        echo "_colors.scss file copied from fallback default_colors.scss."
     else
-        echo "Fallback default_color.scss file not found in the current directory."
+        echo "Fallback default_colors.scss file not found in the current directory."
         exit 1
     fi
 fi
