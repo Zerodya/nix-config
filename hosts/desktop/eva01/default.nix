@@ -28,7 +28,6 @@
     ];
     initrd.kernelModules = [ "amdgpu" ];
     kernelModules = [ 
-      "amd-pstate" 
       "cpufreq_ondemand" 
       "cpufreq_conservative" 
       "cpufreq_powersave" 
