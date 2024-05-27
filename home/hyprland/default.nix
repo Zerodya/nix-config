@@ -1,4 +1,4 @@
-{ pkgs, inputs, ...}: {
+{ pkgs, ...}: {
 
   wayland.windowManager.hyprland.enable = true;
   
@@ -9,6 +9,7 @@
     swaylock-effects # Lockscreen
     swayidle # Idle deamon
     wl-clip-persist # Persist clipboard
+    wl-clipboard # Clipboard sharing
     wlr-randr # Wayland RandR
     wl-gammarelay-rs # Night light
   ];
