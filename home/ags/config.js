@@ -33,4 +33,7 @@ Utils.monitorFile(
   }
 )
 
-export default { windows: [bar, launcher, panel, calendarbox, osd, wifimenu, bluetoothmenu, notif], style: `${App.configDir}/finalcss/style.css` }
+App.config({
+  windows: [bar, launcher, panel, calendarbox, osd, wifimenu, bluetoothmenu, notif],
+  style: `${App.configDir}/finalcss/style.css`
+})
