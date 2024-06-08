@@ -14,14 +14,11 @@ import { bluetoothmenu } from './widgets/popups/Bluetooth.js'
 import { notif } from './widgets/popups/Notifications.js'
 
 let loadCSS = () => {
-  // generate _colors.scss from stylix
-  Utils.exec(`bash ${App.configDir}/generate_color_scss.sh`, () => {
-    const scss = `${App.configDir}/style/_style.scss`
-    const css = `${App.configDir}/finalcss/style.css`
-    Utils.exec(`sassc ${scss} ${css}`)
-    App.resetCss() // reset if need
-    App.applyCss(`${css}`)
-  })
+  const scss = `${App.configDir}/style/_style.scss`
+  const css = `${App.configDir}/finalcss/style.css`
+  Utils.exec(`sassc ${scss} ${css}`)
+  App.resetCss() // reset if need
+  App.applyCss(`${css}`)
 }
 
 loadCSS()
