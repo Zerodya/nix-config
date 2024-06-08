@@ -1,4 +1,4 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 {
   imports = [
     ./ags
@@ -15,6 +15,16 @@
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
   };
-
   programs.home-manager.enable = true;
+
+  # GTK
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Colloid-dark";
+      package = pkgs.colloid-icon-theme;
+    };
+  };
+
 }
