@@ -9,10 +9,8 @@
     tor-browser
     
     # Chats
-    beeper
     discord
     vesktop
-    telegram-desktop
 
     # Media
     spotify
@@ -63,7 +61,7 @@
     obs-studio
 
     # Webcam
-    gnome.cheese
+    cheese
 
     # Backup
     pika-backup

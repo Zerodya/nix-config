@@ -9,7 +9,7 @@
 
       # Modules
       ../../../system/modules/gaming.nix 
-      ../../../system/modules/rt-audio.nix
+      #../../../system/modules/rt-audio.nix
   ];
 
   networking.hostName = desktop;
@@ -35,27 +35,27 @@
       "i2c-piix4" 
     ];
     kernel.sysctl = { 
-      "vm.swappiness" = 10; # Prefers ram over swap
+      "vm.swappiness" = 20; # Prefers ram over swap
       "vm.max_map_count" = 2147483642; # SteamOS default
     };
   };
 
   # Hardware
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true; # Mesa
-    driSupport32Bit = true; # Steam support
+    enable32Bit = true; #32-bit graphics support (for Steam)
     extraPackages = with pkgs; [ 
       # OpenCL
       rocmPackages.clr.icd 
-      # OpenGL and Vulkan
       rocm-opencl-icd 
       rocm-opencl-runtime
-      # VAAPI
+      # Video Acceleration API
       vaapiVdpau
       libvdpau-va-gl
     ];
   };
   hardware.i2c.enable = true;
+
 
   # GPU options
   services.xserver = {

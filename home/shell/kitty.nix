@@ -3,7 +3,7 @@
     enable = true;
 
     font = {
-      #name = "FiraCode Nerd Font"; ## set by Stylix
+      name = "FiraCode Nerd Font Mono"; ## set by Stylix
       #size = 10; ## set by Stylix
     };
 

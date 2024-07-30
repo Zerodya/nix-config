@@ -20,8 +20,7 @@
     general { 
         allow_tearing = true 
     }
-    env = WLR_DRM_NO_ATOMIC,1
-    windowrulev2 = immediate, class:^(r5apex)(.*)$ # Games wih tearing
+    windowrulev2 = immediate, class:^(r5apex|eldenring|steam_app_524220)(.*)$ # Games with tearing
 
     # Freeze or resume a program/game process
     bind = , PAUSE, exec, ~/git/path/hyprfreeze/hyprfreeze -a

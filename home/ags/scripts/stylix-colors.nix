@@ -1,11 +1,10 @@
 { pkgs, lib, ... }:
 
 let
-  generateColorsScript = pkgs.writeScriptBin "generate-colors" ''
-    #!/usr/bin/env bash
+  generateColorsScript = pkgs.writeShellScript "generate-colors.sh" ''
 
     GENERATED_JSON_PATH="$HOME/.config/stylix/generated.json"
-    COLOR_SCSS_PATH="$HOME/.config/stylix/_colors.scss"
+    COLOR_SCSS_PATH="$HOME/.config/ags/style/_colors.scss"
     FALLBACK_COLOR_SCSS_PATH="$HOME/.config/stylix/default_colors.scss"
 
     # Check if generated.json exists

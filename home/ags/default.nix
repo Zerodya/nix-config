@@ -3,7 +3,7 @@
   imports = [ 
     inputs.ags.homeManagerModules.default
 
-    ./scripts/stylix-colors.nix # Generate colors with Stylix
+    #./scripts/stylix-colors.nix # Generate colors with Stylix
   ];
 
   # Dependencies

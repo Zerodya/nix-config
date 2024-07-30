@@ -2,17 +2,20 @@
   imports = [
     ./gnome.nix
     ./hyprland.nix
-    #./plasma.nix
+    ./plasma.nix
   ];
 
   # Display Manager
   services.xserver.displayManager.gdm.enable = true;
 
+  # Default session
+  services.displayManager.defaultSession = "hyprland";
+
   # Enable screen sharing
   xdg.portal.enable = true;
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  # Disable Close/Minimize/Maximize buttons
+  # Disable Close/Minimize/Maximize buttons in GNOME
   programs.dconf = {
     enable = true;
     profiles.user.databases = [{

@@ -38,6 +38,33 @@
           and eva-rebuild $rebuild_arg $system_name
         '';
       };
+
+      eva-cleanup = {
+        body = ''
+          sudo nix-collect-garbage -d && sudo nix-store --optimise
+        '';
+      };
+
+      eva-deletegen = {
+        # Delete specific NixOS generations
+        body = ''
+          # List generations
+          sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+
+          # Prompt user for generations to delete
+          echo "Enter the generation numbers to delete:"
+          read generations
+
+          # Check if user provided input
+          if test -z "$generations"
+              echo "No generations specified. Aborting."
+              return 1
+          end
+
+          # Run garbage collection to delete specified generations
+          sudo nix-collect-garbage --delete-generations $generations
+        '';
+      };
     };
   };
   

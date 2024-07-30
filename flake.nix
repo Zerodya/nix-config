@@ -8,8 +8,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
-    #hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1"; # Temporary fix for build issue https://github.com/hyprwm/Hyprland/issues/5891
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

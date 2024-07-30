@@ -9,9 +9,9 @@
       properties.default.clock = {
         
         rate = 48000;
-        quantum = 24;
-        min-quantum = 24;
-        max-quantum = 24;
+        quantum = 48;
+        min-quantum = 48;
+        max-quantum = 48;
       };
     };
 
@@ -20,16 +20,16 @@
         {
           name = "libpipewire-module-protocol-pulse";
           args = {
-            pulse.min.req = "24/48000";
-            pulse.default.req = "24/48000";
-            pulse.max.req = "24/48000";
-            pulse.min.quantum = "24/48000";
-            pulse.max.quantum = "24/48000";
+            pulse.min.req = "48/48000";
+            pulse.default.req = "48/48000";
+            pulse.max.req = "48/48000";
+            pulse.min.quantum = "48/48000";
+            pulse.max.quantum = "48/48000";
           };
         }
       ];
       stream.properties = {
-        node.latency = "24/48000";
+        node.latency = "48/48000";
         resample.quality = 1;
       };
     };

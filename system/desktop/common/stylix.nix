@@ -2,6 +2,9 @@
 
 {
   stylix = {
+    enable = true;
+    autoEnable = true;
+
     fonts = {
       serif = {
         package = pkgs.noto-fonts;

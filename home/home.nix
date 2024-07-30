@@ -27,4 +27,7 @@
     };
   };
 
+  # Disable Stylix for KDE until it's fixed
+  stylix.targets.kde.enable = false;
+
 }

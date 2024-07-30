@@ -39,5 +39,8 @@
 
     # RGB
     openrgb-with-all-plugins
+
+    # Steering Wheel
+    oversteer
   ];
 }
