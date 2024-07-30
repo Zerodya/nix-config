@@ -1,2 +1,3 @@
 home/ags/.env
-home/docker-compose/slskd/.env
+docker-compose/slskd/.env
+docker-compose/immich-app/.env
