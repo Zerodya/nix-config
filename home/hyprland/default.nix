@@ -87,10 +87,6 @@
       preserve_split = true;
     };
 
-    master = {
-      new_is_master = true;
-    };
-
     binds = {
       allow_workspace_cycles = true;
       scroll_event_delay = 0;
