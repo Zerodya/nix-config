@@ -15,7 +15,7 @@
 
   # Limit ssh
   services.openssh = {
-    settings.passwordAuthentication = false;
+    settings.PasswordAuthentication = false;
     allowSFTP = false;
     kbdInteractiveAuthentication = false;
     extraConfig = ''
