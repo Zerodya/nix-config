@@ -3,6 +3,5 @@
   imports = [
     ./fish.nix
     ./git.nix
-    ./kitty.nix
   ];
 }
