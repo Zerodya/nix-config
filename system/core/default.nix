@@ -42,6 +42,7 @@
     tree
     rar
     jq
+    binutils
   ];
 
   # Allow closed source packages
