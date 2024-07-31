@@ -1,10 +1,6 @@
 { pkgs, lib, username, ... }:
 
 {
-  imports = [
-    ../../../home/shell
-  ];
-  
   users.users.${username} = {
     isNormalUser = true;
     uid = 1000;
