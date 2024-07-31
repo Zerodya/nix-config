@@ -1,7 +1,10 @@
-{ inputs, ... }:
+{ inputs, modulesPath, ... }:
 
 {
   imports = [
+    (modulesPath + "/virtualisation/proxmox-lxc.nix")
+
+
     ./security.nix
     ./users.nix
   ];
