@@ -20,7 +20,7 @@ services:
       - ${UPLOAD_LOCATION}:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     env_file:
-      - .env
+      - $HOME/immich.env
     ports:
       - 2283:3001
     depends_on:
@@ -39,7 +39,7 @@ services:
     volumes:
       - model-cache:/cache
     env_file:
-      - .env
+      - $HOME/immich.env
     restart: always
 
   redis:
