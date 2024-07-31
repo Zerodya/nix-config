@@ -65,14 +65,6 @@
     #settings.PermitRootLogin = "yes";
   };
 
-  # Podman
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true; # Create a `docker` alias for podman, to use it as a drop-in replacement
-    defaultNetwork.settings.dns_enabled = true; # Required for containers under podman-compose to be able to talk to each other
-  };
-  virtualisation.oci-containers.backend = "podman";
-
   # Do not change this
   system.stateVersion = "23.11";
 }
