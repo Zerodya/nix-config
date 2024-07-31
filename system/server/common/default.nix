@@ -6,6 +6,7 @@
 
     ./security.nix
     ./users.nix
+    ../../../home/shell
   ];
 
   # By default, the latest LTS linux kernel is installed
