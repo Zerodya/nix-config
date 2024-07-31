@@ -8,13 +8,8 @@
   programs.home-manager.enable = true;
 
 
-  home.file."docker-compose/streaming-stack" = {
-     source = ../../../docker-compose/streaming-stack;
-     executable = true;
-  };
-
-  home.file."docker-compose/torrent-stack" = {
-     source = ../../../docker-compose/torrent-stack;
+  home.file."docker-compose/immich-app" = {
+     source = ../../../docker-compose/immich-app;
      executable = true;
   };
   

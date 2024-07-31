@@ -45,6 +45,7 @@
     laptop = "eva02";
 
     media-server = "media";
+    photos-server = "photos";
     misc-server = "misc";
     public-server = "public";
     music-server = "music";
@@ -127,6 +128,32 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./hosts/server/media/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
+          }
+        ];
+      };
+
+      # Server - Photos library with Immich
+      ${photos-server} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit photos-server;
+        };
+        system = "x86_64-linux";
+
+        modules = [
+          ./system/core/default.nix
+
+          ./system/server/common/default.nix
+          ./hosts/server/photos/default.nix
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./hosts/server/photos/home.nix;
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
