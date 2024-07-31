@@ -3,6 +3,7 @@
   imports = [
     ./ags
     ./hyprland
+    ./kitty
     ./programs
     ./scripts
     ./shell
