@@ -17,7 +17,7 @@
   services.openssh = {
     settings = {
       PasswordAuthentication = false;
-      settings.KbdInteractiveAuthentication = false;
+      KbdInteractiveAuthentication = false;
     };
     allowSFTP = false;
     extraConfig = ''
