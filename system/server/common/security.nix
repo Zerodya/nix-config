@@ -15,9 +15,11 @@
 
   # Limit ssh
   services.openssh = {
-    settings.PasswordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+      settings.KbdInteractiveAuthentication = false;
+    };
     allowSFTP = false;
-    kbdInteractiveAuthentication = false;
     extraConfig = ''
       AllowTcpForwarding yes
       X11Forwarding no
