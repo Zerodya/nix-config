@@ -4,10 +4,11 @@
   imports = [
     (modulesPath + "/virtualisation/proxmox-lxc.nix")
 
-
     ./security.nix
     ./users.nix
   ];
+
+  # By default, the latest LTS linux kernel is installed
 
   # Delete old generations
   nix.gc = {
