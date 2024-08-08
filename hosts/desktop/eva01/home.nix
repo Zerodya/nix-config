@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   imports = [
     ../../../home/home.nix
@@ -7,5 +8,9 @@
     
     # Hyprland extra config
     ../../../home/hyprland/eva01/extraConfig.nix
+  ];
+
+  home.packages = with pkgs; [
+    btrfs-assistant
   ];
 }

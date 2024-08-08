@@ -90,6 +90,14 @@
     ];  
   };
 
+  # Btrfs 
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "monthly";
+    fileSystems = [ "/" ];
+  };
+
+  # Stylix Color Scheme
   stylix = {
     image = ../../../home/wallpapers/1.jpg;
     polarity = "dark";
