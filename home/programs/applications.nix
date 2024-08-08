@@ -70,7 +70,7 @@
     qbittorrent
 
     # Nix language server
-    nil
+    nixd
 
     # Disks
     gparted
