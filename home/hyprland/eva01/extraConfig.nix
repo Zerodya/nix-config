@@ -17,10 +17,10 @@
     bind = $mod, SPACE, exec, hyprctl switchxkblayout htltek-gaming-keyboard next
 
     # Tearing
-    general { 
-        allow_tearing = true 
-    }
-    windowrulev2 = immediate, class:^(r5apex|eldenring|steam_app_524220)(.*)$ # Games with tearing
+    #general { 
+    #    allow_tearing = true 
+    #}
+    #windowrulev2 = immediate, class:^(r5apex)(.*)$ # Games with tearing
 
     # Freeze or resume a program/game process
     bind = , PAUSE, exec, ~/git/path/hyprfreeze/hyprfreeze -a
