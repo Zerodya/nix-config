@@ -10,6 +10,7 @@
       # Modules
       ../../../system/modules/gaming.nix 
       #../../../system/modules/rt-audio.nix
+      ../../../system/modules/honkers-railway.nix
   ];
 
   networking.hostName = desktop;
