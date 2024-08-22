@@ -6,8 +6,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Hardware modules
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
+    # Hyprland-git
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -18,13 +20,17 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    # Chaotic repo (cachyos kernel, mesa-git, ...)
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
+    # Aylur's GTK Shell
     ags.url = "github:Aylur/ags";
 
+    # Unified Linux Wine Game Launcher
     umu.url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
     umu.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Base16 system-wide colorscheming
     stylix.url = "github:danth/stylix";
   };
 
@@ -54,7 +60,7 @@
   
   {
     nixosConfigurations = {
-      # Desktop - Ryzen 5 5600X, Radeon 6700XT, 16GB RAM
+      # ~~ Desktop | Ryzen 5 5600X, Radeon 6700XT, 16GB RAM ~~
       ${desktop} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -64,25 +70,28 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/desktop/common/default.nix
-          ./hosts/desktop/eva01/default.nix
+          ./system/desktop/common/default.nix # Desktop common config
+          ./hosts/desktop/eva01/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/desktop/eva01/home.nix;
+            home-manager.users.${username} = import ./hosts/desktop/eva01/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
             };
           }
-          chaotic.nixosModules.default
-          stylix.nixosModules.stylix
+
+          chaotic.nixosModules.default # Chaotic repo
+          stylix.nixosModules.stylix # Base16 colorscheming
         ];
       };
 
-      # Laptop - Thinkpad E15 Gen 1, i5-10210U, 16GB RAM
+
+      # ~~ Laptop | Thinkpad E15 Gen 1, i5-10210U, 16GB RAM ~~
       ${laptop} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -92,25 +101,28 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/desktop/common/default.nix
-          ./hosts/desktop/eva02/default.nix
+          ./system/desktop/common/default.nix # Desktop common config
+          ./hosts/desktop/eva02/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/desktop/eva02/home.nix;
+            home-manager.users.${username} = import ./hosts/desktop/eva02/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
             };
           }
-          nixos-hardware.lenovo-thinkpad-e14-intel
-          stylix.nixosModules.stylix
+          
+          nixos-hardware.lenovo-thinkpad-e14-intel # Hardware module
+          stylix.nixosModules.stylix # Base16 colorscheming
         ];
       };
 
-      # Server - Media streaming with Jellyfin
+
+      # ~~ Server | Media streaming with Jellyfin ~~
       ${media-server} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -120,14 +132,15 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/server/common/default.nix
-          ./hosts/server/media/default.nix
+          ./system/server/common/default.nix # Server common config
+          ./hosts/server/media/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/media/home.nix;
+            home-manager.users.${username} = import ./hosts/server/media/home.nix;  # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -136,7 +149,7 @@
         ];
       };
 
-      # Server - Photos library with Immich
+      # ~~ Server | Photos library with Immich ~~
       ${photos-server} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -146,14 +159,15 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/server/common/default.nix
-          ./hosts/server/photos/default.nix
+          ./system/server/common/default.nix # Server common config
+          ./hosts/server/photos/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/photos/home.nix;
+            home-manager.users.${username} = import ./hosts/server/photos/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -162,7 +176,7 @@
         ];
       };
 
-      # Server - Miscellaneous services (Homepage, Pi-Hole, etc.)
+      # ~~ Server | Miscellaneous services (Homepage, Pi-Hole, etc.) ~~
       ${misc-server} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -172,14 +186,15 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/server/common/default.nix
-          ./hosts/server/misc/default.nix
+          ./system/server/common/default.nix # Server common config
+          ./hosts/server/misc/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/misc/home.nix;
+            home-manager.users.${username} = import ./hosts/server/misc/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -188,7 +203,7 @@
         ];
       };
 
-      # Server - Public services (SearXNG, Piped, etc.)
+      # ~~ Server | Public services (SearXNG, Piped, etc.) ~~
       ${public-server} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -198,14 +213,15 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/server/common/default.nix
-          ./hosts/server/public/default.nix
+          ./system/server/common/default.nix # Server common config
+          ./hosts/server/public/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/public/home.nix;
+            home-manager.users.${username} = import ./hosts/server/public/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -214,7 +230,7 @@
         ];
       };
 
-      # Server - Music streaming with Navidrome
+      # ~~ Server | Music streaming with Navidrome ~~
       ${music-server} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -224,14 +240,15 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/server/common/default.nix
-          ./hosts/server/music/default.nix
+          ./system/server/common/default.nix # Server common config
+          ./hosts/server/music/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/music/home.nix;
+            home-manager.users.${username} = import ./hosts/server/music/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -240,7 +257,7 @@
         ];
       };
 
-      # Server - Minecraft 
+      # ~~ Server | Minecraft ~~
       ${minecraft-server} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -250,14 +267,15 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system/core/default.nix
+          ./system/core/default.nix # Core config
 
-          ./system/server/common/default.nix
-          ./hosts/server/minecraft/default.nix
+          ./system/server/common/default.nix # Server common config
+          ./hosts/server/minecraft/default.nix # Host specific system config
+
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/minecraft/home.nix;
+            home-manager.users.${username} = import ./hosts/server/minecraft/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
