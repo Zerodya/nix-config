@@ -34,9 +34,9 @@
 
     # Linux HDD Storage
     "/mnt/linuxdisk" = {
-      device = "UUID=10f06b70-d877-492f-87c1-a4e7b547a970";
-      fsType = "btrfs";
-      options = [ "nofail" "rw" "user" "exec" "compress=zstd" "noatime" ];
+      device = "UUID=44e72c54-af38-4edc-b516-6fecaddc0812";
+      fsType = "ext4";
+      options = [ "nofail" "rw" "user" "exec" ];
     };
     # Linux NVMe Storage
     "/mnt/linuxdisk2" = {
