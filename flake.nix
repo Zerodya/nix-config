@@ -3,8 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Hardware modules
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -27,15 +29,16 @@
     ags.url = "github:Aylur/ags";
 
     # Unified Linux Wine Game Launcher
-    umu.url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-    umu.inputs.nixpkgs.follows = "nixpkgs";
+    umu = {
+      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Base16 system-wide colorscheming
     stylix.url = "github:danth/stylix";
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     chaotic,
