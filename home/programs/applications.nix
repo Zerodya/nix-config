@@ -5,7 +5,6 @@
     # Browsers
     floorp
     brave
-    firefox
     tor-browser
     
     # Chats
@@ -65,6 +64,7 @@
 
     # Backup
     pika-backup
+    btrfs-assistant
 
     # Downloading
     qbittorrent
@@ -74,8 +74,5 @@
 
     # Disks
     gparted
-
-    # Container
-    distrobox
   ];
 }
