@@ -3,6 +3,10 @@
 {
   services.xserver.desktopManager.gnome.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    gnome-shell-extensions
+  ];
+
   # Exclude some Gnome packages
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
@@ -18,13 +22,11 @@
     geary # email reader
     evince # document viewer
     totem # video player
-  ]) ++ (with pkgs.gnome; [
     gnome-software
     gnome-music
     gnome-clocks
     gnome-maps
     gnome-weather
-    gnome-online-miners
     gnome-contacts
     gnome-initial-setup
     gnome-music

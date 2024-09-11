@@ -53,7 +53,6 @@
     kmag            # Screen magnifier
     kmouth          # Speech synthesizer front-end
     kmousetool      # Automatic mouse click
-    knotes          # Notes application
     krdc            # Remote desktop client
     krfb            # Remote desktop server
     kwalletmanager  # Wallet management tool

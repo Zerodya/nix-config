@@ -43,8 +43,6 @@
     socat
     slurp
     libnotify
-
-    gnome.gnome-shell-extensions
   ];
 
   # Other programs
