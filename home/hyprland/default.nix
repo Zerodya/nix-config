@@ -139,7 +139,8 @@
       "$mod, X, togglefloating,"
       "$mod, F, fullscreen, 1"
       "$mod SHIFT, F, fullscreen, 0"
-      "$mod SHIFT, P, pin,"
+      "$mod, I, pin,"
+      "$mod, P, exec, solanum"
 
       # Modes
       "$mod, P, pseudo,"

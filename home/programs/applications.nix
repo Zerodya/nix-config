@@ -74,5 +74,8 @@
 
     # Disks
     gparted
+
+    # Pomodoro
+    gnome-solanum
   ];
 }
