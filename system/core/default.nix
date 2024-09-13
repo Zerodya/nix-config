@@ -41,6 +41,7 @@
     usbutils # lsusb
     tree
     rar
+    p7zip
     jq
     binutils
     nix-output-monitor # nixos-rebuild wrapper
