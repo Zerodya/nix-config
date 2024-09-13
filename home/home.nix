@@ -23,7 +23,7 @@
     enable = true;
 
     iconTheme = {
-      name = "Colloid-dark";
+      name = "Colloid-Dark";
       package = pkgs.colloid-icon-theme;
     };
   };
