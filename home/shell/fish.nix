@@ -65,6 +65,18 @@
           sudo nix-collect-garbage --delete-generations $generations
         '';
       };
+
+      # Alias `sudo nix-shell -p` to `,`
+      "," = {
+        body = ''
+          if test (count $argv) -eq 0
+              echo "Usage: , <packages> --command <command>"
+              return 1
+          end
+
+          sudo nix-shell -p $argv
+        '';
+      };
     };
   };
   
