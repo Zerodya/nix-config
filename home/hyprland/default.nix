@@ -143,7 +143,7 @@
       "$mod, P, exec, solanum"
 
       # Modes
-      "$mod, P, pseudo,"
+      "$mod, Y, pseudo,"
       "$mod, T, togglesplit,"
       
       # Cycle windows
