@@ -119,7 +119,7 @@
             };
           }
           
-          nixos-hardware.lenovo-thinkpad-e14-intel # Hardware module
+          nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming
         ];
       };
