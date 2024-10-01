@@ -47,6 +47,9 @@
     # Audio tools
     pavucontrol
     qjackctl
+
+    # Network
+    networkmanagerapplet
     
     # PDF
     libsForQt5.okular
