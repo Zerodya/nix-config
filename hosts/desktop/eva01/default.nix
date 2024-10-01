@@ -9,7 +9,7 @@
 
       # Modules
       ../../../system/modules/gaming.nix 
-      #../../../system/modules/rt-audio.nix
+      ../../../system/modules/rt-audio.nix
   ];
 
   networking.hostName = desktop;
