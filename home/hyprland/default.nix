@@ -10,6 +10,8 @@
     swayidle # Idle deamon
     wl-clip-persist # Persist clipboard
     wl-clipboard # Clipboard sharing
+    xclip
+    clipnotify
     wlr-randr # Wayland RandR
     wl-gammarelay-rs # Night light
   ];
