@@ -54,10 +54,4 @@
 
   # Flatpak
   services.flatpak.enable = true;
-
-  # MySQL
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
 }
