@@ -30,5 +30,8 @@
 
     # Restart audio streaming server
     bind = $mod ALT, F, exec, ~/scripts/ffplay_server.sh
+
+    # Start Reaper on Workspace 6
+    windowrulev2 = workspace 6,class:^REAPER$
   '';
 }
