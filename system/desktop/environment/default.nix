@@ -23,4 +23,7 @@
     }];
   };
 
+  # System module for trash functionality
+  services.gvfs.enable = true;
+
 }
