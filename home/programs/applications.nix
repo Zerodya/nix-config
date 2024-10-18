@@ -47,6 +47,7 @@
     # Audio tools
     pavucontrol
     qjackctl
+    easyeffects
 
     # Network
     networkmanagerapplet
