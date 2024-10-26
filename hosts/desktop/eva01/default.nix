@@ -46,9 +46,7 @@
     enable32Bit = true; #32-bit graphics support (for Steam)
     extraPackages = with pkgs; [ 
       # OpenCL
-      rocmPackages.clr.icd 
-      rocm-opencl-icd 
-      rocm-opencl-runtime
+      rocmPackages.clr.icd
       # Video Acceleration API
       vaapiVdpau
       libvdpau-va-gl
