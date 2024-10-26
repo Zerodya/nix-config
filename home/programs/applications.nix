@@ -79,7 +79,8 @@
     # Disks
     gparted
 
-    # Pomodoro
-    gnome-solanum
+    # Focus
+    gnome-solanum # Pomodoro timer
+    blanket # White/Brown noise
   ];
 }
