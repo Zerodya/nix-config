@@ -4,6 +4,9 @@
     bottles
     cartridges
 
+    # GPU Controller
+    lact
+
     # Game utilities
     gamescope
     vkbasalt
