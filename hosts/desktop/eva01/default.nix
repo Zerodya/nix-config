@@ -17,7 +17,7 @@
   # Bootloader
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
     kernelParams = [ 
       "loglevel=3" 
       "quiet"
