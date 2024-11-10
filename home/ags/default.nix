@@ -27,4 +27,7 @@
     # ];
   };
 
+  # Fix floating tray icon for Wine applications in AGS/Hyprland
+  services.xembed-sni-proxy.enable = true;
+
 }
