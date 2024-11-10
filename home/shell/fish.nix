@@ -34,7 +34,7 @@
           set rebuild_arg $argv[1]
           set system_name $argv[2]
 
-          sudo nix flake update 'nix-config/'
+          sudo nix flake update --flake 'nix-config/'
           and eva-rebuild $rebuild_arg $system_name
         '';
       };
