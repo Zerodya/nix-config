@@ -8,10 +8,15 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    initrd = {
+      systemd.enable = true; # Use systemd instead of the script-based stage 1 initrd
+      availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
+      kernelModules = [ ];
+    };
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/28c2213f-1e56-4864-8489-69a824f0c694";
@@ -27,7 +32,8 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/778cb186-94ef-4334-bf0f-48bddf1be52d"; }
+    [ #{ device = "/dev/disk/by-uuid/778cb186-94ef-4334-bf0f-48bddf1be52d"; } 
+      # Swap disabled until https://github.com/NixOS/nixpkgs/issues/342082 is fixed (causes 1m30s delay at boot)
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
