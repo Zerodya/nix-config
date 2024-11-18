@@ -10,6 +10,8 @@
     swayidle # Idle deamon
     wl-clip-persist # Persist clipboard
     wl-clipboard # Clipboard sharing
+    xclip
+    clipnotify
     wlr-randr # Wayland RandR
     wl-gammarelay-rs # Night light
   ];
@@ -134,13 +136,15 @@
       "$mod SHIFT, E, exit,"
       "$mod, D, exec, ags -t launcher"
 
+      "$mod, P, exec, solanum"
+      "$mod, O, exec, blanket"
+
       # Window operations
       "$mod, Q, killactive,"
       "$mod, X, togglefloating,"
       "$mod, F, fullscreen, 1"
       "$mod SHIFT, F, fullscreen, 0"
       "$mod, I, pin,"
-      "$mod, P, exec, solanum"
 
       # Modes
       "$mod, Y, pseudo,"

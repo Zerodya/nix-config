@@ -47,6 +47,10 @@
     # Audio tools
     pavucontrol
     qjackctl
+    easyeffects
+
+    # Network
+    networkmanagerapplet
     
     # PDF
     libsForQt5.okular
@@ -75,7 +79,8 @@
     # Disks
     gparted
 
-    # Pomodoro
-    gnome-solanum
+    # Focus
+    gnome-solanum # Pomodoro timer
+    blanket # White/Brown noise
   ];
 }

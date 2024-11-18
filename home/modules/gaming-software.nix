@@ -3,6 +3,7 @@
     # Launcher
     bottles
     cartridges
+    boilr
 
     # Game utilities
     gamescope
@@ -10,7 +11,6 @@
     mangohud
 
     # Wine/Proton
-    wineWowPackages.stagingFull
     winetricks
     protontricks
     protonup-qt
@@ -33,12 +33,6 @@
     # Mouse
     piper
     libratbag
-
-    # Streaming
-    sunshine
-
-    # RGB
-    openrgb-with-all-plugins
 
     # Steering Wheel
     oversteer

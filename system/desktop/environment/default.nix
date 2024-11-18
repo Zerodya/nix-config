@@ -1,6 +1,6 @@
 {
   imports = [
-    ./gnome.nix
+    #./gnome.nix
     ./hyprland.nix
     ./plasma.nix
   ];
@@ -22,5 +22,8 @@
       settings."org/gnome/desktop/wm/preferences".button-layout = "''";
     }];
   };
+
+  # System module for trash functionality
+  services.gvfs.enable = true;
 
 }

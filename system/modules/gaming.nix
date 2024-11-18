@@ -3,7 +3,7 @@
 {
   chaotic = {
     mesa-git.enable = true;
-    hdr.enable = true;
+    #hdr.enable = true;
 
     scx = { # sched_ext scheduler
       enable = true;
@@ -40,8 +40,31 @@
     };
   };
 
-  # UMU launcher
-  environment.systemPackages = [ inputs.umu.packages.${pkgs.system}.umu ];
+
+  environment.systemPackages = [ 
+    inputs.umu.packages.${pkgs.system}.umu # UMU - Unified Proton launcher
+
+    pkgs.lact # LACT - Linux AMDGPU Control Application
+  ];
+
+  # LACT service
+  systemd = {
+    packages = with pkgs; [ lact ];
+    services.lactd.wantedBy = ["multi-user.target"];
+  };
+
+  # OpenRGB
+  services.hardware.openrgb = { 
+    enable = true; 
+    package = pkgs.openrgb-with-all-plugins; 
+  };
+
+  # Sunshine
+  services.sunshine = {
+    enable = true;
+    openFirewall = true;
+    capSysAdmin = true;
+  };
 
   # Waydroid Android emulator
   virtualisation.waydroid.enable = true;

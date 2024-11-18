@@ -9,7 +9,7 @@
 
       # Modules
       ../../../system/modules/gaming.nix 
-      #../../../system/modules/rt-audio.nix
+      ../../../system/modules/rt-audio.nix
   ];
 
   networking.hostName = desktop;
@@ -17,7 +17,7 @@
   # Bootloader
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_cachyos-lto;
     kernelParams = [ 
       "loglevel=3" 
       "quiet"
@@ -46,9 +46,7 @@
     enable32Bit = true; #32-bit graphics support (for Steam)
     extraPackages = with pkgs; [ 
       # OpenCL
-      rocmPackages.clr.icd 
-      rocm-opencl-icd 
-      rocm-opencl-runtime
+      rocmPackages.clr.icd
       # Video Acceleration API
       vaapiVdpau
       libvdpau-va-gl
