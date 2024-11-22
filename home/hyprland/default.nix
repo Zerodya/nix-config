@@ -36,7 +36,7 @@
       kb_layout = "us,it,us";
       kb_variant = ",,colemak_dh_iso";
       kb_model = "";
-      kb_options = "caps:backspace";
+      kb_options = "";
       kb_rules = "";
 
       numlock_by_default = true;
