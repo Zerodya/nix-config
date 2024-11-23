@@ -1,6 +1,7 @@
 {
   imports = [
     ./audio.nix
+    ./keyboard.nix
     ./packages.nix
     ./security.nix
     ./stylix.nix
