@@ -26,7 +26,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     # Aylur's GTK Shell
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:aylur/ags/v1"; # Update to v2 when ready
 
     # Unified Linux Wine Game Launcher
     umu = {
