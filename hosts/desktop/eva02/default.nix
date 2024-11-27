@@ -26,7 +26,7 @@
   };
 
   stylix = {
-    image = ../../../home/wallpapers/2.png;
+    image = ../../../home/wallpapers/jinx.jpg;
     polarity = "light";
 
     base16Scheme ={ # carbonfox theme
