@@ -43,15 +43,7 @@
 
   environment.systemPackages = [ 
     inputs.umu.packages.${pkgs.system}.umu # UMU - Unified Proton launcher
-
-    pkgs.lact # LACT - Linux AMDGPU Control Application
   ];
-
-  # LACT service
-  systemd = {
-    packages = with pkgs; [ lact ];
-    services.lactd.wantedBy = ["multi-user.target"];
-  };
 
   # OpenRGB
   services.hardware.openrgb = { 
