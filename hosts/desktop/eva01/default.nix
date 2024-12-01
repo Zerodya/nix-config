@@ -31,8 +31,6 @@
       "cpufreq_ondemand" 
       "cpufreq_conservative" 
       "cpufreq_powersave" 
-      "i2c-dev" 
-      "i2c-piix4" 
     ];
     kernel.sysctl = { 
       "vm.swappiness" = 20; # Prefers ram over swap
