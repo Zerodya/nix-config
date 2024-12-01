@@ -39,6 +39,12 @@
       "vm.max_map_count" = 2147483642; # SteamOS default
     };
   };
+  
+  # sched_ext scheduler for CachyOS kernel
+  services.scx = { 
+    enable = true;
+    scheduler = "scx_lavd";
+  };
 
   # Hardware
   hardware.graphics = {
