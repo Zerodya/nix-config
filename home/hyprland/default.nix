@@ -194,13 +194,13 @@
       "$mod, mouse_up, workspace, e+1"
       
       # Audio/Mic muting
-      "$mod, XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
-      "$mod, XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+      ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+      ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
       # Media control
-      "$mod, XF86AudioPlay, exec, playerctl play-pause"
-      "$mod, XF86AudioNext, exec, playerctl next"
-      "$mod, XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioNext, exec, playerctl next"
+      ", XF86AudioPrev, exec, playerctl previous"
 
       # Screenshot a monitor
       ", PRINT, exec, hyprshot -m output"
@@ -218,8 +218,8 @@
 
     binde = [ # will repeat when held
       # Volume control
-      ",XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
-      ",XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
+      ", XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
+      ", XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
     ];
 
     bindl = [ # works also when lockscreen is active
