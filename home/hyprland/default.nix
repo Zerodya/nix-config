@@ -8,6 +8,7 @@
     swww # Wallpaper
     swaylock-effects # Lockscreen
     swayidle # Idle deamon
+    clipse # Clipboard manager
     wl-clip-persist # Persist clipboard
     wl-clipboard # Clipboard sharing
     xclip
@@ -127,6 +128,9 @@
       # float everything except kitty
       "float, class:.*"
       "tile, class:(kitty)"
+      # clipse window size
+      "float, class:(clipse)"
+      "size 622 652, class:(clipse)"
     ];
 
     "$mod" = "SUPER";
@@ -137,6 +141,7 @@
       "$mod, S, exec, nautilus"
       "$mod SHIFT, E, exit,"
       "$mod, D, exec, ags -t launcher"
+      "$mod, I, exec, kitty --class clipse -e clipse"
 
       "$mod, P, exec, solanum"
       "$mod, O, exec, blanket"

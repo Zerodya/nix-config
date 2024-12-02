@@ -31,13 +31,17 @@
       "cpufreq_ondemand" 
       "cpufreq_conservative" 
       "cpufreq_powersave" 
-      "i2c-dev" 
-      "i2c-piix4" 
     ];
     kernel.sysctl = { 
       "vm.swappiness" = 20; # Prefers ram over swap
       "vm.max_map_count" = 2147483642; # SteamOS default
     };
+  };
+  
+  # sched_ext scheduler for CachyOS kernel
+  services.scx = { 
+    enable = true;
+    scheduler = "scx_lavd";
   };
 
   # Hardware
@@ -97,7 +101,7 @@
 
   # Stylix Color Scheme
   stylix = {
-    image = ../../../home/wallpapers/1.jpg;
+    image = ../../../home/wallpapers/jinx.jpg;
     polarity = "dark";
 
     base16Scheme ={ # carbonfox theme

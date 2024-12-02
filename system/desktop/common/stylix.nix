@@ -17,12 +17,12 @@
       };
 
       monospace = {
-        package = pkgs.fira-code-nerdfont;
+        package = pkgs.nerd-fonts.fira-code;
         name = "FiraCode Nerd Font Mono";
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-emoji-blob-bin;
         name = "Noto Color Emoji";
       };
 
