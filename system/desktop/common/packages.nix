@@ -62,4 +62,16 @@
 
   # Flatpak
   services.flatpak.enable = true;
+
+  # Dependencies for FHS binaries
+  # Example usage: LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH steam-run ./mod-desktop-0.0.12-linux-x86_64/mod-desktop/mod-desktop
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      # MOD-Desktop at https://github.com/mod-audio/mod-desktop
+      alsa-lib
+      libsForQt5.full
+      libsndfile
+    ];
+  };
 }
