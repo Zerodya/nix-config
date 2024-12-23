@@ -1,3 +1,4 @@
+{ username, ... }:
 {
   programs.fish = {
     enable = true;
@@ -8,6 +9,7 @@
     functions = {
       eva-rebuild = {
         # Assumes flake is located in ~/nix-config/
+        # (--log-format option requires Lix package manager)
         body = ''
           if test (count $argv) -ne 2
               echo "Usage: eva-rebuild <nixos-rebuild-arg> <system-name>"
@@ -17,7 +19,7 @@
           set rebuild_arg $argv[1]
           set system_name $argv[2]
 
-          sudo nixos-rebuild $rebuild_arg --flake "nix-config/#$system_name" &| nom
+          sudo nixos-rebuild $rebuild_arg --flake "/home/${username}/nix-config/#$system_name" --log-format multiline-with-logs &| nom
           and printf '\\n'
           and nvd diff (ls -d1v /nix/var/nix/profiles/system-*-link | tail -n 2)
         '';
@@ -34,14 +36,17 @@
           set rebuild_arg $argv[1]
           set system_name $argv[2]
 
-          sudo nix flake update --flake 'nix-config/'
+          sudo nix flake update --flake '/home/${username}/nix-config/'
           and eva-rebuild $rebuild_arg $system_name
         '';
       };
 
       eva-cleanup = {
         body = ''
-          sudo nix-collect-garbage -d && sudo nix-store --optimise
+          # Remove result symlinks to derivations first
+          rm /home/${username}/result
+
+          sudo nix-collect-garbage -d
         '';
       };
 
