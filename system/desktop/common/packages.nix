@@ -63,8 +63,13 @@
   # Flatpak
   services.flatpak.enable = true;
 
-  # Dependencies for FHS binaries
-  # Example usage: LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH steam-run ./mod-desktop-0.0.12-linux-x86_64/mod-desktop/mod-desktop
+  # Run AppImages 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
+  # Run FHS binaries (example usage: LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH steam-run ./my_application )
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
