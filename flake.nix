@@ -42,6 +42,9 @@
 
     # Base16 system-wide colorscheming
     stylix.url = "github:danth/stylix";
+
+    # Declarative Flatpak
+    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
   };
 
   outputs = {
@@ -51,6 +54,7 @@
     chaotic,
     nixos-hardware,
     stylix,
+    flatpaks,
     ...
   } @ inputs:
 
@@ -98,6 +102,7 @@
           lix-module.nixosModules.default # Lix package manager
           chaotic.nixosModules.default # Chaotic repo
           stylix.nixosModules.stylix # Base16 colorscheming
+          flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
         ];
       };
 
@@ -130,6 +135,7 @@
           lix-module.nixosModules.default # Lix package manager
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming
+          flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
         ];
       };
 

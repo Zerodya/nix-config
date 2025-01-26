@@ -2,6 +2,7 @@
   imports = [
     ./audio.nix
     ./bluetooth.nix
+    ./flatpak.nix
     ./keyboard.nix
     ./packages.nix
     ./security.nix

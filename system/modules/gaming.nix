@@ -1,4 +1,4 @@
-{inputs, pkgs, ...}:
+{pkgs, ...}:
 
 {
   chaotic = {
@@ -35,11 +35,6 @@
     };
   };
 
-
-  environment.systemPackages = [ 
-    inputs.umu.packages.${pkgs.system}.umu # UMU - Unified Proton launcher
-  ];
-
   # OpenRGB
   services.hardware.openrgb = { 
     enable = true; 
@@ -56,4 +51,17 @@
 
   # Waydroid Android emulator
   virtualisation.waydroid.enable = true;
+
+  services.flatpak = {
+    packages = [
+      # Gaming runtimes for Bottles
+      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.gamescope//24.08" # Gamescope
+      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.MangoHud//24.08" # MangoHUD
+      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt//24.08" # vkBasalt
+
+      # BoilR
+      "flathub:app/io.github.philipk.boilr//stable"
+    ];
+  };
+
 }
