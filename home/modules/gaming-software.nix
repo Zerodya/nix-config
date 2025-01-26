@@ -1,9 +1,8 @@
 { pkgs, ...}: {
   home.packages = with pkgs; [
     # Launcher
-    bottles
+    umu-launcher
     cartridges
-    boilr
 
     # Game utilities
     gamescope
@@ -16,8 +15,6 @@
     protonup-qt
 
     # DirectX
-    dxvk
-    vkd3d-proton
     directx-headers
 
     # Vulkan / OpenGL
@@ -30,11 +27,11 @@
     ryujinx
     #rpcs3
 
-    # Mouse
-    piper
-    libratbag
-
     # Steering Wheel
     oversteer
+
+    # Native Games
+    osu-lazer-bin
   ];
+  
 }

@@ -34,12 +34,6 @@
     # Aylur's GTK Shell
     ags.url = "github:aylur/ags/v1"; # Update to v2 when ready
 
-    # Unified Linux Wine Game Launcher
-    umu = {
-      url = "git+https://github.com/Open-Wine-Components/umu-launcher/?dir=packaging\/nix&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Base16 system-wide colorscheming
     stylix.url = "github:danth/stylix";
 
