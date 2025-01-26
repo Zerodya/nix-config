@@ -9,6 +9,7 @@
     ];
     permittedInsecurePackages = [
       "openssl-1.1.1w"
+      "electron-31.7.7"
     ];
   };
 
