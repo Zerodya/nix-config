@@ -52,6 +52,7 @@
     gnome-calculator
     gnome-console
     gnome-disk-utility
+    baobab
   ];
 
   # Other programs
