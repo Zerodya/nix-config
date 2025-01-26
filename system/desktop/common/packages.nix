@@ -62,9 +62,6 @@
     adb.enable = true;
   };
 
-  # Flatpak
-  services.flatpak.enable = true;
-
   # Run AppImages 
   programs.appimage = {
     enable = true;
