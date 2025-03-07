@@ -1,4 +1,4 @@
-{ pkgs, desktop, ... }:
+{ pkgs, desktop, config, ... }:
 
 {
   imports = [
@@ -18,6 +18,7 @@
   boot = {
     # Kernel
     kernelPackages = pkgs.linuxPackages_cachyos-lto;
+    extraModulePackages = with config.boot.kernelPackages; [ zenergy ];
     kernelParams = [ 
       "loglevel=3" 
       "quiet"
@@ -28,6 +29,7 @@
     ];
     initrd.kernelModules = [ "amdgpu" ];
     kernelModules = [ 
+      "zenergy" 
       "cpufreq_ondemand" 
       "cpufreq_conservative" 
       "cpufreq_powersave" 
@@ -38,7 +40,7 @@
     };
   };
   
-  # sched_ext scheduler for CachyOS kernel
+  # sched_ext kernel scheduler
   services.scx = { 
     enable = true;
     scheduler = "scx_lavd";
