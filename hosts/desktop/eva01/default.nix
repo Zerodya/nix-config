@@ -101,7 +101,7 @@
 
   # Stylix Color Scheme
   stylix = {
-    image = ../../../home/wallpapers/jinx.jpg;
+    image = ../../../home/wallpapers/frieren.jpg;
     polarity = "dark";
 
     base16Scheme ={ # carbonfox theme
