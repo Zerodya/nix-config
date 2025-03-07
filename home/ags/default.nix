@@ -2,8 +2,6 @@
 {
   imports = [ 
     inputs.ags.homeManagerModules.default
-
-    #./scripts/stylix-colors.nix # Generate colors with Stylix
   ];
 
   # Dependencies
@@ -12,7 +10,6 @@
     inotify-tools # for notifications
     papirus-icon-theme # for launcher icons
     brightnessctl # hard dependency for now, fix later
-    jq # to parse stylix json colors in script
   ];
 
   programs.ags = {
@@ -29,5 +26,6 @@
 
   # Fix floating tray icon for Wine applications in AGS/Hyprland
   services.xembed-sni-proxy.enable = true;
+  services.xembed-sni-proxy.package = pkgs.kdePackages.plasma-workspace;
 
 }
