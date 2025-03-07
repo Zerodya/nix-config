@@ -2,7 +2,7 @@
   imports = [
     #./gnome.nix
     ./hyprland.nix
-    ./plasma.nix
+    #./plasma.nix
   ];
 
   # Display Manager
