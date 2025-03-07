@@ -1,4 +1,4 @@
-{ pkgs, lib, username, ... }:
+{ pkgs, username, ... }:
 
 {
   users.users.${username} = {
@@ -8,6 +8,6 @@
     shell = pkgs.fish;
   };
   users.groups = {
-    users.gid = lib.mkForce 1000;
+    #users.gid = lib.mkForce 1000;
   };
 }
