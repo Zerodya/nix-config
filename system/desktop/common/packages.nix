@@ -57,6 +57,10 @@
 
   # Other programs
   programs = {
+    nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
     kdeconnect.enable = true;
     dconf.enable = true; # Gnome/KDE theming?
     adb.enable = true;
