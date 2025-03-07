@@ -30,7 +30,7 @@
   nix.gc = {
     automatic = true;
     dates = "12:00";
-    options = "--delete-older-than 4d";
+    options = "--delete-older-than 14d";
   };
   nix.optimise = {
     automatic = true;
