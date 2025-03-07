@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./audio.nix
@@ -22,7 +24,13 @@
 
   # Systemd-boot
   boot = {
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot = {
+      enable = true;
+      # temporary solution to save last selected entry until nixpkgs#286672 is merged
+      extraInstallCommands = ''
+        ${pkgs.gnused}/bin/sed -i 's/default nixos-generation-[0-9][0-9].conf/default @saved/g' /boot/loader/loader.conf
+      '';
+    };
     loader.efi.canTouchEfiVariables = true;
   };
 
