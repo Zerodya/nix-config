@@ -11,15 +11,21 @@
         # Assumes flake is located in ~/nix-config/
         # (--log-format option requires Lix package manager)
         body = ''
-          if test (count $argv) -ne 2
-              echo "Usage: eva-rebuild <nixos-rebuild-arg> <system-name>"
+          if test (count $argv) -lt 2
+              echo "Usage: eva-rebuild <nixos-rebuild-arg> <system-name> [custom arguments...]"
               return 1
           end
 
           set rebuild_arg $argv[1]
           set system_name $argv[2]
 
-          sudo nixos-rebuild $rebuild_arg --flake "/home/${username}/nix-config/#$system_name" --log-format multiline-with-logs &| nom
+          # Capture any extra custom arguments, if provided.
+          set custom_args
+          if test (count $argv) -gt 2
+              set custom_args $argv[3..-1]
+          end
+
+          sudo nixos-rebuild $rebuild_arg --flake "/home/${username}/nix-config/#$system_name" $custom_args --log-format multiline-with-logs &| nom
           and printf '\\n'
           and nvd diff (ls -d1v /nix/var/nix/profiles/system-*-link | tail -n 2)
         '';
@@ -43,10 +49,11 @@
 
       eva-cleanup = {
         body = ''
-          # Remove result symlinks to derivations first
-          rm /home/${username}/result
+          # Remove result symlinks to derivations if present
+          rm -f /home/${username}/result
 
-          sudo nix-collect-garbage -d
+          sudo nix-collect-garbage -d # as root - NixOS system
+          nix-collect-garbage -d      # as user - home-manager
         '';
       };
 
@@ -71,7 +78,7 @@
         '';
       };
 
-      # Alias `sudo nix-shell -p` to `,`
+      # Alias `nix-shell -p` to `,`
       "," = {
         body = ''
           if test (count $argv) -eq 0
@@ -79,7 +86,7 @@
               return 1
           end
 
-          sudo nix-shell -p $argv
+          nix-shell -p $argv
         '';
       };
     };
