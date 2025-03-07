@@ -30,6 +30,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Give users access to the Nix daemon (fixes "read-only file system" error when using nix-shell as unprivileged user)
+  environment.variables = { NIX_REMOTE = "daemon"; };
+
   # Essential packages
   environment.systemPackages = with pkgs; [
     vim
