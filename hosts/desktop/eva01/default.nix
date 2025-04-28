@@ -10,6 +10,7 @@
       # Modules
       ../../../system/modules/gaming.nix 
       ../../../system/modules/rt-audio.nix
+      ../../../system/modules/ollama-rocm.nix
   ];
 
   networking.hostName = desktop;
@@ -51,15 +52,12 @@
     enable = true; # Mesa
     enable32Bit = true; #32-bit graphics support (for Steam)
     extraPackages = with pkgs; [ 
-      # OpenCL
-      rocmPackages.clr.icd
       # Video Acceleration API
       vaapiVdpau
       libvdpau-va-gl
     ];
   };
   hardware.i2c.enable = true;
-
 
   # GPU options
   services.xserver = {
