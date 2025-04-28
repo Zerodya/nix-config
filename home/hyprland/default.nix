@@ -141,7 +141,7 @@
       "$mod, S, exec, nautilus"
       "$mod SHIFT, E, exit,"
       "$mod, D, exec, ags -t launcher"
-      "$mod, I, exec, kitty --class clipse -e clipse"
+      "$mod SHIFT, C, exec, kitty --class clipse -e clipse"
 
       "$mod, P, exec, solanum"
       "$mod, O, exec, blanket"
@@ -151,7 +151,7 @@
       "$mod, X, togglefloating,"
       "$mod, F, fullscreen, 1"
       "$mod SHIFT, F, fullscreen, 0"
-      "$mod, I, pin,"
+      "$mod SHIFT, P, pin,"
 
       # Modes
       "$mod, Y, pseudo,"
