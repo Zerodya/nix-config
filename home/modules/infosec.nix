@@ -9,5 +9,8 @@
     ghidra-bin
     wxhexeditor
     okteta
+
+    # Bruteforcing
+    seclists
   ];
 }
