@@ -36,7 +36,7 @@
       "cpufreq_powersave" 
     ];
     kernel.sysctl = { 
-      "vm.swappiness" = 20; # Prefers ram over swap
+      "vm.swappiness" = 10; # Prefers ram over swap
       "vm.max_map_count" = 2147483642; # SteamOS default
     };
   };
