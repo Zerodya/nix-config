@@ -43,6 +43,8 @@
     tonelib-gfx
     tonelib-jam
     reaper
+    #yabridge
+    #yabridgectl
     neural-amp-modeler-lv2
 
     # Audio tools
