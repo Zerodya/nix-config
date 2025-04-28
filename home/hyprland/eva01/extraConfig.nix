@@ -20,7 +20,7 @@
     #general { 
     #    allow_tearing = true 
     #}
-    #windowrulev2 = immediate, class:^(r5apex)(.*)$ # Games with tearing
+    #windowrule = immediate, class:^(r5apex)(.*)$ # Games with tearing
 
     # Freeze or resume a program/game process
     bind = , PAUSE, exec, ~/git/path/hyprfreeze/hyprfreeze -a
@@ -31,7 +31,8 @@
     # Restart audio streaming server
     bind = $mod ALT, F, exec, ~/scripts/ffplay_server.sh
 
-    # Start Reaper on Workspace 6
-    windowrulev2 = workspace 6,class:^REAPER$
+    # Start apps in specific workspaces
+    windowrule = workspace 5,class:^Beeper$
+    windowrule = workspace 6,class:^REAPER$
   '';
 }
