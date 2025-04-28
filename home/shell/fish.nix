@@ -9,7 +9,6 @@
     functions = {
       eva-rebuild = {
         # Assumes flake is located in ~/nix-config/
-        # (--log-format option requires Lix package manager)
         body = ''
           if test (count $argv) -lt 2
               echo "Usage: eva-rebuild <nixos-rebuild-arg> <system-name> [custom arguments...]"
@@ -25,7 +24,7 @@
               set custom_args $argv[3..-1]
           end
 
-          sudo nixos-rebuild $rebuild_arg --flake "/home/${username}/nix-config/#$system_name" $custom_args --log-format multiline-with-logs &| nom
+          sudo nixos-rebuild $rebuild_arg --flake "/home/${username}/nix-config/#$system_name" $custom_args -L &| nom
           and printf '\\n'
           and nvd diff (ls -d1v /nix/var/nix/profiles/system-*-link | tail -n 2)
         '';

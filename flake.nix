@@ -8,12 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Lix package manager
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Hardware modules
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
@@ -44,7 +38,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    lix-module,
     chaotic,
     nixos-hardware,
     stylix,
@@ -93,7 +86,6 @@
             };
           }
 
-          lix-module.nixosModules.default # Lix package manager
           chaotic.nixosModules.default # Chaotic repo
           stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
@@ -126,7 +118,6 @@
             };
           }
           
-          lix-module.nixosModules.default # Lix package manager
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
