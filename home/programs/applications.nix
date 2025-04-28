@@ -10,6 +10,7 @@
     # Chats
     discord
     vesktop
+    beeper
 
     # Media
     spotify
