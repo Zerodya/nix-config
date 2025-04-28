@@ -9,13 +9,7 @@
   programs = {
     steam = {
       enable = true;
-      package = pkgs.steam.override {
-        extraLibraries = (pkgs: with pkgs; [
-          gamemode
-        ]);
-      };
       gamescopeSession.enable = true;
-      #remotePlay.openFirewall = true;
     };
 
     gamemode = {
@@ -54,6 +48,9 @@
 
   services.flatpak = {
     packages = [
+      # Steam
+      "flathub:app/com.valvesoftware.Steam//stable"
+
       # Gaming runtimes for Bottles
       "flathub:runtime/org.freedesktop.Platform.VulkanLayer.gamescope//24.08" # Gamescope
       "flathub:runtime/org.freedesktop.Platform.VulkanLayer.MangoHud//24.08" # MangoHUD
