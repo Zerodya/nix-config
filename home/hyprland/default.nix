@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     hyprshot # Screenshot tool
     swww # Wallpaper
+    mpvpaper # Live wallpaper
     swaylock-effects # Lockscreen
     swayidle # Idle deamon
     clipse # Clipboard manager
