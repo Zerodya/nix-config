@@ -1,3 +1,4 @@
 home/ags/.env
 hosts/server/photos/borg.key
 hosts/server/photos/immich.env
+home/fabric/ax-shell/config/__pycache__
