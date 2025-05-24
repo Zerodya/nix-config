@@ -2,6 +2,7 @@
 {
   imports = [
     ./ags
+    ./fabric
     ./hyprland
     ./kitty
     ./programs
