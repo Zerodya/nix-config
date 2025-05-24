@@ -10,11 +10,11 @@
 }
 
 #workspaces > button {
-  min-width: 8px;
-  min-height: 8px;
+  min-width: 6px;
+  min-height: 72px;
   border-radius: 16px;
   transition: all 0.25s cubic-bezier(0, 0, 0.25, 1);
-  background-color: var(--foreground);
+  background-color: var(--surface-bright);
 }
 
 #workspaces > button > label {
@@ -30,13 +30,12 @@
 }
 
 #workspaces > button.active {
-  @apply ws_width();
-  @apply ws_height();
+  min-height: 102px;
   background-color: var(--primary);
 }
 
 #workspaces > button.empty {
-  background-color: var(--surface-bright);
+  min-height: 36px;
 }
 
 #workspaces-num > button > label {
