@@ -48,6 +48,9 @@
 
       eva-cleanup = {
         body = ''
+          # Cleanup nix-flatpak
+          sudo rm -rf /var/lib/flatpak/.module/trash
+
           # Remove result symlinks to derivations if present
           rm -f /home/${username}/result
 
