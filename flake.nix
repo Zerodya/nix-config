@@ -8,6 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Hardware modules
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
@@ -38,6 +43,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    nur,
     chaotic,
     nixos-hardware,
     stylix,
@@ -85,7 +91,8 @@
               inherit username;
             };
           }
-
+          
+          nur.modules.nixos.default # Nix User Repository
           chaotic.nixosModules.default # Chaotic repo
           stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
@@ -118,6 +125,7 @@
             };
           }
           
+          nur.modules.nixos.default # Nix User Repository
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
