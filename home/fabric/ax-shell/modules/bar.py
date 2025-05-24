@@ -50,7 +50,7 @@ class Bar(Window):
             # Use data module to determine the label
             buttons=[
                 WorkspaceButton(id=i, label=None)
-                for i in range(1, 11)
+                for i in range(1, 7)  # Show first 6 workspaces
             ],
         )
 
@@ -70,7 +70,7 @@ class Bar(Window):
                     id=i,
                     label= CHINESE_NUMERALS[i-1] if data.BAR_WORKSPACE_USE_CHINESE_NUMERALS and 1 <= i <= len(CHINESE_NUMERALS) else str(i)
                 )
-                for i in range(1, 11)
+                for i in range(1, 7)  # Show first 6 workspaces
             ],
         )
 
