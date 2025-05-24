@@ -9,7 +9,7 @@
 
     # Raw mouse input
     input {
-        sensitivity = 0 # -1.0 - 1.0
+        sensitivity = 0.5 # -1.0 - 1.0
         accel_profile = flat
     }
 
