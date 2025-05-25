@@ -169,26 +169,33 @@ class AppLauncher(Box):
         self.viewport.children = []
         self.selected_index = -1  # Clear selection when viewport changes
 
-        filtered_apps_iter = iter(
-                sorted(
-                    [
-                        app
-                        for app in self._all_apps
-                        if query.casefold()
-                        in (
-                            (app.display_name or "")
-                            + (" " + app.name + " ")
-                            + (app.generic_name or "")
-                        ).casefold()
-                    ],
-                    key=lambda app: (
-                        -self.launch_counts.get(app.name, 0),  # Sort by launch count descending
-                        (app.display_name or "").casefold()     # Then alphabetically
-                    ),
-                )
+        filtered_apps = sorted(
+            [
+                app
+                for app in self._all_apps
+                if query.casefold()
+                in (
+                    (app.display_name or "")
+                    + (" " + app.name + " ")
+                    + (app.generic_name or "")
+                ).casefold()
+            ],
+            key=lambda app: (
+                -self.launch_counts.get(app.name, 0),  # Sort by launch count descending
+                (app.display_name or "").casefold()     # Then alphabetically
+            ),
         )
-        should_resize = operator.length_hint(filtered_apps_iter) == len(self._all_apps)
+        filtered_apps_iter = iter(filtered_apps)
+        should_resize = len(filtered_apps) == len(self._all_apps)
 
+        # Immediately add and select first item if available
+        if filtered_apps:
+            self.viewport.add(self.bake_application_slot(filtered_apps[0]))
+            self.update_selection(0)
+            # Remove first item from iterator since we added it already
+            next(filtered_apps_iter)
+
+        # Process remaining items asynchronously
         self._arranger_handler = idle_add(
             lambda apps_iter: self.add_next_application(apps_iter) or self.handle_arrange_complete(should_resize, query),
             filtered_apps_iter,
@@ -198,8 +205,8 @@ class AppLauncher(Box):
     def handle_arrange_complete(self, should_resize, query):
         if should_resize:
             self.resize_viewport()
-        # Only auto-select first item if query exists
-        if query.strip() != "" and self.viewport.get_children():
+        # Auto-select first item
+        if self.viewport.get_children():
             self.update_selection(0)
         return False
 

@@ -1,1 +1,0 @@
-profile picture is at /home/$USER/.face (just like GNOME user picture)
