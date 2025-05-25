@@ -23,11 +23,6 @@
   home.file.".config/hypr/eva01/autorun.conf".source = ./eva01/autorun.conf;
   home.file.".config/hypr/eva02/autorun.conf".source = ./eva02/autorun.conf;
 
-  # Plugins
-  #wayland.windowManager.hyprland.plugins = [
-  #  inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-  #];
-
   # Main configuration
   wayland.windowManager.hyprland.settings = {
     monitor = ",highrr,auto,1";
@@ -111,18 +106,6 @@
       key_press_enables_dpms = true;
     };
 
-    #plugin = {
-    #  hyprexpo = {
-    #    columns = 2;
-    #    gap_size = 5;
-    #    bg_col = "rgb(111111)";
-    #    workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
-    #    enable_gesture = true; # laptop touchpad, 4 fingers
-    #    gesture_distance = 300; # how far is the "max"
-    #    gesture_positive = true; # positive = swipe down. Negative = swipe up.
-    #  };
-    #};
-
     windowrulev2 = [
       # don't standby screen when fullscreen
       "idleinhibit fullscreen, class:.*"
@@ -141,7 +124,8 @@
       "$mod, RETURN, exec, kitty"
       "$mod, S, exec, nautilus"
       "$mod SHIFT, E, exit,"
-      "$mod, D, exec, ags -t launcher"
+      "$mod, D, exec, fabric-cli exec ax-shell 'notch.open_notch(\"launcher\")'"
+      "$mod, A, exec, fabric-cli exec ax-shell 'notch.open_notch(\"overview\")' , toggle"
       "$mod SHIFT, C, exec, kitty --class clipse -e clipse"
 
       "$mod, P, exec, solanum"
@@ -233,10 +217,6 @@
       "$mod, ESCAPE, exec, systemctl suspend"
       # Standby
       "$mod SHIFT, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
-    ];
-
-    bindr = [ # will trigger on release of a key.
-      #"$mod, grave, hyprexpo:expo, toggle"
     ];
   };
 }
