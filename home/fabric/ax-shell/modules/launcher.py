@@ -1,6 +1,9 @@
 import operator
+import json
+import os
 from collections.abc import Iterator
 from fabric.widgets.box import Box
+from config.data import CONFIG_DIR
 from fabric.widgets.label import Label
 from fabric.widgets.button import Button
 from fabric.widgets.entry import Entry
@@ -20,6 +23,8 @@ import subprocess
 from modules.dock import Dock  # Import the Dock class
 
 class AppLauncher(Box):
+    LAUNCH_COUNTS_FILE = os.path.expanduser("~/.config/Ax-Shell/launch_counts.json")
+    
     def __init__(self, **kwargs):
         super().__init__(
             name="app-launcher",
@@ -95,6 +100,34 @@ class AppLauncher(Box):
 
         self.add(self.launcher_box)
         self.show_all()
+        
+        # Initialize launch counts after GUI setup
+        self.launch_counts = self._load_launch_counts()
+
+    def _load_launch_counts(self):
+        """Load launch counts from JSON file"""
+        try:
+            if os.path.exists(self.LAUNCH_COUNTS_FILE):
+                with open(self.LAUNCH_COUNTS_FILE, "r") as f:
+                    return json.load(f)
+        except Exception as e:
+            print(f"Error loading launch counts: {e}")
+        return {}
+
+    def _save_launch_counts(self):
+        """Save launch counts to JSON file"""
+        try:
+            os.makedirs(os.path.dirname(self.LAUNCH_COUNTS_FILE), exist_ok=True)
+            with open(self.LAUNCH_COUNTS_FILE, "w") as f:
+                json.dump(self.launch_counts, f)
+        except Exception as e:
+            print(f"Error saving launch counts: {e}")
+
+    def _increment_launch_count(self, app: DesktopApp):
+        """Update launch count for an app"""
+        app_name = app.name
+        self.launch_counts[app_name] = self.launch_counts.get(app_name, 0) + 1
+        self._save_launch_counts()
 
     def close_launcher(self):
         self.viewport.children = []
@@ -137,19 +170,22 @@ class AppLauncher(Box):
         self.selected_index = -1  # Clear selection when viewport changes
 
         filtered_apps_iter = iter(
-            sorted(
-                [
-                    app
-                    for app in self._all_apps
-                    if query.casefold()
-                    in (
-                        (app.display_name or "")
-                        + (" " + app.name + " ")
-                        + (app.generic_name or "")
-                    ).casefold()
-                ],
-                key=lambda app: (app.display_name or "").casefold(),
-            )
+                sorted(
+                    [
+                        app
+                        for app in self._all_apps
+                        if query.casefold()
+                        in (
+                            (app.display_name or "")
+                            + (" " + app.name + " ")
+                            + (app.generic_name or "")
+                        ).casefold()
+                    ],
+                    key=lambda app: (
+                        -self.launch_counts.get(app.name, 0),  # Sort by launch count descending
+                        (app.display_name or "").casefold()     # Then alphabetically
+                    ),
+                )
         )
         should_resize = operator.length_hint(filtered_apps_iter) == len(self._all_apps)
 
@@ -206,7 +242,7 @@ class AppLauncher(Box):
                 ],
             ),
             tooltip_text=app.description,
-            on_clicked=lambda *_: (app.launch(), self.close_launcher()),
+            on_clicked=lambda *_: (self._increment_launch_count(app), app.launch(), self.close_launcher()),
             **kwargs,
         )
         return button
