@@ -583,7 +583,7 @@ class Dock(Window):
             elif title := c.get("title", "").lower():
                 # Extract app name from title (common format: "App Name - Document")
                 possible_name = title.split(" - ")[0].strip()
-                if possible_name and len(potential_name) > 1:  # Avoid single letter app names
+                if possible_name and len(possible_name) > 1:  # Avoid single letter app names
                     window_id = possible_name
                 else:
                     window_id = title  # Use full title if we can't extract a good name
