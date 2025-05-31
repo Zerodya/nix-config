@@ -1,19 +1,25 @@
-#workspaces,
-#workspaces-num {
+#workspaces {
   padding: 14px;
-  background-color: var(--shadow);
-  margin: 8px;
+}
+
+#workspaces-num {
+  padding: 4px;
 }
 
 #workspaces-container {
-  margin: -8px;
+  background-color: var(--shadow);
+}
+
+#workspaces-container.invert {
+  background-color: var(--surface);
+  border-radius: 12px;
 }
 
 #workspaces > button {
   min-width: 6px;
   min-height: 72px;
   border-radius: 16px;
-  transition: all 0.25s cubic-bezier(0, 0, 0.25, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--surface-bright);
 }
 
@@ -30,6 +36,11 @@
 }
 
 #workspaces > button.active {
+  min-width: 102px;
+  background-color: var(--primary);
+}
+
+#workspaces > button.active.vertical {
   min-height: 102px;
   background-color: var(--primary);
 }
@@ -46,6 +57,11 @@
   padding: 8px;
 }
 
+#workspaces-num > button {
+  border-radius: 20px;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 #workspaces-num > button > label {
   color: var(--foreground);
   font-weight: bold;
@@ -60,6 +76,7 @@
 
 #workspaces-num > button.active {
   background-color: var(--primary);
+  border-radius: 8px;
 }
 
 #workspaces-num > button.active > label {
