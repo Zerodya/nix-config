@@ -1,7 +1,6 @@
 { pkgs, username, ... }:
 {
   imports = [
-    ./ags
     ./fabric
     ./hyprland
     ./kitty
