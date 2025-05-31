@@ -16,8 +16,6 @@ from modules.corners import Corners
 from modules.dock import Dock
 from modules.notch import Notch
 from modules.notifications import NotificationPopup
-from modules.updater import run_updater
-
 fonts_updated_file = f"{CACHE_DIR}/fonts_updated"
 
 if __name__ == "__main__":
@@ -36,10 +34,6 @@ if __name__ == "__main__":
     from config.data import load_config
     config = load_config()
 
-    GLib.idle_add(run_updater)
-    # Every hour
-    GLib.timeout_add(3600000, run_updater)
-    
     corners = Corners()
     bar = Bar()
     notch = Notch()

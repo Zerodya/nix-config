@@ -328,13 +328,8 @@ class Overview(Box):
             workspace.destroy()
         self.workspace_boxes.clear()
 
-        if data.PANEL_THEME == "Panel" and data.BAR_POSITION in ["Left", "Right"]:
-            rows = 5
-            cols = 2
-        else:
-            rows = 2
-            cols = 5
-
+        rows = 1
+        cols = 6
         self.children = [Box(spacing=8) for _ in range(rows)]
 
         monitors = {
@@ -362,12 +357,7 @@ class Overview(Box):
                 )
 
         for w_id in range(1, 7):
-            idx = w_id - 1
-            if rows == 2:
-                row = 0 if w_id <= cols else 1
-            else:
-                row = idx // cols
-            overview_row = self.children[row]
+            overview_row = self.children[0]  # Always put into the first row
             overview_row.add(
                 Box(
                     name="overview-workspace-box",
@@ -381,6 +371,7 @@ class Overview(Box):
                     ],
                 )
             )
+
 
     def do_update(self, *_):
         logger.info(f"[Overview] Updating for :{_[1].name}")

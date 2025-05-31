@@ -19,7 +19,7 @@
   min-width: 6px;
   min-height: 72px;
   border-radius: 16px;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0, 0, 0.25, 1);
   background-color: var(--surface-bright);
 }
 
@@ -41,6 +41,7 @@
 }
 
 #workspaces > button.active.vertical {
+  min-width: 6px;
   min-height: 102px;
   background-color: var(--primary);
 }

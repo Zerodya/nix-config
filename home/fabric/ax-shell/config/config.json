@@ -1,4 +1,6 @@
 {
   "vertical": true,
-  "dock_enabled": false
+  "bar_position": "Left",
+  "dock_enabled": false,
+  "panel_theme": "Notch"
 }
