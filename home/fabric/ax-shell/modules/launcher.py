@@ -33,6 +33,9 @@ class AppLauncher(Box):
             **kwargs,
         )
 
+        # Initialize launch counts before any other initializations
+        self.launch_counts = self._load_launch_counts()
+
         self.notch = kwargs["notch"]
         self.selected_index = -1  # Track the selected item index
 
@@ -100,9 +103,6 @@ class AppLauncher(Box):
 
         self.add(self.launcher_box)
         self.show_all()
-        
-        # Initialize launch counts after GUI setup
-        self.launch_counts = self._load_launch_counts()
 
     def _load_launch_counts(self):
         """Load launch counts from JSON file"""
