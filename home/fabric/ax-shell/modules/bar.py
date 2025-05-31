@@ -210,22 +210,22 @@ class Bar(Window):
         
         self.v_start_children = [
             self.button_apps,
-            self.systray,
-            self.control,
-            self.network,
+            self.ws_container,
+            self.button_overview,
             self.button_tools,
         ]
         
         self.v_center_children = [
-            self.button_overview,
-            self.ws_container,
-            self.weather,
         ]
         
         self.v_end_children = [
             self.battery,
-            self.metrics,
-            self.language,
+            self.systray,
+            #self.metrics,
+            #self.language,
+            self.control,
+            self.weather,
+            self.network,
             self.date_time,
             self.button_power,
         ]
