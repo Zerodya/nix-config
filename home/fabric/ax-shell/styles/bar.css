@@ -133,7 +133,11 @@ tooltip > * {
   min-height: 20px;
 }
 
-#notch,
+#notch {
+  border-radius: 0px;
+}
+
 #bar {
   border-radius: 0px;
+  background-color: var(--surface);
 }
