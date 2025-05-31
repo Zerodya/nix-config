@@ -1,0 +1,169 @@
+#notch-box {
+  margin: 0 60px 10px 60px;
+  /* border-radius: 0 0 20px 20px; */
+}
+
+/* #notch-box.open { */
+/*   border-radius: 0 0 36px 36px; */
+/* } */
+
+#notch-box.hidden {
+  opacity: 0;
+}
+
+#notch-wrap {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#notch-wrap.occluded {
+  margin-top: -38px;
+}
+
+#notch-wrap.occluded #notch-box {
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#notch-box.hideshow {
+  opacity: 1;
+  margin-top: 40px;
+}
+
+#notch-content {
+  background-color: var(--shadow);
+  min-height: 40px;
+  min-width: 256px;
+  border-radius: 0 0 20px 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#notch-content.launcher,
+#notch-content.tmux,
+#notch-content.cliphist {
+  padding: 16px;
+  min-height: 220px;
+  min-width: 480px;
+  border-radius: 0 0 36px 36px;
+}
+
+#notch-content.dashboard {
+  padding: 16px;
+  min-height: 432px;
+  min-width: 1065px;
+  border-radius: 0 0 36px 36px;
+}
+
+#dashboard {
+  min-height: 400px;
+  min-width: 1033px;
+}
+
+#notch-content.overview {
+  padding: 16px;
+  @apply overview_width();
+  @apply overview_height();
+  border-radius: 0 0 36px 36px;
+}
+
+#notch-content.tools {
+  min-height: 84px;
+  min-width: 688px;
+  /* Changed to include pomodoro btn */
+  border-radius: 0 0 36px 36px;
+}
+
+#notch-content.emoji {
+  padding: 16px;
+  min-height: 238px;
+  min-width: 574px;
+  border-radius: 0 0 36px 36px;
+}
+
+#notch-content.power {
+  min-height: 84px;
+  min-width: 308px;
+  border-radius: 0 0 36px 36px;
+}
+
+#app-launcher,
+#dashboard,
+#notification,
+#overview,
+#emoji,
+#power-menu,
+#toolbox,
+#tmux-manager,
+#clip-history {
+  opacity: 1;
+  margin: -800px;
+  transition: all 0.25s cubic-bezier(0.5, 0.25, 0, 1);
+}
+
+#app-launcher.open,
+#dashboard.open,
+#notification.open,
+#overview.open,
+#emoji.open,
+#power-menu.open,
+#toolbox.open,
+#bluetooth.open,
+#tmux-manager.open,
+#clip-history.open {
+  opacity: 1;
+  margin: 0px;
+}
+
+#notch-compact {
+  font-weight: bold;
+  transition: all 0.5s cubic-bezier(0.5, 0.25, 0, 1.25);
+  padding: 10px;
+}
+
+#notch-corner-left {
+  margin-left: -16px;
+}
+
+#notch-corner-right {
+  margin-right: -16px;
+}
+
+#compact-mpris-icon-label {
+  color: var(--primary);
+}
+
+#compact-mpris-icon-label,
+#compact-mpris-button-label {
+  font-size: 20px;
+}
+
+#compact-mpris-icon,
+#compact-mpris-button {
+  margin: 0 10px;
+}
+
+#compact-mpris-icon:hover,
+#compact-mpris-button:hover {
+  background-color: var(--primary);
+}
+
+#compact-mpris-icon:active,
+#compact-mpris-button:active {
+  background-color: var(--primary);
+}
+
+#compact-mpris-icon:hover #compact-mpris-icon-label,
+#compact-mpris-button:hover #compact-mpris-button-label {
+  color: var(--background);
+}
+
+#hyprland-window label {
+  margin: 0px 8px;
+}
+
+#active-window-box {
+  margin: 10px;
+}
+
+#vert-comp {
+  min-width: 40px;
+}
