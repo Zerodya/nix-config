@@ -23,9 +23,10 @@
     hyprpicker
     gpu-screen-recorder
     wlinhibit
+    grimblast
     tesseract
     imagemagick
-    nvtopPackages.full   
+    nvtopPackages.full
     nur.repos.HeyImKyu.fabric-cli
     (nur.repos.HeyImKyu.run-widget.override {
       extraPythonPackages = with python3Packages; [
