@@ -362,12 +362,9 @@ class Overview(Box):
                     abs(client["at"][1] - monitors[client["monitor"]][1]) * SCALE,
                 )
 
-        # Lay out workspaces into two rows.
-        for w_id in range(1, 11):
-            if w_id <= 5:
-                overview_row = self.children[0]
-            else:
-                overview_row = self.children[1]
+        # Single row for first 6 workspaces
+        overview_row = self.children[0]
+        for w_id in range(1, 7):
             overview_row.add(
                 Box(
                     name="overview-workspace-box",

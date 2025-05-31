@@ -89,7 +89,7 @@ DEFAULTS = {
     'vertical': False,
     'centered_bar': False,
     'terminal_command': "kitty -e",
-    'dock_enabled': True,
+    'dock_enabled': False,
     'dock_icon_size': 28,
     'dock_always_occluded': False, # Added default
     'bar_workspace_show_number': False, # Added default for workspace number visibility

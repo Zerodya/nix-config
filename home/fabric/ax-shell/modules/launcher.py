@@ -1,6 +1,9 @@
 import operator
+import json
+import os
 from collections.abc import Iterator
 from fabric.widgets.box import Box
+from config.data import CONFIG_DIR
 from fabric.widgets.label import Label
 from fabric.widgets.button import Button
 from fabric.widgets.entry import Entry
@@ -20,6 +23,8 @@ import subprocess
 from modules.dock import Dock  # Import the Dock class
 
 class AppLauncher(Box):
+    LAUNCH_COUNTS_FILE = os.path.expanduser("~/.config/Ax-Shell/launch_counts.json")
+    
     def __init__(self, **kwargs):
         super().__init__(
             name="app-launcher",
@@ -27,6 +32,9 @@ class AppLauncher(Box):
             all_visible=False,
             **kwargs,
         )
+
+        # Initialize launch counts before any other initializations
+        self.launch_counts = self._load_launch_counts()
 
         self.notch = kwargs["notch"]
         self.selected_index = -1  # Track the selected item index
@@ -96,6 +104,31 @@ class AppLauncher(Box):
         self.add(self.launcher_box)
         self.show_all()
 
+    def _load_launch_counts(self):
+        """Load launch counts from JSON file"""
+        try:
+            if os.path.exists(self.LAUNCH_COUNTS_FILE):
+                with open(self.LAUNCH_COUNTS_FILE, "r") as f:
+                    return json.load(f)
+        except Exception as e:
+            print(f"Error loading launch counts: {e}")
+        return {}
+
+    def _save_launch_counts(self):
+        """Save launch counts to JSON file"""
+        try:
+            os.makedirs(os.path.dirname(self.LAUNCH_COUNTS_FILE), exist_ok=True)
+            with open(self.LAUNCH_COUNTS_FILE, "w") as f:
+                json.dump(self.launch_counts, f)
+        except Exception as e:
+            print(f"Error saving launch counts: {e}")
+
+    def _increment_launch_count(self, app: DesktopApp):
+        """Update launch count for an app"""
+        app_name = app.name
+        self.launch_counts[app_name] = self.launch_counts.get(app_name, 0) + 1
+        self._save_launch_counts()
+
     def close_launcher(self):
         self.viewport.children = []
         self.selected_index = -1  # Reset selection
@@ -136,23 +169,33 @@ class AppLauncher(Box):
         self.viewport.children = []
         self.selected_index = -1  # Clear selection when viewport changes
 
-        filtered_apps_iter = iter(
-            sorted(
-                [
-                    app
-                    for app in self._all_apps
-                    if query.casefold()
-                    in (
-                        (app.display_name or "")
-                        + (" " + app.name + " ")
-                        + (app.generic_name or "")
-                    ).casefold()
-                ],
-                key=lambda app: (app.display_name or "").casefold(),
-            )
+        filtered_apps = sorted(
+            [
+                app
+                for app in self._all_apps
+                if query.casefold()
+                in (
+                    (app.display_name or "")
+                    + (" " + app.name + " ")
+                    + (app.generic_name or "")
+                ).casefold()
+            ],
+            key=lambda app: (
+                -self.launch_counts.get(app.name, 0),  # Sort by launch count descending
+                (app.display_name or "").casefold()     # Then alphabetically
+            ),
         )
-        should_resize = operator.length_hint(filtered_apps_iter) == len(self._all_apps)
+        filtered_apps_iter = iter(filtered_apps)
+        should_resize = len(filtered_apps) == len(self._all_apps)
 
+        # Immediately add and select first item if available
+        if filtered_apps:
+            self.viewport.add(self.bake_application_slot(filtered_apps[0]))
+            self.update_selection(0)
+            # Remove first item from iterator since we added it already
+            next(filtered_apps_iter)
+
+        # Process remaining items asynchronously
         self._arranger_handler = idle_add(
             lambda apps_iter: self.add_next_application(apps_iter) or self.handle_arrange_complete(should_resize, query),
             filtered_apps_iter,
@@ -162,8 +205,8 @@ class AppLauncher(Box):
     def handle_arrange_complete(self, should_resize, query):
         if should_resize:
             self.resize_viewport()
-        # Only auto-select first item if query exists
-        if query.strip() != "" and self.viewport.get_children():
+        # Auto-select first item
+        if self.viewport.get_children():
             self.update_selection(0)
         return False
 
@@ -206,7 +249,7 @@ class AppLauncher(Box):
                 ],
             ),
             tooltip_text=app.description,
-            on_clicked=lambda *_: (app.launch(), self.close_launcher()),
+            on_clicked=lambda *_: (self._increment_launch_count(app), app.launch(), self.close_launcher()),
             **kwargs,
         )
         return button

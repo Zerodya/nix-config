@@ -12,7 +12,7 @@
 
 #date-time {
   background-color: var(--shadow);
-  padding: 8px;
+  padding: 7 8px;
 }
 
 menu > menuitem > label,
@@ -22,7 +22,7 @@ menu > menuitem > label,
 
 #language {
   background-color: var(--shadow);
-  padding: 8px;
+  padding: 7 8px;
 }
 
 #lang-label {
@@ -133,7 +133,11 @@ tooltip > * {
   min-height: 20px;
 }
 
-#notch,
+#notch {
+  border-radius: 0px;
+}
+
 #bar {
   border-radius: 0px;
+  background-color: var(--surface);
 }

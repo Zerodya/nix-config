@@ -39,7 +39,7 @@ class Weather(Button):
         # Let wttr.in determine location based on IP
         url = "https://wttr.in/?format=%c+%t" if not data.VERTICAL else "https://wttr.in/?format=%c"
         # Get detailed info for tooltip
-        tooltip_url = "https://wttr.in/?format=%l:+%C,+%t+(%f),+Humidity:+%h,+Wind:+%w"
+        tooltip_url = "https://wttr.in/?format=+%C,+%t+(%f),+Humidity:+%h,+Wind:+%w"
         
         try:
             response = self.session.get(url, timeout=5)

@@ -54,8 +54,8 @@
 }
 
 #dashboard {
-  min-height: 400px;
-  min-width: 1033px;
+  /*min-height: 400px;
+  min-width: 1033px;*/
 }
 
 #notch-content.overview {

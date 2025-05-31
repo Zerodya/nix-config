@@ -23,7 +23,7 @@ CURRENT_WIDTH = screen.get_width()
 CURRENT_HEIGHT = screen.get_height()
 
 # Rename to match what's being imported in config.py
-WALLPAPERS_DIR_DEFAULT = get_relative_path("../assets/wallpapers_example")
+WALLPAPERS_DIR_DEFAULT = os.path.join(HOME_DIR, "Pictures/Wallpapers")
 CONFIG_FILE = get_relative_path('../config/config.json')
 MATUGEN_STATE_FILE = os.path.join(CONFIG_DIR, "matugen")
 
