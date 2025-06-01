@@ -6,7 +6,7 @@
   ];
 
   # Display Manager
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
 
   # Default session
   services.displayManager.defaultSession = "hyprland";
