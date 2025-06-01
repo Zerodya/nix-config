@@ -18,6 +18,8 @@ git subtree pull \
   - Auto-select first app of the list as soon as the app launcher is opened, for faster workflow
 - Reordered the bar components
 - Added a background to the bar
+- Default wallpapers directory: `~/Pictures/Wallpapers/`
+- Removed "Pins" and "Coming soon" tabs from the dashboard
 - No updater since it's not needed nor functional in NixOS
 
 ## Config options
