@@ -263,8 +263,8 @@ class Bar(Window):
         self.v_end_children = [
             self.battery,
             self.systray,
-            #self.metrics,
-            #self.language,
+            self.metrics,
+            self.language,
             self.control,
             self.weather,
             self.network,
