@@ -8,6 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Determinate Systems Nix
+    determinate.url = "github:DeterminateSystems/determinate/main"; 
+
+     # Nix User Repository
     nur = {
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,9 +34,6 @@
     # Chaotic repo (cachyos kernel, mesa-git, ...)
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
-    # Aylur's GTK Shell
-    ags.url = "github:aylur/ags/v1"; # Update to v2 when ready
-
     # Base16 system-wide colorscheming
     stylix.url = "github:danth/stylix";
 
@@ -43,6 +44,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    determinate,
     nur,
     chaotic,
     nixos-hardware,
@@ -92,6 +94,7 @@
             };
           }
           
+          determinate.nixosModules.default # Determinate Systems Nix
           nur.modules.nixos.default # Nix User Repository
           chaotic.nixosModules.default # Chaotic repo
           stylix.nixosModules.stylix # Base16 colorscheming
@@ -125,6 +128,7 @@
             };
           }
           
+          determinate.nixosModules.default # Determinate Systems Nix
           nur.modules.nixos.default # Nix User Repository
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming

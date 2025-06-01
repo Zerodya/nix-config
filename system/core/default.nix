@@ -62,6 +62,9 @@
     algorithm = "zstd";
   };
 
+  # Lazy trees for faster eval time (requires Determinate Systems Nix)
+  nix.settings.lazy-trees = true;
+
   # Fish shell
   programs.fish.enable = true;
 
