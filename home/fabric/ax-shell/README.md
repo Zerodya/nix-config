@@ -10,10 +10,15 @@ git subtree pull \
 ```
 
 ## Main changes to the code:
-- 6 workspaces in overview and bar instead of 10
-- more stilish workspaces bar
-- reordered the bar components
-- no updater since it's not needed nor functional in NixOS
+- Workspaces tweaks:
+  - More stilish workspaces in the bar
+  - Just 6 workspaces instead of 10 in both overview and bar
+- App launcher tweaks:
+  - Order by most used apps instead of just alphabetically
+  - Auto-select first app of the list as soon as the app launcher is opened, for faster workflow
+- Reordered the bar components
+- Added a background to the bar
+- No updater since it's not needed nor functional in NixOS
 
 ## Config options
 
