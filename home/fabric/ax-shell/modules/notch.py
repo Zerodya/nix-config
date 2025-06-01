@@ -511,7 +511,6 @@ class Notch(Window):
                 return
 
         dashboard_sections_map = {
-            "pins": self.dashboard.pins,
             "kanban": self.dashboard.kanban,
             "wallpapers": self.dashboard.wallpapers,
         }
