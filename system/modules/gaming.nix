@@ -22,11 +22,12 @@
       };
     };
 
-    corectrl = {
-      enable = true;
-      gpuOverclock.enable = true;
-      gpuOverclock.ppfeaturemask = "0xffffffff";
-    };
+    corectrl.enable = true;
+  };
+
+  hardware.amdgpu.overdrive = {
+    enable = true;
+    ppfeaturemask = true;
   };
 
   # OpenRGB
