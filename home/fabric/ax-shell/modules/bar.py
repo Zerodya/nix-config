@@ -54,7 +54,8 @@ class Bar(Window):
                 case "Edge":
                     self.margin_var = "-8px -8px -8px -8px"
                 case _:
-                    self.margin_var = "-4px -8px -4px -4px"
+                    # 0px for correct right and left margins when using the bar with a background
+                    self.margin_var = "-4px 0px -4px 0px"
         else:
             match data.BAR_THEME:
                 case "Edge":
