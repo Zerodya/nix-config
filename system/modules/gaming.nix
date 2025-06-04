@@ -27,7 +27,7 @@
 
   hardware.amdgpu.overdrive = {
     enable = true;
-    ppfeaturemask = true;
+    ppfeaturemask = "0xffffffff";
   };
 
   # OpenRGB
