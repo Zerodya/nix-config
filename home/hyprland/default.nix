@@ -124,12 +124,13 @@
       "$mod, RETURN, exec, kitty"
       "$mod, S, exec, nautilus"
       "$mod SHIFT, E, exit,"
-      "$mod, D, exec, fabric-cli exec ax-shell 'notch.open_notch(\"launcher\")'"
-      "$mod, A, exec, fabric-cli exec ax-shell 'notch.open_notch(\"overview\")' , toggle"
       "$mod SHIFT, C, exec, kitty --class clipse -e clipse"
-
       "$mod, P, exec, solanum"
       "$mod, O, exec, blanket"
+
+    # Caelestia - use direct IPC commands
+    "$mod, D, exec, qs -c caelestia ipc call drawers toggle launcher"
+    "$mod, E, exec, qs -c caelestia ipc call drawers toggle session"
 
       # Window operations
       "$mod, Q, killactive,"
@@ -218,5 +219,6 @@
       # Standby
       "$mod SHIFT, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
     ];
+
   };
 }

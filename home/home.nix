@@ -5,6 +5,7 @@
     ./hyprland
     ./kitty
     ./programs
+    ./quickshell
     ./scripts
     ./shell
     ./swaylock

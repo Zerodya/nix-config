@@ -31,6 +31,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    quickshell = {
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Chaotic repo (cachyos kernel, mesa-git, ...)
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
@@ -46,8 +51,8 @@
     home-manager,
     determinate,
     nur,
-    chaotic,
     nixos-hardware,
+    chaotic,
     stylix,
     flatpaks,
     ...
