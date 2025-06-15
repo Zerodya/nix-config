@@ -52,7 +52,7 @@
     };
 
     decoration = {
-      rounding = 12;
+      rounding = 20;
 
       blur = {
         enabled = false;
