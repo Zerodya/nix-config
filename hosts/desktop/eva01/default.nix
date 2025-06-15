@@ -27,6 +27,7 @@
       "initcall_blacklist=acpi_cpufreq_init"
       "threadirqs" 
       "transparent_hugepage=always" 
+      "split_lock_mitigate=0"
     ];
     initrd.kernelModules = [ "amdgpu" ];
     kernelModules = [ 
