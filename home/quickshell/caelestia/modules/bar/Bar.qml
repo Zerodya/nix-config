@@ -96,10 +96,17 @@ Item {
 
                 onWheel: event => {
                     const activeWs = Hyprland.activeClient?.workspace?.name;
-                    if (activeWs?.startsWith("special:"))
+                    const maxWorkspaces = 6;
+                    
+                    if (activeWs?.startsWith("special:")) {
                         Hyprland.dispatch(`togglespecialworkspace ${activeWs.slice(8)}`);
-                    else if (event.angleDelta.y < 0 || Hyprland.activeWsId > 1)
-                        Hyprland.dispatch(`workspace r${event.angleDelta.y > 0 ? "-" : "+"}1`);
+                    } else if (event.angleDelta.y > 0 && Hyprland.activeWsId > 1) {
+                        // Scroll up: move to previous workspace
+                        Hyprland.dispatch("workspace r-1");
+                    } else if (event.angleDelta.y < 0 && Hyprland.activeWsId < maxWorkspaces) {
+                        // Scroll down: move to next workspace only if not at max
+                        Hyprland.dispatch("workspace r+1");
+                    }
                 }
             }
 
