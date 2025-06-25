@@ -49,9 +49,6 @@
 
   services.flatpak = {
     packages = [
-      # Steam
-      "flathub:app/com.valvesoftware.Steam//stable"
-
       # Gaming runtimes for Bottles
       "flathub:runtime/org.freedesktop.Platform.VulkanLayer.gamescope//24.08" # Gamescope
       "flathub:runtime/org.freedesktop.Platform.VulkanLayer.MangoHud//24.08" # MangoHUD
