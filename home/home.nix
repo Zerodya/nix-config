@@ -8,7 +8,6 @@
     ./quickshell
     ./scripts
     ./shell
-    ./swaylock
     ./wallpapers
   ];
   
@@ -18,6 +17,9 @@
     stateVersion = "23.11";
   };
   programs.home-manager.enable = true;
+
+  # Profile icon
+  home.file.".face".source = ./.face;
 
   # GTK
   gtk = {
