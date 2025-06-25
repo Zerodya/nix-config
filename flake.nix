@@ -43,7 +43,7 @@
     stylix.url = "github:danth/stylix";
 
     # Declarative Flatpak
-    flatpaks.url = "github:GermanBread/declarative-flatpak/stable-v3";
+    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/stable-v3";
   };
 
   outputs = {
@@ -103,7 +103,7 @@
           nur.modules.nixos.default # Nix User Repository
           chaotic.nixosModules.default # Chaotic repo
           stylix.nixosModules.stylix # Base16 colorscheming
-          flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
+          flatpaks.nixosModule # Declarative Flatpak
         ];
       };
 
@@ -137,7 +137,7 @@
           nur.modules.nixos.default # Nix User Repository
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming
-          flatpaks.nixosModules.declarative-flatpak # Declarative Flatpak
+          flatpaks.nixosModule # Declarative Flatpak
         ];
       };
 
