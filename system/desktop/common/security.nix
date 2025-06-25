@@ -2,8 +2,8 @@
 
 {
   # Screen lock
-  security.pam.services.swaylock = {};
-  security.pam.services.swaylock.fprintAuth = false;
+  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock.fprintAuth = false;
   
   # Enable polkit
   security.polkit.enable = true;

@@ -4,19 +4,23 @@
   
   # Extra packages
   home.packages = with pkgs; [
+    hypridle # Idle daemon
+    hyprlock # Lock screen
     hyprshot # Screenshot tool
     swww # Wallpaper
     mpvpaper # Live wallpaper
-    swaylock-effects # Lockscreen
-    swayidle # Idle deamon
     clipse # Clipboard manager
     wl-clip-persist # Persist clipboard
     wl-clipboard # Clipboard sharing
     xclip
     clipnotify
     wlr-randr # Wayland RandR
-    wl-gammarelay-rs # Night light
+    wl-gammarelay-rs # # Display brightness and temperature
   ];
+
+  # Idle and lock screen
+  home.file.".config/hypr/hypridle.conf".source = ./hypridle.conf;
+  home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 
   # Extra configuration
   home.file.".config/hypr/autorun.conf".source = ./autorun.conf;
@@ -128,9 +132,9 @@
       "$mod, P, exec, solanum"
       "$mod, O, exec, blanket"
 
-    # Caelestia - use direct IPC commands
-    "$mod, D, exec, qs -c caelestia ipc call drawers toggle launcher"
-    "$mod, E, exec, qs -c caelestia ipc call drawers toggle session"
+      # Caelestia - use direct IPC commands
+      "$mod, D, exec, qs -c caelestia ipc call drawers toggle launcher"
+      "$mod, E, exec, qs -c caelestia ipc call drawers toggle session"
 
       # Window operations
       "$mod, Q, killactive,"
@@ -215,10 +219,13 @@
 
     bindl = [ # works also when lockscreen is active
       # Suspend
-      "$mod, ESCAPE, exec, systemctl suspend"
+      "$mod, ESCAPE, exec, hyprlock & sleep 1 && systemctl suspend"
       # Standby
       "$mod SHIFT, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
+      # Lock when closing laptop lid
+      ",switch:Lid Switch, exec, hyprlock"
     ];
 
   };
+
 }
