@@ -6,7 +6,7 @@ import QtQuick
 Item {
     id: root
 
-    property color colour: Colours.palette.m3tertiary
+    property color colour: Colours.palette.m3secondary
 
     implicitWidth: text.implicitWidth
     implicitHeight: text.implicitHeight
