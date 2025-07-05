@@ -1,5 +1,5 @@
 # forked from https://github.com/TLSingh1/dotfiles/tree/main/modules/wm/quickshell
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
@@ -31,6 +31,7 @@
     
     # Additional dependencies
     gtk3 # to run apps with gtk-launch
+    papirus-icon-theme
     lm_sensors
     curl
     material-symbols
@@ -133,4 +134,9 @@
     caelestia = "caelestia-quickshell";
   };
 
+  qt = {
+    enable = true;
+    #platformTheme = "qtct";
+    style.name = lib.mkForce "Papirus";
+  };
 }
