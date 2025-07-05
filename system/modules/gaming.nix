@@ -10,6 +10,11 @@
     steam = {
       enable = true;
       gamescopeSession.enable = true;
+      package = pkgs.steam.override {
+        extraEnv = {
+          MANGOHUD = "1";
+        };
+      };
     };
 
     gamemode = {
@@ -25,6 +30,7 @@
     corectrl.enable = true;
   };
 
+  # Enable Radeon overclocking features
   hardware.amdgpu.overdrive = {
     enable = true;
     ppfeaturemask = "0xffffffff";
