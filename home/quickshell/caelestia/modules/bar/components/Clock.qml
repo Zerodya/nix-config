@@ -3,26 +3,18 @@ import "root:/services"
 import "root:/config"
 import QtQuick
 
-Column {
+Item {
     id: root
 
-    property color colour: Colours.palette.m3tertiary
+    property color colour: Colours.palette.m3secondary
 
-    spacing: Appearance.spacing.small
-
-    MaterialIcon {
-        id: icon
-
-        text: "calendar_month"
-        color: root.colour
-
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
+    implicitWidth: text.implicitWidth
+    implicitHeight: text.implicitHeight
 
     StyledText {
         id: text
 
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.centerIn: parent
 
         horizontalAlignment: StyledText.AlignHCenter
         text: Time.format("hh\nmm")

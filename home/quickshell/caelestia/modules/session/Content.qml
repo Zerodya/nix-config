@@ -20,53 +20,21 @@ Column {
     spacing: Appearance.spacing.large
 
     SessionButton {
-        id: logout
+        id: shutdown
 
-        icon: "logout"
-        command: ["uwsm", "stop"]
+        icon: "power_settings_new"
+        command: ["systemctl", "poweroff"]
 
-        KeyNavigation.down: shutdown
+        KeyNavigation.down: reboot
 
         Connections {
             target: root.visibilities
 
             function onSessionChanged(): void {
                 if (root.visibilities.session)
-                    logout.focus = true;
+                    shutdown.focus = true;
             }
         }
-    }
-
-    SessionButton {
-        id: shutdown
-
-        icon: "power_settings_new"
-        command: ["systemctl", "poweroff"]
-
-        KeyNavigation.up: logout
-        KeyNavigation.down: hibernate
-    }
-
-    AnimatedImage {
-        width: SessionConfig.sizes.button
-        height: SessionConfig.sizes.button
-        sourceSize.width: width
-        sourceSize.height: height
-
-        playing: visible
-        asynchronous: true
-        speed: 0.7
-        source: "root:/assets/kurukuru.gif"
-    }
-
-    SessionButton {
-        id: hibernate
-
-        icon: "downloading"
-        command: ["systemctl", "hibernate"]
-
-        KeyNavigation.up: shutdown
-        KeyNavigation.down: reboot
     }
 
     SessionButton {
@@ -75,7 +43,17 @@ Column {
         icon: "cached"
         command: ["systemctl", "reboot"]
 
-        KeyNavigation.up: hibernate
+        KeyNavigation.up: shutdown
+        KeyNavigation.down: logout
+    }
+
+    SessionButton {
+        id: logout
+
+        icon: "logout"
+        command: ["systemctl", "logout"]
+
+        KeyNavigation.up: reboot
     }
 
     component SessionButton: StyledRect {

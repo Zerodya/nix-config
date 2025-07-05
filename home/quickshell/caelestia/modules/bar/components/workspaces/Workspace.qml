@@ -13,75 +13,47 @@ Item {
     required property var occupied
     required property int groupOffset
 
-    readonly property bool isWorkspace: true // Flag for finding workspace children
-    // Unanimated prop for others to use as reference
-    readonly property real size: childrenRect.height + (hasWindows ? Appearance.padding.normal : 0)
-
+    readonly property bool isWorkspace: true
     readonly property int ws: groupOffset + index + 1
     readonly property bool isOccupied: occupied[ws] ?? false
-    readonly property bool hasWindows: isOccupied && BarConfig.workspaces.showWindows
 
-    Layout.preferredWidth: childrenRect.width
-    Layout.preferredHeight: size
-
-    StyledText {
-        id: indicator
-
-        readonly property string label: BarConfig.workspaces.label || root.ws
-        readonly property string occupiedLabel: BarConfig.workspaces.occupiedLabel || label
-        readonly property string activeLabel: BarConfig.workspaces.activeLabel || (root.isOccupied ? occupiedLabel : label)
-
-        animate: true
-        text: Hyprland.activeWsId === root.ws ? activeLabel : root.isOccupied ? occupiedLabel : label
-        color: BarConfig.workspaces.occupiedBg || root.isOccupied || Hyprland.activeWsId === root.ws ? Colours.palette.m3onSurface : Colours.palette.m3outlineVariant
-        horizontalAlignment: StyledText.AlignHCenter
-        verticalAlignment: StyledText.AlignVCenter
-
-        width: BarConfig.sizes.innerHeight
-        height: BarConfig.sizes.innerHeight
+    // Pills height
+    readonly property real targetHeight: {
+        if (Hyprland.activeWsId === root.ws)
+            return BarConfig.sizes.innerHeight * 3.8; // Active workspace (taller)
+        else if (root.isOccupied)
+            return BarConfig.sizes.innerHeight * 2.6; // Used workspace
+        else
+            return BarConfig.sizes.innerHeight * 1.3; // Unused workspace
     }
 
-    Loader {
-        id: windows
+    Layout.preferredWidth: childrenRect.width
+    Layout.preferredHeight: targetHeight
 
-        active: BarConfig.workspaces.showWindows
-        asynchronous: true
+    Rectangle {
+        id: pill
 
-        anchors.horizontalCenter: indicator.horizontalCenter
-        anchors.top: indicator.bottom
+        width: BarConfig.sizes.innerHeight * 0.23 // Skinnier width
+        height: root.targetHeight
+        radius: width / 2
 
-        sourceComponent: Column {
-            spacing: Appearance.spacing.small
+        color: {
+            if (Hyprland.activeWsId === root.ws)
+                return Colours.palette.m3primary;
+            else
+                return Colours.palette.m3surfaceVariant;
+        }
 
-            add: Transition {
-                Anim {
-                    properties: "scale"
-                    from: 0
-                    to: 1
-                    easing.bezierCurve: Appearance.anim.curves.standardDecel
-                }
-            }
-
-            Repeater {
-                model: ScriptModel {
-                    values: Hyprland.clients.filter(c => c.workspace?.id === root.ws)
-                }
-
-                MaterialIcon {
-                    required property Hyprland.Client modelData
-
-                    text: Icons.getAppCategoryIcon(modelData.wmClass, "terminal")
-                    color: Colours.palette.m3onSurfaceVariant
-                }
-            }
+        Behavior on height {
+            Anim {}
         }
     }
 
-    Behavior on Layout.preferredWidth {
+    Behavior on Layout.preferredHeight {
         Anim {}
     }
 
-    Behavior on Layout.preferredHeight {
+    Behavior on Layout.preferredWidth {
         Anim {}
     }
 

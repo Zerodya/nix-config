@@ -16,13 +16,29 @@ Item {
     }, {})
     readonly property int groupOffset: Math.floor((Hyprland.activeWsId - 1) / BarConfig.workspaces.shown) * BarConfig.workspaces.shown
 
-    implicitWidth: layout.implicitWidth
+    // Single pill width definition
+    readonly property real pillWidth: BarConfig.sizes.innerHeight * 0.23
+    // Padding proportional to pill width
+    readonly property real sidePadding: pillWidth * 0.3
+
+    implicitWidth: layout.implicitWidth + 2 * sidePadding
     implicitHeight: layout.implicitHeight
 
+    // Main container for vertical pills
     ColumnLayout {
         id: layout
 
-        spacing: 0
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+            leftMargin: sidePadding
+            rightMargin: sidePadding
+        }
+
+        // Add spacing between pills
+        spacing: 8
         layer.enabled: true
         layer.smooth: true
 
@@ -33,33 +49,6 @@ Item {
                 occupied: root.occupied
                 groupOffset: root.groupOffset
             }
-        }
-    }
-
-    Loader {
-        active: BarConfig.workspaces.occupiedBg
-        asynchronous: true
-
-        z: -1
-        anchors.fill: parent
-
-        sourceComponent: OccupiedBg {
-            workspaces: root.workspaces
-            occupied: root.occupied
-            groupOffset: root.groupOffset
-        }
-    }
-
-    Loader {
-        active: BarConfig.workspaces.activeIndicator
-        asynchronous: true
-
-        sourceComponent: ActiveIndicator {
-            workspaces: root.workspaces
-            mask: layout
-            maskWidth: root.width
-            maskHeight: root.height
-            groupOffset: root.groupOffset
         }
     }
 
