@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     # Launcher
     umu-launcher
-    cartridges
+    steam-rom-manager
 
     # Game utilities
     gamescope
