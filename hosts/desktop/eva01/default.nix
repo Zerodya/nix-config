@@ -18,8 +18,8 @@
   # Bootloader
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages_cachyos-lto;
-    extraModulePackages = with config.boot.kernelPackages; [ zenergy ];
+    kernelPackages = pkgs.linuxPackages_cachyos;
+    extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
     kernelParams = [ 
       "loglevel=3" 
       "quiet"
@@ -31,7 +31,7 @@
     ];
     initrd.kernelModules = [ "amdgpu" ];
     kernelModules = [ 
-      "zenergy" 
+      "zenpower" 
       "cpufreq_ondemand" 
       "cpufreq_conservative" 
       "cpufreq_powersave"
