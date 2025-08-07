@@ -10,7 +10,7 @@
       # Modules
       ../../../system/modules/gaming.nix 
       ../../../system/modules/rt-audio.nix
-      ../../../system/modules/ollama-rocm.nix
+      #../../../system/modules/ollama-rocm.nix
   ];
 
   networking.hostName = desktop;
