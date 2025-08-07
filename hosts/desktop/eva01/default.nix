@@ -34,7 +34,8 @@
       "zenergy" 
       "cpufreq_ondemand" 
       "cpufreq_conservative" 
-      "cpufreq_powersave" 
+      "cpufreq_powersave"
+      "ntsync"
     ];
     kernel.sysctl = { 
       "vm.swappiness" = 10; # Prefers ram over swap
