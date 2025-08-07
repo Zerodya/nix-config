@@ -9,8 +9,8 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "caelestia-dots";
       repo = "scripts";
-      rev = "main";
-      sha256 = "60GdtCjNtwRCHnIlRak3Hl6hJQPtINoS7g5bb5e60P4=";
+      rev = "2bde2ddfbf56277fbf93af96fe3a88cb042b6696";
+      sha256 = "VnqE8hpqyIdJ91OBaJatxGyNccev+OC19U/MVZUd/0E=";
     };
 
     nativeBuildInputs = with pkgs; [
