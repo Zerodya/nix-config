@@ -59,9 +59,6 @@
       "flathub:runtime/org.freedesktop.Platform.VulkanLayer.gamescope//24.08" # Gamescope
       "flathub:runtime/org.freedesktop.Platform.VulkanLayer.MangoHud//24.08" # MangoHUD
       "flathub:runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt//24.08" # vkBasalt
-
-      # BoilR
-      "flathub:app/io.github.philipk.boilr//stable"
     ];
   };
 
