@@ -9,7 +9,7 @@
     ];
     permittedInsecurePackages = [
       "openssl-1.1.1w"
-      "electron-33.4.11"
+      "qtwebengine-5.15.19"
     ];
   };
 

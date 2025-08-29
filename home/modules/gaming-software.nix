@@ -24,7 +24,7 @@
     clinfo
 
     # Emulators
-    ryujinx
+    ryubing
     #rpcs3
 
     # Steering Wheel

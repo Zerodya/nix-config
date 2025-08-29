@@ -22,7 +22,7 @@
 
     # Media Editing
     krita
-    libsForQt5.kdenlive
+    kdePackages.kdenlive
 
     # Uni
     teams-for-linux
@@ -56,7 +56,7 @@
     networkmanagerapplet
     
     # PDF
-    libsForQt5.okular
+    kdePackages.okular
 
     # Theming
     gradience
