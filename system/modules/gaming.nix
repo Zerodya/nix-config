@@ -6,31 +6,19 @@
     #hdr.enable = true;
   };
 
-  programs = {
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-      package = pkgs.steam.override {
-        extraEnv = {
-          MANGOHUD = "1";
-        };
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    package = pkgs.steam.override {
+      extraEnv = {
+        MANGOHUD = "1";
+        TZ="Europe/Rome";
       };
     };
-
-    gamemode = {
-      enable = true;
-      settings = {
-        general = {
-          softrealtime = "auto";
-          renice = 15;
-        };
-      };
-    };
-
-    corectrl.enable = true;
   };
 
-  # Enable Radeon overclocking features
+  # LACT
+  services.lact.enable = true;
   hardware.amdgpu.overdrive = {
     enable = true;
     ppfeaturemask = "0xffffffff";
