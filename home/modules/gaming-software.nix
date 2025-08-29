@@ -8,6 +8,8 @@
     gamescope
     vkbasalt
     mangohud
+    lsfg-vk
+    lsfg-vk-ui
 
     # Wine/Proton
     winetricks
