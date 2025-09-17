@@ -1,7 +1,6 @@
 { pkgs, username, ... }:
 {
   imports = [
-    ./fabric
     ./hyprland
     ./kitty
     ./programs
