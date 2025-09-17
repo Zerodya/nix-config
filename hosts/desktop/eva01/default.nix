@@ -76,6 +76,7 @@
   environment.variables = {
     PATH = "$HOME/git/path/hyprfreeze:$HOME/git/path/hyprprop:$HOME/git/path/hyprevents"; 
     AMD_VULKAN_ICD = "RADV";
+    MESA_SHADER_CACHE_MAX_SIZE = "12G";
     WINEPREFIX = "/home/alpha/.wine";
   };
 
