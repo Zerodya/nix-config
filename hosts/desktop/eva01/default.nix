@@ -12,6 +12,7 @@
       ../../../system/modules/rt-audio.nix
       #../../../system/modules/ollama-rocm.nix
       ../../../system/modules/razer-dongle.nix
+      ../../../system/modules/uni-project.nix
   ];
 
   networking.hostName = desktop;
