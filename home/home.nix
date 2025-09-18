@@ -1,6 +1,7 @@
 { pkgs, username, ... }:
 {
   imports = [
+    ./caelestia-shell
     ./hyprland
     ./kitty
     ./programs

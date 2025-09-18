@@ -133,8 +133,8 @@
       "$mod, O, exec, blanket"
 
       # Caelestia - use direct IPC commands
-      "$mod, D, exec, qs -c caelestia ipc call drawers toggle launcher"
-      "$mod, E, exec, qs -c caelestia ipc call drawers toggle session"
+      "$mod, D, exec, caelestia-shell ipc call drawers toggle launcher"
+      "$mod, E, exec, caelestia-shell ipc call drawers toggle session"
 
       # Window operations
       "$mod, Q, killactive,"
