@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     # Browsers
-    floorp-bin
     brave
     tor-browser
     

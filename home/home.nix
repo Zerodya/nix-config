@@ -2,6 +2,7 @@
 {
   imports = [
     ./caelestia-shell
+    ./firefox
     ./hyprland
     ./kitty
     ./programs

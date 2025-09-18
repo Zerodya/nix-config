@@ -1,0 +1,67 @@
+/* Hide the horizontal tab bar */
+#main-window #TabsToolbar {
+  visibility: collapse !important;
+}
+
+/* Hide the "Tree Style Tab" header at the top of the sidebar */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  display: none;
+}
+
+/* Shrink sidebar until hovered, when using Tree Style Tab. */
+:root {
+    --thin-tab-width: 45px;
+    --wide-tab-width: 260px;
+}
+#sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
+    min-width: var(--wide-tab-width) !important;
+    max-width: none !important;
+}
+/* Collapse in default state and add transition */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+  overflow: hidden;
+  position: relative !important;
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
+  transition: all 0.2s ease;
+}
+/*Expand on hover*/
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover,
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar {
+  min-width: var(--wide-tab-width) !important;
+  max-width: var(--wide-tab-width) !important;
+  z-index: 1;
+}
+
+/* Don't display the sidebar splitter */
+#sidebar-box + #sidebar-splitter {
+  display: none !important;
+}
+
+/* Push tab labels to the right so they're completely hidden in collapsed state. */
+tab-item .label {
+    margin-left: 11.5px;
+}
+
+/* Adjust margins so favicons have are closer to the left. */
+tab-item .twisty {
+    margin-left: -2px;
+}
+
+/* Hide close buttons on tabs. */
+tab-item .closebox {
+    visibility: collapse;
+}
+tab-item:hover .closebox {
+    visibility: initial;
+}
+
+/* Better alignment of tabs when collapsed */
+:root:not(:hover) tab-item tab-item-substance {
+ 	margin-left: 0px !important;
+}
+
+/* Background color. Change this to blend the sidebar with the rest of the theme */
+#background{
+	background: #2B2A33 !important;
+} 
