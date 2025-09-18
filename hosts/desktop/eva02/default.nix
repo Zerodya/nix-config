@@ -10,6 +10,7 @@
       # Modules
       ../../../system/modules/laptop.nix
       ../../../system/modules/suspend-then-hibernate.nix
+      ../../../system/modules/uni-project.nix
   ];
 
   networking.hostName = laptop;
