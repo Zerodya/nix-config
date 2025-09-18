@@ -47,7 +47,7 @@
     neural-amp-modeler-lv2
 
     # Audio tools
-    pavucontrol
+    pwvucontrol
     qjackctl
     easyeffects
 
