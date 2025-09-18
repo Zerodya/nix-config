@@ -6,7 +6,6 @@
     ./hyprland
     ./kitty
     ./programs
-    ./quickshell
     ./scripts
     ./shell
     ./wallpapers
@@ -31,8 +30,5 @@
       package = pkgs.colloid-icon-theme;
     };
   };
-
-  # Disable Stylix for KDE until it's fixed
-  stylix.targets.kde.enable = false;
 
 }
