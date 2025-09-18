@@ -7,7 +7,6 @@
     hypridle # Idle daemon
     hyprlock # Lock screen
     hyprshot # Screenshot tool
-    swww # Wallpaper
     mpvpaper # Live wallpaper
     clipse # Clipboard manager
     wl-clip-persist # Persist clipboard
