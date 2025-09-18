@@ -80,6 +80,20 @@
         '';
       };
 
+      eva-derivate = {
+        # Assumes flake is located in ~/nix-config/
+        body = ''
+          if test (count $argv) -lt 1
+              echo "Usage: eva-derivate <system-name>"
+              return 1
+          end
+
+          set system_name $argv[1]
+
+          nix path-info --derivation "/home/${username}/nix-config/#nixosConfigurations.$system_name.config.system.build.toplevel"
+        '';
+      };
+
       # Alias `nix-shell -p` to `,`
       "," = {
         body = ''
