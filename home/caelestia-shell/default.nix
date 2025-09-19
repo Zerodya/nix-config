@@ -18,6 +18,13 @@ let wallpapersDir = "/home/${username}/Pictures/Wallpapers"; in
           terminal = "kitty";
           audio = "${pkgs.pwvucontrol}/bin/pwvucontrol";
         };
+        idle = {
+          inhibitWhenAudio = true;
+          # max int because I manage idle and lock without caelestia
+          lockTimeout = 2147483647;
+          dpmsTimeout = 2147483647;
+          sleepTimeout = 2147483647;
+        };
       };
       bar = {
         status = {
@@ -50,9 +57,12 @@ let wallpapersDir = "/home/${username}/Pictures/Wallpapers"; in
           { id = "idleInhibitor"; enabled = true; }
           { id = "power"; enabled = true; }
         ];
+        clock = {
+          showIcon = false;
+        };
       };
       border = {
-        rounding = 20;
+        rounding = 25;
         thickness = 10;
       };
       services = {
@@ -60,14 +70,22 @@ let wallpapersDir = "/home/${username}/Pictures/Wallpapers"; in
         weatherLocation = "40.9307, 14.2478";
         useTwelveHourClock = true;
         smartScheme = true;
+        defaultPlayer = "Feishin";
       };
       launcher = {
         actionPrefix = ">";
-        vimKeybinds = true;
+      };
+      lock = {
+        enabled = false;
+      };
+      notifs = {
+        actionOnClick = true;
+        expire = true;
+        defaultExpireTimeout = 8000;
       };
       paths = {
         wallpaperDir = wallpapersDir;
-        # sessionGif = "./assets/bird.gif";
+        sessionGif = " ";
         # mediaGif = "./assets/.gif";
       };
     };
