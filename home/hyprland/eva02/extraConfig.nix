@@ -33,9 +33,7 @@
     bind = $mod, SPACE, exec, hyprctl switchxkblayout at-translated-set-2-keyboard next
 
     # Switch workspaces with 3 fingers
-    gestures {
-        workspace_swipe = on
-    }
+    gesture = 3, vertical, workspace
 
     # Brightness control
     binde=,XF86MonBrightnessDown,exec,brightnessctl set 5%-
