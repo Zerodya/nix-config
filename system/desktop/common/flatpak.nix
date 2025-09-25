@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   services.flatpak = {
     enable = true;
@@ -11,21 +10,5 @@
       "flathub:app/com.github.tchx84.Flatseal//stable" # Flatseal
       "flathub:app/com.usebottles.bottles//stable" # Bottles
     ];
-
-    overrides = {
-      "global" = {
-        filesystems = [
-          "/home/alpha/.themes/adw-gtk3:ro"
-        ];
-        environment = {
-          "GTK_THEME" = "adw-gtk3";
-        };
-      };
-    };
-
   };
-
-  environment.systemPackages = with pkgs; [
-    flatpak-builder
-  ];
 }
