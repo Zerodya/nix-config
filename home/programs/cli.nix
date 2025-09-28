@@ -2,11 +2,14 @@
 
 {
   home.packages = with pkgs; [
-    # Better Neofetch
+    # Fetch
     fastfetch
+
+    # Nix language server
+    nixd
     
     # Run executable in FHS env.
-    steam-run 
+    steam-run
 
     # Monitor
     ddcutil  

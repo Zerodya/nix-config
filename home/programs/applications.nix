@@ -2,6 +2,13 @@
 
 {
   home.packages = with pkgs; [
+    # DE apps
+    sushi # preview for nautilus
+    loupe # image viewer
+    gnome-calculator
+    gnome-disk-utility
+    baobab # disk usage analyzer
+
     # Browsers
     brave
     tor-browser
@@ -74,9 +81,6 @@
 
     # Downloading
     qbittorrent
-
-    # Nix language server
-    nixd
 
     # Disks
     gparted

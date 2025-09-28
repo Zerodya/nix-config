@@ -45,14 +45,8 @@
     slurp
     libnotify
 
-    # Desktop GUI Applications
-    nautilus # File manager
-    sushi # Preview for Nautilus
-    loupe # Image viewer
-    gnome-calculator
-    gnome-console
-    gnome-disk-utility
-    baobab
+    # File manager
+    nautilus 
   ];
 
   # Other programs
