@@ -8,7 +8,7 @@
   ];
 
   # Exclude some Gnome packages
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages =with pkgs; [
     gnome-tour
     gnome-text-editor
     gnome-browser-connector
@@ -35,7 +35,7 @@
     iagno # go game
     hitori # sudoku game
     atomix # puzzle game
-  ]);
+  ];
 
   # Fix `programs.ssh.askPassword` conflict between Gnome's `seahorse` and Plasma's `ksshaskpass`
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.seahorse.out}/libexec/seahorse/ssh-askpass";

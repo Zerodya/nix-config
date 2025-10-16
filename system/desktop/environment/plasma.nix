@@ -58,11 +58,4 @@
     kwalletmanager  # Wallet management tool
     yakuake         # Drop-down terminal
   ];
-
-  # Gnome theme for Qt apps
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
-  };
 }

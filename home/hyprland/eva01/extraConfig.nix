@@ -17,10 +17,8 @@
     bind = $mod, SPACE, exec, hyprctl switchxkblayout htltek-gaming-keyboard next
 
     # Tearing
-    #general { 
-    #    allow_tearing = true 
-    #}
-    #windowrule = immediate, class:^(r5apex)(.*)$ # Games with tearing
+    #general:allow_tearing = true 
+    #windowrulev2 = immediate, class:^(MainThrd|deadlock)(.*)$
 
     # Freeze or resume a program/game process
     bind = , PAUSE, exec, ~/git/path/hyprfreeze/hyprfreeze -a
@@ -29,10 +27,10 @@
     bind = $mod SHIFT, F1, exec, ~/scripts/screenON
 
     # Restart audio streaming server
-    bind = $mod ALT, F, exec, ~/scripts/ffplay_server.sh
+    #bind = $mod ALT, F, exec, ~/scripts/ffplay_server.sh
 
     # Start apps in specific workspaces
-    windowrule = workspace 5,class:^Beeper$
-    windowrule = workspace 6,class:^REAPER$
+    windowrulev2 = workspace 5,class:^Beeper$
+    windowrulev2 = workspace 6,class:^REAPER$
   '';
 }
