@@ -58,7 +58,7 @@
     extraPackages = with pkgs; [ 
       # Video Acceleration API
       vaapiVdpau
-      libvdpau-va-gl
+      #libvdpau-va-gl
     ];
   };
   hardware.i2c.enable = true;
