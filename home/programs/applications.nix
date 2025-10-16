@@ -45,10 +45,9 @@
     # Drawing
     lorien
 
-    # Guitar
-    tonelib-gfx
-    tonelib-jam
+    # Music production
     reaper
+    tonelib-gfx
     #yabridge
     #yabridgectl
     neural-amp-modeler-lv2
@@ -63,11 +62,6 @@
     
     # PDF
     kdePackages.okular
-
-    # Theming
-    gradience
-    lxappearance
-    nwg-look
     
     # Screen Rec
     obs-studio
