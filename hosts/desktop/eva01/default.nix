@@ -12,7 +12,6 @@
       ../../../system/modules/rt-audio.nix
       #../../../system/modules/ollama-rocm.nix
       ../../../system/modules/razer-dongle.nix
-      ../../../system/modules/uni-project.nix
   ];
 
   networking.hostName = desktop;
@@ -74,7 +73,6 @@
 
   # Environment
   environment.variables = {
-    PATH = "$HOME/git/path/hyprfreeze:$HOME/git/path/hyprprop:$HOME/git/path/hyprevents"; 
     AMD_VULKAN_ICD = "RADV";
     MESA_SHADER_CACHE_MAX_SIZE = "12G";
     WINEPREFIX = "/home/alpha/.wine";
