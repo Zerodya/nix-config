@@ -42,6 +42,9 @@
     sublime4
     obsidian
     
+    # To-do 
+    planify
+    
     # Drawing
     lorien
 
