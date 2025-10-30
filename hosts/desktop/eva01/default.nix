@@ -55,8 +55,7 @@
     enable32Bit = true; #32-bit graphics support (for Steam)
     extraPackages = with pkgs; [ 
       # Video Acceleration API
-      vaapiVdpau
-      #libvdpau-va-gl
+      libva-vdpau-driver
     ];
   };
   hardware.i2c.enable = true;

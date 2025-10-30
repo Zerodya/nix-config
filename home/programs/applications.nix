@@ -35,7 +35,7 @@
 
     # Office
     libreoffice
-    onlyoffice-bin
+    onlyoffice-desktopeditors
 
     # File Editing / IDE
     vscodium-fhs

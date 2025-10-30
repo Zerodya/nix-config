@@ -72,7 +72,6 @@
     libraries = with pkgs; [
       # MOD-Desktop at https://github.com/mod-audio/mod-desktop
       alsa-lib
-      libsForQt5.full
       libsndfile
     ];
   };

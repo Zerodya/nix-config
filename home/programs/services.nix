@@ -4,6 +4,6 @@
   home.packages = with pkgs; [
     openvpn
     syncthing
-    aria
+    aria2
   ];
 }
