@@ -16,7 +16,7 @@
     # Chats
     discord
     vesktop
-    beeper
+    signal-desktop
 
     # Media
     spotify
