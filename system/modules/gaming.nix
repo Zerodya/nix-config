@@ -2,7 +2,7 @@
 
 {
   chaotic = {
-    mesa-git.enable = true;
+    #mesa-git.enable = true; # Causing crashes during nixos-rebuild 
     #hdr.enable = true;
   };
 
