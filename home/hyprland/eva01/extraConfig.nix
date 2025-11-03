@@ -21,7 +21,7 @@
     #windowrulev2 = immediate, class:^(MainThrd|deadlock)(.*)$
 
     # Freeze or resume a program/game process
-    bind = , PAUSE, exec, ~/git/path/hyprfreeze/hyprfreeze -a
+    bind = , PAUSE, exec, hyprfreeze -a
 
     # Turn monitor on
     bind = $mod SHIFT, F1, exec, ~/scripts/screenON
