@@ -19,11 +19,10 @@ let wallpapersDir = "/home/${username}/Pictures/Wallpapers"; in
           audio = "${pkgs.pwvucontrol}/bin/pwvucontrol";
         };
         idle = {
-          inhibitWhenAudio = true;
-          # max int because I manage idle and lock without caelestia
-          lockTimeout = 2147483647;
-          dpmsTimeout = 2147483647;
-          sleepTimeout = 2147483647;
+          # I manage idle and lock without caelestia
+          lockBeforeSleep = false;
+          inhibitWhenAudio = false;
+          timeouts = [ ];
         };
       };
       bar = {
