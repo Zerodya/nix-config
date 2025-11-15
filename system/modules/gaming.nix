@@ -9,6 +9,7 @@
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
+    extraCompatPackages = with pkgs; [proton-ge-bin];
     package = pkgs.steam.override {
       extraEnv = {
         MANGOHUD = "1";
