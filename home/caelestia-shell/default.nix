@@ -72,7 +72,7 @@ let wallpapersDir = "/home/${username}/Pictures/Wallpapers"; in
         defaultPlayer = "Feishin";
       };
       launcher = {
-        actionPrefix = ">";
+        actionPrefix = "/";
       };
       lock = {
         enabled = false;
