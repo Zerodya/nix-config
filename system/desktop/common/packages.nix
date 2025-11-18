@@ -9,7 +9,8 @@
     ];
     permittedInsecurePackages = [
       "openssl-1.1.1w"
-      "qtwebengine-5.15.19"
+      
+      "electron-36.9.5"
     ];
   };
 
@@ -25,6 +26,7 @@
     polkit_gnome
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
+    gsettings-desktop-schemas
     ntfs3g
     adw-gtk3
     adwaita-qt
@@ -56,7 +58,6 @@
       terminal = "kitty";
     };
     kdeconnect.enable = true;
-    dconf.enable = true; # Gnome/KDE theming?
     adb.enable = true;
   };
 
