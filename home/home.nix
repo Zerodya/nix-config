@@ -1,13 +1,16 @@
 { pkgs, username, ... }:
 {
   imports = [
-    ./caelestia-shell
+    # Core
     ./firefox
-    ./hyprland
     ./kitty
     ./programs
     ./scripts
     ./shell
+
+    # Environment
+    ./caelestia-shell
+    ./hyprland
     ./wallpapers
   ];
   

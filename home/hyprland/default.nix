@@ -16,7 +16,7 @@
     xclip
     clipnotify
     wlr-randr # Wayland RandR
-    wl-gammarelay-rs # # Display brightness and temperature
+    wl-gammarelay-rs # Display brightness and temperature
   ];
 
   # Idle and lock screen
