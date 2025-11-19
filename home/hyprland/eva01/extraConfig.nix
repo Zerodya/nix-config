@@ -28,9 +28,5 @@
 
     # Restart audio streaming server
     #bind = $mod ALT, F, exec, ~/scripts/ffplay_server.sh
-
-    # Start apps in specific workspaces
-    windowrulev2 = workspace 5,class:^Beeper$
-    windowrulev2 = workspace 6,class:^REAPER$
   '';
 }

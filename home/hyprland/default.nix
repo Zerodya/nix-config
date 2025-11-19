@@ -120,6 +120,8 @@
       # clipse window size
       "float, class:(clipse)"
       "size 622 652, class:(clipse)"
+      # Reaper in w6
+      "workspace 6,class:^REAPER$"
     ];
 
     "$mod" = "SUPER";
