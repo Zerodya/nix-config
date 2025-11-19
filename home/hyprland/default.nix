@@ -28,6 +28,11 @@
   home.file.".config/hypr/eva01/autorun.conf".source = ./eva01/autorun.conf;
   home.file.".config/hypr/eva02/autorun.conf".source = ./eva02/autorun.conf;
 
+  # Plugins
+  wayland.windowManager.hyprland.plugins = [
+    pkgs.hyprlandPlugins.hyprscrolling
+  ];
+
   # Main configuration
   wayland.windowManager.hyprland.settings = {
     monitor = ",highrr,auto,1";
@@ -53,7 +58,17 @@
       #"col.active_border" = "rgba(8cb6ffff)"; ## set by Stylix
       #"col.inactive_border" = "rgba(0c0e0faa)"; ## set by Stylix
 
-      layout = "dwindle";
+      layout = "scrolling";
+    };
+
+    plugin = {
+      hyprscrolling = {
+        column_width = 0.48 ;
+        fullscreen_on_one_column = false;
+        explicit_column_widths = "0.5, 1.0";
+        focus_fit_method = 1;
+        follow_focus = true;
+      };
     };
 
     decoration = {
@@ -114,9 +129,6 @@
     windowrulev2 = [
       # don't standby screen when fullscreen
       "idleinhibit fullscreen, class:.*"
-      # float everything except kitty
-      "float, class:.*"
-      "tile, class:(kitty)"
       # clipse window size
       "float, class:(clipse)"
       "size 622 652, class:(clipse)"
@@ -187,9 +199,16 @@
       # Workspace back and forth
       "$mod, TAB, workspace, previous"
 
-      # Scroll through existing workspaces with mod + scroll
-      "$mod, mouse_down, workspace, e-1"
-      "$mod, mouse_up, workspace, e+1"
+      # Hyprscrolling
+      "$mod, period, layoutmsg, move +col"
+      "$mod, comma, layoutmsg, move -col"
+      "$mod SHIFT, period, layoutmsg, movewindowto r"
+      "$mod SHIFT, comma, layoutmsg, movewindowto l"
+      "$mod SHIFT, semicolon, layoutmsg, movewindowto u"
+      "$mod SHIFT, slash, layoutmsg, movewindowto d"
+      "$mod, mouse_down, layoutmsg, move +col"
+      "$mod, mouse_up, layoutmsg, move -col"
+      "$mod, c, layoutmsg, colresize +conf"
       
       # Audio/Mic muting
       ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
