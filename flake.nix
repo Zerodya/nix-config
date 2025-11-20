@@ -21,11 +21,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     
     # Hyprland-git
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
