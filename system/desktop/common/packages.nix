@@ -14,9 +14,8 @@
     ];
   };
 
-  # System packages
+  # Core system packages
   environment.systemPackages = with pkgs; [
-    neovim
     gnumake
     rustc
     cargo
