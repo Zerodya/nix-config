@@ -1,3 +1,5 @@
+{ pkgs, ...}:
+
 {
   imports = [
     #./gnome.nix
@@ -13,7 +15,7 @@
 
   # Enable screen sharing
   xdg.portal.enable = true;
-  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Disable Close/Minimize/Maximize buttons in GNOME
   programs.dconf = {
