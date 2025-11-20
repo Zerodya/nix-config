@@ -23,9 +23,6 @@
     }];
   };
 
-  # Wayland for Electron apps
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
   # System module for trash functionality
   services.gvfs.enable = true;
 

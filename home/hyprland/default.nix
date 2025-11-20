@@ -28,6 +28,9 @@
   home.file.".config/hypr/eva01/autorun.conf".source = ./eva01/autorun.conf;
   home.file.".config/hypr/eva02/autorun.conf".source = ./eva02/autorun.conf;
 
+  # Systemd import environment 
+  wayland.windowManager.hyprland.systemd.variables = ["--all"];
+
   # Plugins
   wayland.windowManager.hyprland.plugins = [
     pkgs.hyprlandPlugins.hyprscrolling
