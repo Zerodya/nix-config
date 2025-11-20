@@ -70,7 +70,7 @@
         fullscreen_on_one_column = false;
         explicit_column_widths = "0.5, 1.0";
         focus_fit_method = 1;
-        follow_focus = true;
+        follow_focus = false;
       };
     };
 
@@ -209,8 +209,8 @@
       "$mod SHIFT, comma, layoutmsg, movewindowto l"
       "$mod SHIFT, semicolon, layoutmsg, movewindowto u"
       "$mod SHIFT, slash, layoutmsg, movewindowto d"
-      "$mod, mouse_down, layoutmsg, move +col"
-      "$mod, mouse_up, layoutmsg, move -col"
+      "$mod, mouse_down, layoutmsg, move -col"
+      "$mod, mouse_up, layoutmsg, move +col"
       "$mod, c, layoutmsg, colresize +conf"
       
       # Audio/Mic muting
