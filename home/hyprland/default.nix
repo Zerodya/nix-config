@@ -66,11 +66,11 @@
 
     plugin = {
       hyprscrolling = {
-        column_width = 0.48 ;
+        column_width = 0.49 ;
         fullscreen_on_one_column = false;
-        explicit_column_widths = "0.5, 1.0";
+        explicit_column_widths = "0.49, 0.98";
         focus_fit_method = 1;
-        follow_focus = false;
+        follow_focus = true;
       };
     };
 
@@ -112,8 +112,7 @@
     };
 
     binds = {
-      allow_workspace_cycles = true;
-      scroll_event_delay = 0;
+      scroll_event_delay = 300;
     };
 
     misc = {
@@ -166,9 +165,11 @@
       "$mod, T, togglesplit,"
       
       # Cycle windows
-      "ALT, TAB, cyclenext,"
+      "ALT, TAB, layoutmsg, focus r" # Hyprscrolling
+      "ALT SHIFT, TAB, layoutmsg, focus l" # Hyprscrolling
+      #"ALT, TAB, cyclenext,"
+      #"ALT SHIFT, TAB, cyclenext, prev"
       "ALT, TAB, bringactivetotop,"
-      "ALT SHIFT, TAB, cyclenext, prev"
       "ALT SHIFT, TAB, bringactivetotop"
 
       # Move focus
@@ -209,8 +210,8 @@
       "$mod SHIFT, comma, layoutmsg, movewindowto l"
       "$mod SHIFT, semicolon, layoutmsg, movewindowto u"
       "$mod SHIFT, slash, layoutmsg, movewindowto d"
-      "$mod, mouse_down, layoutmsg, move -col"
-      "$mod, mouse_up, layoutmsg, move +col"
+      "$mod, mouse_down, layoutmsg, focus r"
+      "$mod, mouse_up, layoutmsg, focus l"
       "$mod, c, layoutmsg, colresize +conf"
       
       # Audio/Mic muting
