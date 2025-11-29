@@ -98,10 +98,11 @@
       bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
       animation = [
-        "windows, 1, 6, myBezier"
-        "windowsOut, 1, 6, default, popin 80%"
+        "windows, 1, 4, myBezier, popin 0%"
+        "windowsIn, 1, 4, myBezier, popin 0%"
+        "windowsOut, 1, 4, myBezier, slide bottom"
         "border, 1, 10, default"
-        "fade, 1, 3, default"
+        "fade, 1, 4, default"
         "workspaces, 1, 4, default, slidevert"
       ];
     };
