@@ -33,6 +33,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Noctalia Shell
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Chaotic repo (cachyos kernel, mesa-git, ...)
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 

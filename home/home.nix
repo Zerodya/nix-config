@@ -11,6 +11,7 @@
     # Environment
     ./caelestia-shell
     ./hyprland
+    #./noctalia-shell
     ./wallpapers
   ];
   

@@ -129,6 +129,15 @@
       key_press_enables_dpms = true;
     };
 
+    workspace = [
+      "1,persistent:true"
+      "2,persistent:true"
+      "3,persistent:true"
+      "4,persistent:true"
+      "5,persistent:true"
+      "6,persistent:true"
+    ];
+
     windowrulev2 = [
       # don't standby screen when fullscreen
       "idleinhibit fullscreen, class:.*"
@@ -150,9 +159,11 @@
       "$mod, P, exec, solanum"
       "$mod, O, exec, blanket"
 
-      # Caelestia - use direct IPC commands
+      # Shell IPC commands
       "$mod, D, exec, caelestia-shell ipc call drawers toggle launcher"
       "$mod, E, exec, caelestia-shell ipc call drawers toggle session"
+      #"$mod, D, exec, noctalia-shell ipc call launcher toggle"
+      #"$mod, E, exec, noctalia-shell ipc call sessionMenu toggle"
 
       # Window operations
       "$mod, Q, killactive,"
@@ -240,8 +251,8 @@
 
     binde = [ # will repeat when held
       # Volume control
-      ", XF86AudioRaiseVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ +5%"
-      ", XF86AudioLowerVolume,exec,pactl set-sink-volume @DEFAULT_SINK@ -5%"
+      ", XF86AudioRaiseVolume,exec,noctalia-shell ipc call volume increase"
+      ", XF86AudioLowerVolume,exec,noctalia-shell ipc call volume decrease"
     ];
 
     bindl = [ # works also when lockscreen is active
