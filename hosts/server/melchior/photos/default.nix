@@ -1,15 +1,6 @@
-{ photos-server, username, ... }:
+{ username, ... }:
 
 {
-  imports = [
-      ./hardware-configuration.nix
-
-      # Server
-      ../../../system/server/common/default.nix
-  ];
-
-  networking.hostName = photos-server;
-
   # Immich photos
   services.immich = {
     enable = true;
@@ -26,7 +17,7 @@
         # What to back up
         paths = [ "/var/lib/immich" ];
         # Where to store the Borg repository
-        repo = "/mnt/backups/105/immich";
+        repo = "/mnt/backups/immich";
 
         encryption = {
           mode = "repokey-blake2";

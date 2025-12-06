@@ -1,4 +1,4 @@
-{ misc-server, ... }:
+{ thinkcentre, ... }:
 
 {
   imports = [
@@ -8,6 +8,6 @@
       ../../../system/server/common/default.nix
   ];
 
-  networking.hostName = misc-server;
+  networking.hostName = thinkcentre;
 
 }

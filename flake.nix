@@ -67,12 +67,8 @@
     desktop = "eva01";
     laptop = "eva02";
 
-    media-server = "media";
-    photos-server = "photos";
-    misc-server = "misc";
-    public-server = "public";
-    music-server = "music";
-    minecraft-server = "minecraft";
+    pi4 = "casper";
+    thinkcentre = "melchior";
   in 
   
   {
@@ -82,20 +78,20 @@
         specialArgs = {
           inherit inputs;
           inherit username;
-          inherit desktop; # pass desktop hostname
+          inherit desktop; # pass hostname
         };
         system = "x86_64-linux";
 
         modules = [
           ./system/core/default.nix # Core config
-
           ./system/desktop/common/default.nix # Desktop common config
-          ./hosts/desktop/eva01/default.nix # Host specific system config
+
+          ./hosts/desktop/${desktop}/default.nix # Host specific system config
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/desktop/eva01/home.nix; # Host specific home config
+            home-manager.users.${username} = import ./hosts/desktop/${desktop}/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -116,20 +112,20 @@
         specialArgs = {
           inherit inputs;
           inherit username;
-          inherit laptop; # pass laptop hostname
+          inherit laptop; # pass hostname
         };
         system = "x86_64-linux";
 
         modules = [
           ./system/core/default.nix # Core config
-
           ./system/desktop/common/default.nix # Desktop common config
-          ./hosts/desktop/eva02/default.nix # Host specific system config
+
+          ./hosts/desktop/${laptop}/default.nix # Host specific system config
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/desktop/eva02/home.nix; # Host specific home config
+            home-manager.users.${username} = import ./hosts/desktop/${laptop}/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -145,25 +141,25 @@
       };
 
 
-      # ~~ Server | Media streaming with Jellyfin ~~
-      ${media-server} = nixpkgs.lib.nixosSystem {
+      # ~~ Server | Raspberry Pi 4B ~~
+      ${pi4} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           inherit username;
-          inherit media-server;
+          inherit pi4; # pass hostname
         };
         system = "x86_64-linux";
 
         modules = [
           ./system/core/default.nix # Core config
-
           ./system/server/common/default.nix # Server common config
-          ./hosts/server/media/default.nix # Host specific system config
+
+          ./hosts/server/${pi4}/default.nix # Host specific system config
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/media/home.nix;  # Host specific home config
+            home-manager.users.${username} = import ./hosts/server/${pi4}/home.nix;  # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;
@@ -172,133 +168,25 @@
         ];
       };
 
-      # ~~ Server | Photos library with Immich ~~
-      ${photos-server} = nixpkgs.lib.nixosSystem {
+      # ~~ Server | ThinkCentre M720q ~~
+      ${thinkcentre} = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
           inherit username;
-          inherit photos-server;
+          inherit thinkcentre; # pass hostname
         };
         system = "x86_64-linux";
 
         modules = [
           ./system/core/default.nix # Core config
-
           ./system/server/common/default.nix # Server common config
-          ./hosts/server/photos/default.nix # Host specific system config
+
+          ./hosts/server/${thinkcentre}/default.nix # Host specific system config
 
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/photos/home.nix; # Host specific home config
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit username;
-            };
-          }
-        ];
-      };
-
-      # ~~ Server | Miscellaneous services (Homepage, Pi-Hole, etc.) ~~
-      ${misc-server} = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit misc-server;
-        };
-        system = "x86_64-linux";
-
-        modules = [
-          ./system/core/default.nix # Core config
-
-          ./system/server/common/default.nix # Server common config
-          ./hosts/server/misc/default.nix # Host specific system config
-
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/misc/home.nix; # Host specific home config
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit username;
-            };
-          }
-        ];
-      };
-
-      # ~~ Server | Public services (SearXNG, Piped, etc.) ~~
-      ${public-server} = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit public-server;
-        };
-        system = "x86_64-linux";
-
-        modules = [
-          ./system/core/default.nix # Core config
-
-          ./system/server/common/default.nix # Server common config
-          ./hosts/server/public/default.nix # Host specific system config
-
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/public/home.nix; # Host specific home config
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit username;
-            };
-          }
-        ];
-      };
-
-      # ~~ Server | Music streaming with Navidrome ~~
-      ${music-server} = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit music-server;
-        };
-        system = "x86_64-linux";
-
-        modules = [
-          ./system/core/default.nix # Core config
-
-          ./system/server/common/default.nix # Server common config
-          ./hosts/server/music/default.nix # Host specific system config
-
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/music/home.nix; # Host specific home config
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
-              inherit username;
-            };
-          }
-        ];
-      };
-
-      # ~~ Server | Minecraft ~~
-      ${minecraft-server} = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          inherit username;
-          inherit minecraft-server;
-        };
-        system = "x86_64-linux";
-
-        modules = [
-          ./system/core/default.nix # Core config
-
-          ./system/server/common/default.nix # Server common config
-          ./hosts/server/minecraft/default.nix # Host specific system config
-
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${username} = import ./hosts/server/minecraft/home.nix; # Host specific home config
+            home-manager.users.${username} = import ./hosts/server/${thinkcentre}/home.nix; # Host specific home config
             home-manager.extraSpecialArgs = {
               inherit inputs;
               inherit username;

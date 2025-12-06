@@ -58,21 +58,4 @@
     #docker-compose # start group of containers for dev
     podman-compose  # start group of containers for dev
   ];
-
-  # --- Proxmox LXC stuff below ---
-
-  # Supress systemd units that don't work because of LXC
-  systemd.suppressedSystemUnits = [
-    "dev-mqueue.mount"
-    "sys-kernel-debug.mount"
-    "sys-fs-fuse-connections.mount"
-  ];
-
-  # start tty0 on serial console
-  systemd.services."getty@tty1" = {
-    enable = lib.mkForce true;
-    wantedBy = [ "getty.target" ]; # to start at boot
-    serviceConfig.Restart = "always"; # restart when session is closed
-  };
-
 }

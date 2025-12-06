@@ -1,15 +1,4 @@
-{ minecraft-server, ... }:
-
 {
-  imports = [
-      ./hardware-configuration.nix
-
-      # Server
-      ../../../system/server/common/default.nix
-  ];
-
-  networking.hostName = minecraft-server;
-
   services.minecraft-server = {
     enable = true;
     eula = true;
