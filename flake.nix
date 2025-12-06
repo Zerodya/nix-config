@@ -165,6 +165,8 @@
               inherit username;
             };
           }
+
+          determinate.nixosModules.default # Determinate Systems Nix
         ];
       };
 
@@ -192,6 +194,8 @@
               inherit username;
             };
           }
+
+          determinate.nixosModules.default # Determinate Systems Nix
         ];
       };
 
