@@ -45,6 +45,7 @@
     btop
     wget
     git
+    net-tools
     psmisc # killall/pstree/...
     pciutils # lspci
     usbutils # lsusb
@@ -76,7 +77,7 @@
 
   # SSH
   services.openssh = {
-    enable = true;
+    enable = false;
     # settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
     #settings.PermitRootLogin = "yes";
