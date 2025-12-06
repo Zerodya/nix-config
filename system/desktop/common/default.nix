@@ -22,12 +22,6 @@
     ];
   };
 
-  # Systemd-boot
-  boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-  };
-
   # Nix Store
   nix.gc = {
     automatic = true;

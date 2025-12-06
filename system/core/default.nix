@@ -27,6 +27,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Systemd-boot
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
