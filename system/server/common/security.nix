@@ -29,4 +29,8 @@
     '';
   };
 
+  users.users.root.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBtTV2MdD+mP0Ukk98OKRyFWPL4kzkH4mUtOwqUUZ277 alpha@eva01"
+  ];
+
 }
