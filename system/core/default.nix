@@ -75,14 +75,6 @@
   # Fish shell
   programs.fish.enable = true;
 
-  # SSH
-  services.openssh = {
-    enable = false;
-    # settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-    #settings.PermitRootLogin = "yes";
-  };
-
   # Do not change this
   system.stateVersion = "23.11";
 }

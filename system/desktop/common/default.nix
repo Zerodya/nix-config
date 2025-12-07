@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, username, thinkcentre, ... }:
 
 {
   imports = [
@@ -41,5 +41,15 @@
 
   # Enable SSD TRIM timer https://www.reddit.com/r/NixOS/comments/rbzhb1/if_you_have_a_ssd_dont_forget_to_enable_fstrim/
   services.fstrim.enable = true;
+
+  # SSH aliases for my servers
+  programs.ssh = {
+    extraConfig = ''
+      Host ${thinkcentre}
+        HostName 192.168.1.130
+        Port 5432
+        User ${username}
+    '';
+  };
 }
 
