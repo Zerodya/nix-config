@@ -6,6 +6,11 @@
 
       # Server
       ../../../system/server/common/default.nix
+
+      # Modules
+      #./minecraft/default.nix
+      ./music/default.nix
+      #./photos/default.nix
   ];
 
   networking.hostName = thinkcentre;

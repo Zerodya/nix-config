@@ -1,3 +1,4 @@
-home/ags/.env
-hosts/server/photos/borg.key
-hosts/server/photos/immich.env
+hosts/server/melchior/music/navidrome.env
+hosts/server/melchior/music/slskd.env
+hosts/server/melchior/photos/borg.key
+hosts/server/melchior/photos/immich.env
