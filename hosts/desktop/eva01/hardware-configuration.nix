@@ -12,25 +12,25 @@
 
   fileSystems = {
     "/" = { 
-	device = "/dev/disk/by-uuid/e55bdb6d-87ab-43d3-846b-bddb9543874f";
-        fsType = "btrfs";
-        options = [ "subvol=root" "compress=zstd" "noatime" ];
-      };
+	    device = "/dev/disk/by-uuid/e55bdb6d-87ab-43d3-846b-bddb9543874f";
+      fsType = "btrfs";
+      options = [ "subvol=root" "compress=zstd" "noatime" ];
+    };
     "/home" = { 
-	device = "/dev/disk/by-uuid/e55bdb6d-87ab-43d3-846b-bddb9543874f";
-        fsType = "btrfs";
-        options = [ "subvol=home" "compress=zstd" "noatime"];
-      };
+	    device = "/dev/disk/by-uuid/e55bdb6d-87ab-43d3-846b-bddb9543874f";
+      fsType = "btrfs";
+      options = [ "subvol=home" "compress=zstd" "noatime"];
+    };
     "/nix" = { 
-	device = "/dev/disk/by-uuid/e55bdb6d-87ab-43d3-846b-bddb9543874f";
-        fsType = "btrfs";
-        options = [ "subvol=nix" "compress=zstd" "noatime" ];
-      };
+	    device = "/dev/disk/by-uuid/e55bdb6d-87ab-43d3-846b-bddb9543874f";
+      fsType = "btrfs";
+      options = [ "subvol=nix" "compress=zstd" "noatime" ];
+    };
     "/boot" = { 
-        device = "/dev/disk/by-uuid/E222-00B2";
-        fsType = "vfat";
-        options = [ "fmask=0022" "dmask=0022" ];
-      };
+      device = "/dev/disk/by-uuid/E222-00B2";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
     # HDD Storage
     "/mnt/linuxdisk" = {
