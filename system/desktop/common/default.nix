@@ -1,4 +1,4 @@
-{ pkgs, username, thinkcentre, ... }:
+{ username, ... }:
 
 {
   imports = [
@@ -45,7 +45,7 @@
   # SSH aliases for my servers
   programs.ssh = {
     extraConfig = ''
-      Host ${thinkcentre}
+      Host melchior
         HostName 192.168.1.130
         Port 5432
         User ${username}
