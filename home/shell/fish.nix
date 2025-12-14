@@ -46,6 +46,43 @@
         '';
       };
 
+      eva-remote-rebuild = {
+        # Assumes flake is located in ~/nix-config/
+        body = ''
+          if test (count $argv) -lt 2
+              echo "Usage: eva-remote-rebuild <nixos-rebuild-arg> <system-name> [--locally] [custom arguments...]"
+              return 1
+          end
+
+          set rebuild_arg $argv[1]
+          set system_name $argv[2]
+
+          # Parse remaining arguments, detect --locally, and collect custom args.
+          set locally 0
+          set custom_args
+          if test (count $argv) -gt 2
+              for a in $argv[3..-1]
+                  if test "$a" = "--locally"
+                      set locally 1
+                  else
+                      set custom_args $custom_args $a
+                  end
+              end
+          end
+
+          # Build the command: include --build-host $system_name unless --locally was requested.
+          if test $locally -eq 1
+              nixos-rebuild $rebuild_arg -S --flake "/home/${username}/nix-config/#$system_name" --target-host $system_name $custom_args -L &| nom
+          else
+              nixos-rebuild $rebuild_arg -S --flake "/home/${username}/nix-config/#$system_name" --target-host $system_name --build-host $system_name $custom_args -L &| nom
+          end
+
+          # Print newline, then show the diff on the target host (where profiles changed).
+          and printf '\\n'
+          and ssh $system_name -- 'nvd diff $(ls -d1v /nix/var/nix/profiles/system-*-link | tail -n 2)'
+        '';
+      };
+
       eva-cleanup = {
         body = ''
           # Cleanup nix-flatpak
