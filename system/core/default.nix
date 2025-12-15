@@ -51,6 +51,7 @@
     nvd # Package version diff
     nix-tree # Browse /nix/store
     lf # CLI file manager
+    sops # Secret management
   ];
 
   # Allow closed source packages
