@@ -1,4 +1,4 @@
-{ lib, username, ...}:
+{ lib, config, username, ...}:
 let 
   music-dir = "/mnt/storage/music";
 in 
@@ -22,7 +22,7 @@ in
       MusicFolder = "${music-dir}";
     };
 
-    environmentFile = "/home/${username}/nix-config/hosts/server/melchior/music/navidrome.env";
+    environmentFile = config.sops.templates."navidrome.env".path;
   };
 
   services.slskd = {
@@ -39,7 +39,7 @@ in
       shares.directories = [ "${music-dir}" ];
     };
 
-    environmentFile = "/home/${username}/nix-config/hosts/server/melchior/music/slskd.env";
+    environmentFile = config.sops.templates."slskd.env".path;
   };
   systemd.services.slskd.serviceConfig = {
     # Allow access to music directory

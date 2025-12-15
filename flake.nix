@@ -19,6 +19,9 @@
 
     # Hardware modules
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    # Secret management
+    sops-nix.url = "github:Mic92/sops-nix";
     
     # Hyprland-git
     hyprland.url = "github:hyprwm/Hyprland";
@@ -55,6 +58,7 @@
     determinate,
     nur,
     nixos-hardware,
+    sops-nix, 
     chaotic,
     stylix,
     flatpaks,
@@ -167,6 +171,7 @@
           }
 
           determinate.nixosModules.default # Determinate Systems Nix
+          sops-nix.nixosModules.sops # Secret management
         ];
       };
 
@@ -196,6 +201,7 @@
           }
 
           determinate.nixosModules.default # Determinate Systems Nix
+          sops-nix.nixosModules.sops # Secret management
         ];
       };
 

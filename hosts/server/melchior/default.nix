@@ -7,6 +7,9 @@
       # Server
       ../../../system/server/common/default.nix
 
+      # Secrets
+      ./secrets.nix
+
       # Modules
       #./minecraft/default.nix
       ./music/default.nix
