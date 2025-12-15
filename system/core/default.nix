@@ -34,7 +34,6 @@
 
   # Essential packages
   environment.systemPackages = with pkgs; [
-    vim
     btop
     wget
     git
@@ -53,6 +52,12 @@
     lf # CLI file manager
     sops # Secret management
   ];
+
+  # Vim
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Allow closed source packages
   nixpkgs.config.allowUnfree = true;
