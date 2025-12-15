@@ -7,6 +7,13 @@
     #./plasma.nix
   ];
 
+  # XServer
+  services.xserver = {
+    enable = true;
+    xkb.layout = "us";
+    xkb.variant = "";
+  };
+
   # Display Manager
   services.displayManager.gdm.enable = true;
 

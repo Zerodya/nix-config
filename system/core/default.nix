@@ -4,13 +4,6 @@
   # Experimental
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # XServer
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
-    xkb.variant = "";
-  };
-
   # Time and Locale
   time.timeZone = "Europe/Rome";
   time.hardwareClockInLocalTime = true;
