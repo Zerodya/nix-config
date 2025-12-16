@@ -1,0 +1,28 @@
+directory: /mnt/storage/music
+
+import:
+    move: yes
+    copy: no
+    write: yes
+    autotag: yes
+    timid: no
+    incremental: yes
+    quiet_fallback: asis
+paths:
+    default: $albumartist/$original_year - $album%aunique{}/$track - $title
+
+ui:
+    color: yes
+
+plugins: fetchart embedart lastgenre lyrics
+
+lastgenre:
+    source: album
+    whitelist: no
+    auto: yes
+
+lyrics:
+    force: no
+    fallback: ''
+    sources: lrclib
+    synced: yes
