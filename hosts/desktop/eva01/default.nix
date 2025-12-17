@@ -11,7 +11,7 @@
       ../../../system/modules/gaming.nix 
       ../../../system/modules/rt-audio.nix
       #../../../system/modules/ollama-rocm.nix
-      ../../../system/modules/android-studio.nix
+      #../../../system/modules/android-studio.nix
   ];
 
   networking.hostName = desktop;
