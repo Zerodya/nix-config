@@ -8,6 +8,7 @@
   
   # Extra packages
   home.packages = with pkgs; [
+    hyprpolkitagent # Authentication
     hypridle # Idle daemon
     hyprlock # Lock screen
     hyprshot # Screenshot tool
