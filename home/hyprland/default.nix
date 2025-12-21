@@ -1,6 +1,10 @@
-{ pkgs, ...}: {
+{ pkgs, inputs, ...}: {
 
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true; 
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
   
   # Extra packages
   home.packages = with pkgs; [
@@ -33,7 +37,7 @@
 
   # Plugins
   wayland.windowManager.hyprland.plugins = [
-    pkgs.hyprlandPlugins.hyprscrolling
+    inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
   ];
 
   # Main configuration
