@@ -18,7 +18,7 @@
 
     # Tearing
     #general:allow_tearing = true 
-    #windowrulev2 = immediate, class:^(MainThrd|deadlock)(.*)$
+    #windowrule = match:class ^(MainThrd|deadlock)(.*)$, immediate yes
 
     # Freeze or resume a program/game process
     bind = , PAUSE, exec, hyprfreeze -a

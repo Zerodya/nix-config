@@ -143,14 +143,14 @@
       "6,persistent:true"
     ];
 
-    windowrulev2 = [
+    windowrule = [
       # don't standby screen when fullscreen
-      "idleinhibit fullscreen, class:.*"
+      "match:class .*, idle_inhibit fullscreen"
       # clipse window size
-      "float, class:(clipse)"
-      "size 622 652, class:(clipse)"
+      "match:class clipse, float yes"
+      "match:class clipse, size 622 652"
       # Reaper in w6
-      "workspace 6,class:^REAPER$"
+      "match:class ^REAPER$, workspace 6"
     ];
 
     "$mod" = "SUPER";
