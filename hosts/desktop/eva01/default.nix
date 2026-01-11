@@ -10,7 +10,7 @@
       # Modules
       ../../../system/modules/gaming.nix 
       ../../../system/modules/rt-audio.nix
-      #../../../system/modules/ollama-rocm.nix
+      ../../../system/modules/ollama-rocm.nix
       #../../../system/modules/android-studio.nix
   ];
 
@@ -103,7 +103,7 @@
 
   # Stylix Color Scheme
   stylix = {
-    image = ../../../home/wallpapers/persona3.png;
+    image = ../../../home/wallpapers/glados.png;
     polarity = "dark";
 
     base16Scheme ={ # carbonfox theme
