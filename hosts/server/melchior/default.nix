@@ -7,8 +7,8 @@
       # Server
       ../../../system/server/common/default.nix
 
-      # Secrets
-      ./secrets.nix
+      # Sops-nix
+      ./sops.nix
 
       # Modules
       #./minecraft/default.nix
