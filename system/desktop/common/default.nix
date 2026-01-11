@@ -46,9 +46,11 @@
   programs.ssh = {
     extraConfig = ''
       Host melchior
-        HostName 192.168.1.130
+        HostName 192.168.1.201
         Port 5432
         User ${username}
+        IdentityFile ~/.ssh/id_melchior
+        IdentitiesOnly yes
     '';
   };
 }
