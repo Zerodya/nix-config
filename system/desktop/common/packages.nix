@@ -55,7 +55,6 @@
       terminal = "kitty";
     };
     kdeconnect.enable = true;
-    adb.enable = true;
   };
 
   # Run AppImages 
