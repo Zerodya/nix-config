@@ -21,7 +21,7 @@
     # Media
     spotify
     feishin
-    youtube-music
+    pear-desktop
     freetube
     mpv
     vlc
