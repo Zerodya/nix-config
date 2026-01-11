@@ -26,8 +26,7 @@
     loader.efi.canTouchEfiVariables = true;
   };
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # DNS nameservers
   networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
 
   # Give users access to the Nix daemon (fixes "read-only file system" error when using nix-shell as unprivileged user)

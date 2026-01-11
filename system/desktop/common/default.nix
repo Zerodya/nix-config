@@ -32,6 +32,9 @@
     automatic = true;
     dates = [ "12:30" ];
   };
+
+  # NetworkManager
+  networking.networkmanager.enable = true;
   
   # Zram swap
   zramSwap = {
