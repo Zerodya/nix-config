@@ -1,6 +1,6 @@
 keys:
   - &eva01 age1z6qqjdrpf7ysucknfsrjjxva40tkt9jqs95la078e9a0y6s85sxstzdw06
-  - &melchior age16h64a5fajufwytt659q70e0l0e0ywryz6lfs86qauwq8z8w6egxsneucex
+  - &melchior age1hawyc7zemf2j4gzr7t5vahjdx0jcznec6lr5g490vrmhw45dyufsvkrtat
 creation_rules:
   - path_regex:  secrets/.*\.yaml$
     key_groups:
