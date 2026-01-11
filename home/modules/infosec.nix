@@ -7,7 +7,7 @@
     # Binary
     gdb
     ghidra-bin
-    wxhexeditor
+    #wxhexeditor
     okteta
 
     # Bruteforcing
