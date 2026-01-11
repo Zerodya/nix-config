@@ -24,6 +24,7 @@
     pear-desktop
     freetube
     mpv
+    celluloid
     vlc
 
     # Media Editing
