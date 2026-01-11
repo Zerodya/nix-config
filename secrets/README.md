@@ -1,12 +1,12 @@
 # Secrets
-This directory and its subdirectories (as defined in `.sops.yaml`) contain secrets that will be decrypted by the hosts that require them.
+This directory and its subdirectories (as defined in [`.sops.yaml`](../.sops.yaml)) contain secrets that will be decrypted by the hosts that require them.
 
 ### Location of sops-nix configs
-Actual sops-nix configuration is defined at the root directory of **each host**, for example:
+Actual sops-nix configuration is defined at the root directory of **each host**, in `sops.nix`. For example:
 - `hosts/server/HOSTNAME/sops.nix`
 
-### Location of secrets decryption
-Secrets are decrypted in a different `secrets.nix` file next to the service that needs them, for example: 
+### Where the decryption happens
+Secrets are decrypted in a `secrets.nix` file next to the service that needs them. For example: 
 - `hosts/server/HOSTNAME/SERVICE/secrets.nix` should decrypt secrets required by services defined in `hosts/server/HOSTNAME/SERVICE/default.nix`
 
 ### How to add host keys
