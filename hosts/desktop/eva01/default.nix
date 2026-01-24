@@ -19,7 +19,7 @@
   # Kernel
   nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlay ];
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
     kernelParams = [ 
       "loglevel=3" 
