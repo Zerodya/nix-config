@@ -7,7 +7,4 @@
     extraGroups = [ "networkmanager" "wheel" "adbusers" "libvirtd" ];
     shell = pkgs.fish;
   };
-  users.groups = {
-    #users.gid = lib.mkForce 1000;
-  };
 }
