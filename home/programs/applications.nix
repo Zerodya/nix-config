@@ -52,9 +52,10 @@
     # Music production
     reaper
     tonelib-gfx
-    #yabridge
-    #yabridgectl
+    yabridge
+    yabridgectl
     neural-amp-modeler-lv2
+    x42-avldrums
 
     # Audio tools
     pwvucontrol
