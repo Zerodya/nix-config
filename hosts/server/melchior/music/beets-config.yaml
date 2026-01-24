@@ -11,10 +11,13 @@ import:
 paths:
     default: $albumartist/$original_year - $album%aunique{}/$track - $title
 
+match:
+    strong_rec_thresh: 0.10
+
 ui:
     color: yes
 
-plugins: fetchart embedart lastgenre lyrics
+plugins: musicbrainz fromfilename fetchart lastgenre lyrics
 
 lastgenre:
     source: album

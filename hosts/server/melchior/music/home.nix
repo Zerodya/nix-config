@@ -2,12 +2,10 @@
 
 {
   home.packages = with pkgs; [
-    beets
     flac
   ];
 
-  # Beets configuration
-  home.file.".config/beets/config.yaml".source = ./beets-config.yaml;
+  # TODO translate script
 
   # Functions
   programs.fish = {
