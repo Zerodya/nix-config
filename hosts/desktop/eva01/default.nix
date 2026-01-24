@@ -1,4 +1,4 @@
-{ pkgs, desktop, config, ... }:
+{ pkgs, desktop, config, inputs, ... }:
 
 {
   imports = [
@@ -16,10 +16,10 @@
 
   networking.hostName = desktop;
 
-  # Bootloader
+  # Kernel
+  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlay ];
   boot = {
-    # Kernel
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
     extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
     kernelParams = [ 
       "loglevel=3" 

@@ -13,12 +13,15 @@
     ./virtualization.nix
   ];
 
-  # Cachix cache
+  # Cache
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
+    substituters = [
+      "https://hyprland.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
+    ];
     trusted-public-keys = [
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 

@@ -42,8 +42,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Chaotic repo (cachyos kernel, mesa-git, ...)
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    # CachyOS kernel
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
     # Base16 system-wide colorscheming
     stylix.url = "github:danth/stylix";
@@ -58,8 +58,8 @@
     determinate,
     nur,
     nixos-hardware,
-    sops-nix, 
-    chaotic,
+    sops-nix,
+    nix-cachyos-kernel,
     stylix,
     flatpaks,
     ...
@@ -104,7 +104,6 @@
           
           determinate.nixosModules.default # Determinate Systems Nix
           nur.modules.nixos.default # Nix User Repository
-          chaotic.nixosModules.default # Chaotic repo
           stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.default # Declarative Flatpak
         ];

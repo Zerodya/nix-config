@@ -1,11 +1,6 @@
 {pkgs, ...}:
 
 {
-  chaotic = {
-    #mesa-git.enable = true; # Causing crashes during nixos-rebuild 
-    #hdr.enable = true;
-  };
-
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
