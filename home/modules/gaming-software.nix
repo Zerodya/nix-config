@@ -10,11 +10,12 @@
     mangohud
     lsfg-vk
     lsfg-vk-ui
+    goverlay
 
     # Wine/Proton
     winetricks
     protontricks
-    protonup-qt
+    protonplus
 
     # DirectX
     directx-headers
