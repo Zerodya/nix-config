@@ -6,7 +6,8 @@
     fastfetch
 
     # Nix language server
-    nixd
+    nil
+    nixfmt
     
     # Run executable in FHS env.
     steam-run
