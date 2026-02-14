@@ -10,6 +10,9 @@
       # Sops-nix
       ./sops.nix
 
+      # Cloudflare
+      ./cloudflare.nix
+
       # Modules
       #./minecraft/default.nix
       ./music/default.nix

@@ -1,7 +1,7 @@
 { config, ... }:
 
 { 
-  # music/navidrome
+  # navidrome
   sops.secrets = {
     "navidrome/lastfm/apikey" = {
       sopsFile = ../../../../secrets/music/navidrome.yaml;
@@ -21,7 +21,7 @@
     };
   };
   sops.templates."navidrome.env" = {
-    owner = "navidrome";
+    owner = config.services.navidrome.user;
     content = ''
       ND_LASTFM_APIKEY=${config.sops.placeholder."navidrome/lastfm/apikey"}
       ND_LASTFM_SECRET=${config.sops.placeholder."navidrome/lastfm/secret"}
@@ -30,7 +30,7 @@
     '';
   };
 
-  # music/slskd
+  # slskd
   sops.secrets = {
     "slskd/soulseek/user" = {
       sopsFile = ../../../../secrets/music/slskd.yaml;
@@ -50,13 +50,20 @@
     };
   };
   sops.templates."slskd.env" = {
-    owner = "slskd";
+    owner = config.services.slskd.user;
     content = ''
       SLSKD_SLSK_USERNAME=${config.sops.placeholder."slskd/soulseek/user"}
       SLSKD_SLSK_PASSWORD=${config.sops.placeholder."slskd/soulseek/pass"}
       SLSKD_USERNAME=${config.sops.placeholder."slskd/webui/user"}
       SLSKD_PASSWORD=${config.sops.placeholder."slskd/webui/pass"}
     '';
+  };
+
+  # cloudflared
+  sops.secrets.cloudflared-music = {
+    sopsFile = ../../../../secrets/music/cloudflared-music.yaml;
+    key = "cloudflared-music";  
+    mode = "0400";
   };
 
 }
