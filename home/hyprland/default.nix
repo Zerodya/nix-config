@@ -147,10 +147,13 @@
       # don't standby screen when fullscreen
       "match:class .*, idle_inhibit fullscreen"
       # clipse window size
-      "match:class clipse, float yes"
+      "match:class clipse, float on"
       "match:class clipse, size 622 652"
       # Reaper in w6
       "match:class ^REAPER$, workspace 6"
+      # Float popup windows
+      "match:class ^$, match:title ^Select what to share$, float on"
+      "match:class steam, match:title negative:^Steam$, float on"
     ];
 
     "$mod" = "SUPER";
