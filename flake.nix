@@ -73,6 +73,8 @@
 
     pi4 = "casper";
     thinkcentre = "melchior";
+
+    recovery-iso = "maya";
   in 
   
   {
@@ -201,6 +203,15 @@
 
           determinate.nixosModules.default # Determinate Systems Nix
           sops-nix.nixosModules.sops # Secret management
+        ];
+      };
+
+      # ~~ Recovery ISO ~~
+      ${recovery-iso} = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+          ./hosts/other/maya/default.nix
         ];
       };
 

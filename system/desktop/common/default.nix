@@ -57,6 +57,13 @@
         User ${username}
         IdentityFile ~/.ssh/id_melchior
         IdentitiesOnly yes
+
+      Host maya
+        HostName 192.168.1.250
+        Port 22
+        User root
+        IdentityFile ~/.ssh/id_maya
+        IdentitiesOnly yes
     '';
   };
 }
