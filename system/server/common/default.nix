@@ -12,7 +12,7 @@
   nix.gc = {
     automatic = true;
     dates = "03:00";
-    options = "--delete-older-than 4d";
+    options = "--delete-older-than 30d";
   };
 
   # Optimize Nix Store
