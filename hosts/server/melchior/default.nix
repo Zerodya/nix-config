@@ -7,13 +7,12 @@
       # Server
       ../../../system/server/common/default.nix
 
-      # Sops-nix
+      # Configuration
+      ./cloudflare.nix
+      ./impermanence.nix
       ./sops.nix
 
-      # Cloudflare
-      ./cloudflare.nix
-
-      # Modules
+      # Services
       #./minecraft/default.nix
       ./music/default.nix
       #./photos/default.nix

@@ -20,6 +20,9 @@
     # Hardware modules
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # Impermanence
+    impermanence.url = "github:nix-community/impermanence";
+
     # Secret management
     sops-nix.url = "github:Mic92/sops-nix";
     
@@ -58,6 +61,7 @@
     determinate,
     nur,
     nixos-hardware,
+    impermanence,
     sops-nix,
     nix-cachyos-kernel,
     stylix,
@@ -202,6 +206,7 @@
           }
 
           determinate.nixosModules.default # Determinate Systems Nix
+          impermanence.nixosModules.impermanence # Impermanence
           sops-nix.nixosModules.sops # Secret management
         ];
       };
