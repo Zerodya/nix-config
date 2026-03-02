@@ -37,8 +37,8 @@
     nodejs_22
     unzip
     xdotool
-    xorg.xprop
-    xorg.xwininfo
+    xprop
+    xwininfo
     yad
     socat
     slurp
