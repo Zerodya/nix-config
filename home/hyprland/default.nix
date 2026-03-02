@@ -37,9 +37,7 @@
   wayland.windowManager.hyprland.systemd.variables = ["--all"];
 
   # Plugins
-  wayland.windowManager.hyprland.plugins = [
-    inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
-  ];
+  wayland.windowManager.hyprland.plugins = [ ];
 
   # Main configuration
   wayland.windowManager.hyprland.settings = {
@@ -67,16 +65,6 @@
       #"col.inactive_border" = "rgba(0c0e0faa)"; ## set by Stylix
 
       layout = "scrolling";
-    };
-
-    plugin = {
-      hyprscrolling = {
-        column_width = 0.49 ;
-        fullscreen_on_one_column = false;
-        explicit_column_widths = "0.49, 0.98";
-        focus_fit_method = 1;
-        follow_focus = true;
-      };
     };
 
     decoration = {
@@ -115,6 +103,14 @@
     dwindle = {
       pseudotile = true;
       preserve_split = true;
+    };
+
+    scrolling = {
+      column_width = 0.49 ;
+      fullscreen_on_one_column = false;
+      explicit_column_widths = "0.49, 0.98";
+      focus_fit_method = 1;
+      follow_focus = true;
     };
 
     binds = {
@@ -185,24 +181,19 @@
       "$mod, T, togglesplit,"
       
       # Cycle windows
-      "ALT, TAB, layoutmsg, focus r" # Hyprscrolling
-      "ALT SHIFT, TAB, layoutmsg, focus l" # Hyprscrolling
-      #"ALT, TAB, cyclenext,"
-      #"ALT SHIFT, TAB, cyclenext, prev"
+      "ALT, TAB, cyclenext,"
+      "ALT SHIFT, TAB, cyclenext, prev"
       "ALT, TAB, bringactivetotop,"
       "ALT SHIFT, TAB, bringactivetotop"
 
-      # Move focus
-      "$mod, H, movefocus, l"
-      "$mod, L, movefocus, r"
-      "$mod, K, movefocus, u"
-      "$mod, J, movefocus, d"
-
-      # Move window
-      "$mod SHIFT, H, movewindow, l"
-      "$mod SHIFT, L, movewindow, r"
-      "$mod SHIFT, K, movewindow, u"
-      "$mod SHIFT, J, movewindow, d"
+      # Scrolling
+      "$mod, Z, layoutmsg, move +col"
+      "$mod, less, layoutmsg, move -col"
+      "$mod SHIFT, Z, layoutmsg, movewindowto r"
+      "$mod SHIFT, less, layoutmsg, movewindowto l"
+      "$mod, mouse_down, layoutmsg, focus r"
+      "$mod, mouse_up, layoutmsg, focus l"
+      "$mod, c, layoutmsg, colresize +conf"
 
       # Switch workspaces with mod + [0-6]
       "$mod, 1, workspace, 1"
@@ -222,17 +213,6 @@
 
       # Workspace back and forth
       "$mod, TAB, workspace, previous"
-
-      # Hyprscrolling
-      "$mod, period, layoutmsg, move +col"
-      "$mod, comma, layoutmsg, move -col"
-      "$mod SHIFT, period, layoutmsg, movewindowto r"
-      "$mod SHIFT, comma, layoutmsg, movewindowto l"
-      "$mod SHIFT, semicolon, layoutmsg, movewindowto u"
-      "$mod SHIFT, slash, layoutmsg, movewindowto d"
-      "$mod, mouse_down, layoutmsg, focus r"
-      "$mod, mouse_up, layoutmsg, focus l"
-      "$mod, c, layoutmsg, colresize +conf"
       
       # Audio/Mic muting
       ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
