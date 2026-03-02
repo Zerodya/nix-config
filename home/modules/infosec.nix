@@ -8,7 +8,7 @@
     gdb
     ghidra-bin
     #wxhexeditor
-    okteta
+    #okteta
 
     # Bruteforcing
     seclists
