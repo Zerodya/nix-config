@@ -162,6 +162,7 @@
       "$mod SHIFT, C, exec, kitty --class clipse -e clipse"
       "$mod, P, exec, solanum"
       "$mod, O, exec, blanket"
+      "$mod, F12, exec, steam steam://open/bigpicture"
 
       # Shell IPC commands
       "$mod, D, exec, caelestia-shell ipc call drawers toggle launcher"
