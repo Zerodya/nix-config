@@ -4,6 +4,7 @@
     # Core
     ./firefox
     ./kitty
+    ./mangohud
     ./programs
     ./scripts
     ./shell
