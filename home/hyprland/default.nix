@@ -150,6 +150,8 @@
       # Float popup windows
       "match:class ^$, match:title ^Select what to share$, float on"
       "match:class steam, match:title negative:^Steam$, float on"
+      # Steam Big Picture (gamescope) in fullscreen
+      "match:class ^(gamescope)$, match:title ^(Steam Big Picture Mode)$, fullscreen on"
     ];
 
     "$mod" = "SUPER";
@@ -162,7 +164,7 @@
       "$mod SHIFT, C, exec, kitty --class clipse -e clipse"
       "$mod, P, exec, solanum"
       "$mod, O, exec, blanket"
-      "$mod, F12, exec, steam steam://open/bigpicture"
+      "$mod, F12, exec, steamdeck"
 
       # Shell IPC commands
       "$mod, D, exec, caelestia-shell ipc call drawers toggle launcher"
