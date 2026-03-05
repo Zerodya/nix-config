@@ -30,8 +30,9 @@
     ryubing
     #rpcs3
 
-    # Steering Wheel
+    # Hardware
     oversteer
+    sc-controller
 
     # Native Games
     osu-lazer-bin
