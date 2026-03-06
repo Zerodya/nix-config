@@ -41,9 +41,13 @@
 
   # Main configuration
   wayland.windowManager.hyprland.settings = {
-    monitor = ",highrr,auto,1";
-
     source = "./autorun.conf";
+
+    monitorv2 = {
+      output = "DP-1";
+      mode = "highrr";
+      vrr = "1";
+    };
 
     input = {
       kb_layout = "us,it,us";
