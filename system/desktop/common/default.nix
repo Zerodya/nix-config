@@ -10,7 +10,7 @@
     ./security.nix
     ./stylix.nix
     ./users.nix
-    ./virtualization.nix
+    #./virtualization.nix
   ];
 
   # Cache
