@@ -1,32 +1,30 @@
 {
-  # Hyprland extra configuration imported in host's home.nix
-  wayland.windowManager.hyprland.extraConfig = ''
-
-    # EXTRA CONFIGURATION
-    
-    # Run at boot
-    source = ./eva01/autorun.conf
+  # Host-specific extra configuration
+  wayland.windowManager.hyprland.settings = {
+    source = [ "./eva01/autorun.conf" ];
 
     # Raw mouse input
-    input {
-        sensitivity = 0.5 # -1.0 - 1.0
-        accel_profile = flat
-    }
-
-    # Switch between keyboard layouts
-    bind = $mod, SPACE, exec, hyprctl switchxkblayout htltek-gaming-keyboard next
+    input = {
+      sensitivity = 0.5; # from -1.0 to 1.0
+      accel_profile = "flat";
+    };
 
     # Tearing
-    #general:allow_tearing = true 
+    general.allow_tearing = true;
     #windowrule = match:class ^(MainThrd|deadlock)(.*)$, immediate yes
 
-    # Freeze or resume a program/game process
-    bind = , PAUSE, exec, hyprfreeze -a
+    bind = [
+      # Switch between keyboard layouts
+      "$mod, SPACE, exec, hyprctl switchxkblayout htltek-gaming-keyboard next"
 
-    # Turn monitor on
-    bind = $mod SHIFT, F1, exec, ~/scripts/screenON
+      # Freeze or resume a program/game process
+      ", PAUSE, exec, hyprfreeze -a"
 
-    # Restart audio streaming server
-    #bind = $mod ALT, F, exec, ~/scripts/ffplay_server.sh
-  '';
+      # Turn monitor on
+      "$mod SHIFT, F1, exec, ~/scripts/screenON"
+
+      # Restart audio streaming server
+      # "$mod ALT, F, exec, ~/scripts/ffplay_server.sh"
+    ];
+  };
 }

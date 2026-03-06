@@ -41,7 +41,7 @@
 
   # Main configuration
   wayland.windowManager.hyprland.settings = {
-    source = "./autorun.conf";
+    source = [ "./autorun.conf" ];
 
     monitorv2 = {
       output = "DP-1";
