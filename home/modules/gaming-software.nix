@@ -5,7 +5,6 @@
     steam-rom-manager
 
     # Game utilities
-    gamescope
     vkbasalt
     mangohud
     lsfg-vk
