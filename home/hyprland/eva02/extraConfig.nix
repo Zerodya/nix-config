@@ -3,6 +3,11 @@
   wayland.windowManager.hyprland.settings = {
     source = [ "./eva01/autorun.conf" ];
 
+    monitorv2 = {
+      output = "eDP-1";
+      mode = "highrr";
+    };
+
     device = [
       # Touchpad input
       {

@@ -3,6 +3,12 @@
   wayland.windowManager.hyprland.settings = {
     source = [ "./eva01/autorun.conf" ];
 
+    monitorv2 = {
+      output = "DP-1";
+      mode = "highrr";
+      vrr = "1";
+    };
+
     # Raw mouse input
     input = {
       sensitivity = 0.5; # from -1.0 to 1.0
