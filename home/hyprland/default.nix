@@ -105,7 +105,7 @@
 
     scrolling = {
       column_width = 0.49 ;
-      fullscreen_on_one_column = false;
+      fullscreen_on_one_column = true;
       explicit_column_widths = "0.49, 0.98";
       focus_fit_method = 1;
       follow_focus = true;
