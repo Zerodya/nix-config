@@ -174,10 +174,6 @@
       "$mod, F, fullscreen, 1"
       "$mod SHIFT, F, fullscreen, 0"
       "$mod SHIFT, P, pin,"
-
-      # Modes
-      "$mod, Y, pseudo,"
-      "$mod, T, togglesplit,"
       
       # Cycle windows
       "ALT, TAB, cyclenext,"
