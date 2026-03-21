@@ -59,7 +59,7 @@
 
     # Audio tools
     pwvucontrol
-    qjackctl
+    qpwgraph
     easyeffects
 
     # Network
