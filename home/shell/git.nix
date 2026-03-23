@@ -5,5 +5,6 @@
       name  = "Zerodya";
       email = "nicola.pagliuca@protonmail.com";
     };
+    signing.format = null;
   };
 }
