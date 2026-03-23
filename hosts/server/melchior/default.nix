@@ -11,6 +11,7 @@
       ./cloudflare.nix
       ./impermanence.nix
       ./sops.nix
+      #../../../system/modules/containers.nix
 
       # Services
       #./minecraft/default.nix
