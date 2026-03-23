@@ -10,6 +10,7 @@
     lsfg-vk
     lsfg-vk-ui
     goverlay
+    deadlock-mod-manager
 
     # Wine/Proton
     winetricks
