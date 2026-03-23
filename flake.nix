@@ -145,7 +145,7 @@
           nur.modules.nixos.default # Nix User Repository
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming
-          flatpaks.nixosModule # Declarative Flatpak
+          flatpaks.nixosModules.default # Declarative Flatpak
         ];
       };
 
