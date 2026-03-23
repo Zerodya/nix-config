@@ -7,8 +7,9 @@
     # Binary
     gdb
     ghidra-bin
-    #wxhexeditor
-    #okteta
+    wxhexeditor
+    okteta
+    pince
 
     # Bruteforcing
     seclists
