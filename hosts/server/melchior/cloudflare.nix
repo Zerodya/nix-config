@@ -4,6 +4,7 @@
   imports = [
     # Tunnels
     ./music/cloudflared.nix
+    ./searx/cloudflared.nix
   ];
 
   services.cloudflared.enable = true;

@@ -19,6 +19,7 @@
       #./minecraft/default.nix
       ./music/default.nix
       #./photos/default.nix
+      ./searx/default.nix
   ];
 
   networking.hostName = thinkcentre;

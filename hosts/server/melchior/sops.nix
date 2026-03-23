@@ -1,9 +1,8 @@
-{ username, ... }:
-
 { 
   imports = [
     # Import all secrets modules here
     ./music/secrets.nix
+    ./searx/secrets.nix
   ];
 
   #sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt"; # without impermanence
