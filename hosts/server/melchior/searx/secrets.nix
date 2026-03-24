@@ -1,9 +1,17 @@
+{ config, ... }:
 {
+
   sops.secrets.searx = {
-    sopsFile = ../../../../secrets/searx/searx.yaml; 
+    sopsFile = ../../../../secrets/searx/searx.yaml;
+    key = "SEARX_SECRET_KEY";
     owner = "searx";
-    key = "SEARX_SECRET_KEY"; 
     mode = "0400";
+  };
+  sops.templates."searx.env" = {
+    owner = "searx";
+    content = ''
+      SEARX_SECRET_KEY=${config.sops.placeholder.searx}
+    '';
   };
 
   sops.secrets.cloudflared-searx = {

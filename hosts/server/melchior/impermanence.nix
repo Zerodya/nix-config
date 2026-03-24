@@ -58,6 +58,7 @@
       "/var/lib/navidrome"
       "/var/lib/slskd"
       "/var/lib/beets"
+      "/var/cache/searx"
     ];
     files = [
       # Sops key
