@@ -49,14 +49,6 @@
     # Drawing
     lorien
 
-    # Music production
-    reaper
-    tonelib-gfx
-    yabridge
-    yabridgectl
-    neural-amp-modeler-lv2
-    x42-avldrums
-
     # Audio tools
     pwvucontrol
     qpwgraph

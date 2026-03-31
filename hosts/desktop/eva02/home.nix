@@ -4,6 +4,7 @@
 
     # Modules
     ../../../home/modules/laptop.nix
+    ../../../home/modules/music-prod.nix
         
     # Hyprland extra config
     ../../../home/hyprland/eva02/extraConfig.nix
