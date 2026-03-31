@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   # Ollama with Open WebUI
-  services.open-webui.enable = true;
+  services.open-webui = {
+    enable = true;
+    port = 11111;
+  };
   services.ollama = {
     enable = true;
     package = pkgs.ollama-rocm;
