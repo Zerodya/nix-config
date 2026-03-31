@@ -53,6 +53,9 @@
 
     # Declarative Flatpak
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/dev";
+
+    # SteamDeck plugins
+    jovian.url = "github:Jovian-Experiments/Jovian-NixOS/development";
   };
 
   outputs = {
@@ -66,6 +69,7 @@
     nix-cachyos-kernel,
     stylix,
     flatpaks,
+    jovian,
     ...
   } @ inputs:
 
@@ -112,6 +116,7 @@
           nur.modules.nixos.default # Nix User Repository
           stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.default # Declarative Flatpak
+          jovian.nixosModules.default # SteamDeck plugins
 
           # Old version of tonelib-gfx
           { nixpkgs.overlays = [( final: prev: {tonelib-gfx-478 = final.callPackage ./pkgs/tonelib-gfx-4.7.8 {};} )]; }
