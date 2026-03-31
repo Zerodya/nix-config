@@ -219,9 +219,9 @@
       ", XF86AudioPrev, exec, playerctl previous"
 
       # Screenshot a monitor
-      ", PRINT, exec, hyprshot -m output"
+      ", PRINT, exec, hyprshot -m output -o ~/Pictures/Screenshots"
       # Screenshot a region
-      "$mod, PRINT, exec, hyprshot -m region"
+      "$mod, PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
       # Screenshot a region to clipboard
       "$mod SHIFT, PRINT, exec, hyprshot -m region --clipboard-only"
     ];
