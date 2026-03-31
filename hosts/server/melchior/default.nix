@@ -18,6 +18,7 @@
       # Services
       #./minecraft/default.nix
       ./music/default.nix
+      ./netdata/default.nix
       #./photos/default.nix
       ./searx/default.nix
   ];

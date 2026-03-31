@@ -59,6 +59,9 @@
       "/var/lib/slskd"
       "/var/lib/beets"
       "/var/cache/searx"
+      "/var/lib/netdata"
+      "/var/cache/netdata"
+      "/var/log/netdata"
     ];
     files = [
       # Sops key

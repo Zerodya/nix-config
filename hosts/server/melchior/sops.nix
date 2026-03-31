@@ -2,6 +2,7 @@
   imports = [
     # Import all secrets modules here
     ./music/secrets.nix
+    ./netdata/secrets.nix
     ./searx/secrets.nix
   ];
 
