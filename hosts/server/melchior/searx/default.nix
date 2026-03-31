@@ -50,7 +50,7 @@
         infinite_scroll = false;
         center_alignment = true;
         default_theme = "simple";
-        theme_args.simple_style = "auto";
+        theme_args.simple_style = "light";
         search_on_category_select = false;
         hotkeys = "vim";
       };
@@ -63,6 +63,13 @@
         autocomplete = "duckduckgo";
         ban_time_on_fail = 5;
         max_ban_time_on_fail = 120;
+        suspended_times = {
+          SearxEngineAccessDenied = 60;         # 1 minute for "Access denied" / HTTP 402-403
+          SearxEngineCaptcha = 86400;           # 24 hours for CAPTCHA
+          SearxEngineTooManyRequests = 3600;    # 1 hour for "Too many requests" / HTTP 429
+          cf_SearxEngineCaptcha = 1296000;      # 15 days for Cloudflare CAPTCHA
+          cf_SearxEngineAccessDenied = 86400;   # 24 hours for Cloudflare "Access denied"
+        };
       };
 
       # Server configuration
@@ -80,10 +87,9 @@
       engines = lib.mapAttrsToList (name: value: { inherit name; } // value) {
         "duckduckgo".disabled = false;
         "brave".disabled = true;
-        "bing".disabled = false;
+        "bing".disabled = true;
         "mojeek".disabled = true;
-        "mwmbl".disabled = false;
-        "mwmbl".weight = 0.4;
+        "mwmbl".disabled = true;
         "qwant".disabled = true;
         "startpage".disabled = false;
         "crowdview".disabled = false;
@@ -95,12 +101,9 @@
         "wikidata".disabled = false;
         "wikiquote".disabled = true;
         "wikisource".disabled = true;
-        "wikispecies".disabled = false;
-        "wikispecies".weight = 0.5;
-        "wikiversity".disabled = false;
-        "wikiversity".weight = 0.5;
-        "wikivoyage".disabled = false;
-        "wikivoyage".weight = 0.5;
+        "wikispecies".disabled = true;
+        "wikiversity".disabled = true;
+        "wikivoyage".disabled = true;
         "currency".disabled = true;
         "dictzone".disabled = true;
         "lingva".disabled = true;
@@ -150,7 +153,6 @@
         pool_connections = 100;
         pool_maxsize = 15;
         enable_http2 = true;
-        useragent_suffix = "Firefox/135.0";
       };
 
       # Enabled plugins
