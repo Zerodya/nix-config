@@ -30,6 +30,8 @@
   gtk = {
     enable = true;
 
+    gtk4.theme = null;
+
     iconTheme = {
       name = "Colloid-Dark";
       package = pkgs.colloid-icon-theme;
