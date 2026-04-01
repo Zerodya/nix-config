@@ -148,6 +148,7 @@
       # Float popup windows
       "match:class ^$, match:title ^Select what to share$, float on"
       "match:class steam, match:title negative:^Steam$, float on"
+      "match:class REAPER, match:xwayland yes, match:title ^$, no_focus on, border_size 0, no_shadow on, no_anim on, float on"
     ];
 
     "$mod" = "SUPER";
