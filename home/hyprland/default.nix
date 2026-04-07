@@ -233,15 +233,20 @@
       "$mod, mouse:273, resizewindow"
     ];
 
-    binde = [ # will repeat when held
+    bindel = [ # will repeat when held
       # Volume control
-      ", XF86AudioRaiseVolume,exec,noctalia-shell ipc call volume increase"
-      ", XF86AudioLowerVolume,exec,noctalia-shell ipc call volume decrease"
+      ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
+      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     ];
 
     bindl = [ # works also when lockscreen is active
       # Suspend
       "$mod, ESCAPE, exec, hyprlock & sleep 1 && systemctl suspend"
+      # Mute
+      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ", XF86AudioPlay, exec, playerctl play-pause"
+      ", XF86AudioPrev, exec, playerctl previous"
+      ", XF86AudioNext, exec, playerctl next"
       # Standby
       "$mod SHIFT, ESCAPE, exec, sleep 1 && hyprctl dispatch dpms off"
       # Lock when closing laptop lid
