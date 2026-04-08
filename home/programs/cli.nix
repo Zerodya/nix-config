@@ -2,7 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    # Fetch
+    # Stats
+    btop-rocm
     fastfetch
 
     # Nix language server

@@ -33,7 +33,6 @@
 
   # Essential packages
   environment.systemPackages = with pkgs; [
-    btop
     wget
     git
     net-tools
