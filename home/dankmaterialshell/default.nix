@@ -3,6 +3,5 @@ let
   flakePath = "${config.home.homeDirectory}/nix-config"; 
 in
 {
-  home.file.".config/DankMaterialShell/settings.json".source = 
-    config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/dank/settings.json";
+  home.file.".config/DankMaterialShell/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/dankmaterialshell/settings.json";
 }
