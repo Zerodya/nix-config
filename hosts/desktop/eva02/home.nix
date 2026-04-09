@@ -8,6 +8,6 @@
         
     # Compositors extra config
     ../../../home/hyprland/eva02/extraConfig.nix
-    ../../../home/niri/eva01/extraConfig.nix
+    ../../../home/niri/eva02/extraConfig.nix
   ];
 }
