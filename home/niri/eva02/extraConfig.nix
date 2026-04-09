@@ -17,6 +17,7 @@
     input = {
       touchpad = {
         tap = true;
+        natural-scroll = false;
         accel-speed = 0.3;
         scroll-method = "edge";
       };
