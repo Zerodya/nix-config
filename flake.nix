@@ -154,6 +154,9 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.default # Declarative Flatpak
+
+          # Old version of tonelib-gfx
+          { nixpkgs.overlays = [( final: prev: {tonelib-gfx-478 = final.callPackage ./pkgs/tonelib-gfx-4.7.8 {};} )]; }
         ];
       };
 
