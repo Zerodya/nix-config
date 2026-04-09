@@ -39,12 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Noctalia Shell
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # CachyOS kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 

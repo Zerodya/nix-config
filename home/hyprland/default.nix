@@ -166,8 +166,6 @@
       # Shell IPC commands
       "$mod, D, exec, caelestia-shell ipc call drawers toggle launcher"
       "$mod, E, exec, caelestia-shell ipc call drawers toggle session"
-      #"$mod, D, exec, noctalia-shell ipc call launcher toggle"
-      #"$mod, E, exec, noctalia-shell ipc call sessionMenu toggle"
 
       # Window operations
       "$mod, Q, killactive,"
