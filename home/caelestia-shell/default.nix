@@ -12,6 +12,9 @@ let wallpapersDir = "/home/${username}/Pictures/Wallpapers"; in
 
   programs.caelestia = {
     enable = true;
+
+    systemd.enable = false;
+
     settings = {
       general = {
         apps = {
