@@ -33,6 +33,12 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    # Niri
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Caelestia Shell
     caelestia-shell = {
       url = "github:caelestia-dots/shell";

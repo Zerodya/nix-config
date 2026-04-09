@@ -7,7 +7,8 @@
     ../../../home/modules/infosec.nix
     ../../../home/modules/music-prod.nix
     
-    # Hyprland extra config
+    # Compositors extra config
     ../../../home/hyprland/eva01/extraConfig.nix
+    ../../../home/niri/eva01/extraConfig.nix
   ];
 }

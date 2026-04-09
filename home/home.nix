@@ -10,9 +10,11 @@
     ./shell
 
     # Environment
+    ./dankmaterialshell
     ./caelestia-shell
     ./hyprland
     #./noctalia-shell
+    ./niri
     ./wallpapers
   ];
   
