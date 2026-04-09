@@ -445,15 +445,6 @@
           "minimumWidth": true
         },
         {
-          "id": "notificationButton",
-          "enabled": true
-        },
-        {
-          "id": "clock",
-          "enabled": true,
-          "clockCompactMode": true
-        },
-        {
           "id": "controlCenterButton",
           "enabled": true,
           "showBluetoothIcon": true,
@@ -464,6 +455,15 @@
           "showBatteryIcon": true,
           "showPrinterIcon": false,
           "showScreenSharingIcon": false
+        },
+        {
+          "id": "notificationButton",
+          "enabled": true
+        },
+        {
+          "id": "clock",
+          "enabled": true,
+          "clockCompactMode": true
         }
       ],
       "spacing": 0,
