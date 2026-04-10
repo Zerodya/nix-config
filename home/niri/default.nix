@@ -184,6 +184,10 @@
         action.spawn = [ "dms" "ipc" "powermenu" "toggle" ];
         hotkey-overlay.title = "Toggle Session";
       };
+      "Mod+Shift+C" = {
+        action.spawn = [ "dms" "ipc" "clipboard" "toggle" ];
+        hotkey-overlay.title = "Toggle Clipboard";
+      };
       
       # Window operations
       "Mod+Q" = {
