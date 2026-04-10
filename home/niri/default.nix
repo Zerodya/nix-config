@@ -293,7 +293,7 @@
       
       # Switch 
       "Mod+Space" = {
-        action.spawn = [ "niri" "msg" "action" "switch-layout" ];
+        action.spawn = [ "niri" "msg" "action" "switch-layout" "next" ];
       };
     };
 
