@@ -6,5 +6,6 @@
     { command = ["steam" "-silent"]; }
     { command = ["easyeffect" "--service-mode"]; }
     { command = ["reaper" "-nosplash"]; }
+    { command = ["qpwgraph" "--minimized"]; }
   ];
 }
