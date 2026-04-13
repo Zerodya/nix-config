@@ -97,7 +97,7 @@
         "curlie".disabled = true;
         "ddg definitions".disabled = false;
         "ddg definitions".weight = 2;
-        "wikibooks".disabled = false;
+        "wikibooks".disabled = true;
         "wikidata".disabled = false;
         "wikiquote".disabled = true;
         "wikisource".disabled = true;
