@@ -43,14 +43,14 @@
       
       focus-follows-mouse = {
         enable = true;
-        max-scroll-amount = "0%";
+        max-scroll-amount = "100%";
       };
     };
     
     # Layout
     layout = {
       gaps = 12;
-      center-focused-column = "on-overflow";
+      center-focused-column = "never";
       always-center-single-column = true;
       
       preset-column-widths = [
