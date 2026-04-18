@@ -11,14 +11,10 @@
     
     # Utilities
     wl-gammarelay-rs
-    
-    # Idle daemon
-    swayidle
   ];
 
   imports = [
     ./autorun.nix
-    ./swayidle.nix
   ];
 
   programs.niri.settings = {
@@ -280,6 +276,8 @@
       # Screenshots
       "Print".action.screenshot-screen = [];
       "Mod+Print".action.screenshot = {};
+
+      "Pause".action.spawn = [ "/home/alpha/Downloads/wl-freeze/wl-freeze" "-a" ];
       
       # Quit / Suspend / Turn off screen
       "Mod+Shift+E" = {

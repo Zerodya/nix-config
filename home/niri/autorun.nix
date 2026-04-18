@@ -4,8 +4,7 @@
     { command = ["dms" "run"]; }
 
     # Daemons
-    { command = ["hypridle"]; }
-    { command = ["wl-gammarelay-rs"]; }
+    #{ command = ["wl-gammarelay-rs"]; }
 
     # Clipboard
     { command = ["wl-clip-persist" "--clipboard"]; }
