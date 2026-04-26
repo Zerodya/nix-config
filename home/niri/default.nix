@@ -251,11 +251,11 @@
         action.spawn = [ "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-" ];
       };
       "XF86AudioMute" = {
-        action.spawn = [ "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle" ];
+        action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle" ];
         allow-when-locked = true;
       };
       "XF86AudioMicMute" = {
-        action.spawn = [ "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle" ];
+        action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
         allow-when-locked = true;
       };
 
