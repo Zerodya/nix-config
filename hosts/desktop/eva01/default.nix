@@ -17,7 +17,7 @@
   networking.hostName = desktop;
 
   # Kernel
-  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlay ];
+  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
   boot = {
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
     extraModulePackages = with config.boot.kernelPackages; [ zenpower ];
@@ -42,6 +42,12 @@
       "vm.swappiness" = 10; # Prefers ram over swap
       "vm.max_map_count" = 2147483642; # SteamOS default
     };
+  };
+
+  # nix-cachyos-kernel binary cache
+  nix.settings = {
+    substituters = [ "https://attic.xuyh0120.win/lantian" ];
+    trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
   };
   
   # sched_ext kernel scheduler
