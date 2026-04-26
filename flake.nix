@@ -66,9 +66,6 @@
     # CachyOS kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
-    # Base16 system-wide colorscheming
-    stylix.url = "github:danth/stylix";
-
     # Declarative Flatpak
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/dev";
 
@@ -85,7 +82,6 @@
     impermanence,
     sops-nix,
     nix-cachyos-kernel,
-    stylix,
     flatpaks,
     jovian,
     ...
@@ -132,7 +128,6 @@
           
           determinate.nixosModules.default # Determinate Systems Nix
           nur.modules.nixos.default # Nix User Repository
-          stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.default # Declarative Flatpak
           jovian.nixosModules.default # SteamDeck plugins
 
@@ -170,7 +165,6 @@
           determinate.nixosModules.default # Determinate Systems Nix
           nur.modules.nixos.default # Nix User Repository
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
-          stylix.nixosModules.stylix # Base16 colorscheming
           flatpaks.nixosModules.default # Declarative Flatpak
 
           # Old version of tonelib-gfx

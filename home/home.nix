@@ -24,12 +24,26 @@
   };
   programs.home-manager.enable = true;
 
+  # Cursor
+  home.pointerCursor = {
+    enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 20;
+  };
+
   # Profile icon
   home.file.".face".source = ./.face;
 
   # GTK
   gtk = {
     enable = true;
+
+    font = {
+      package = pkgs.noto-fonts;
+      name = "Noto Sans";
+      size = 10;
+    };
 
     gtk4.theme = null;
 

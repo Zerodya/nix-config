@@ -76,7 +76,4 @@
       };
     };
   };
-
-  stylix.targets.firefox.profileNames = [ "alpha" ];
-  stylix.enableReleaseChecks = false;
 }

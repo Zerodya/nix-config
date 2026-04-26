@@ -8,7 +8,6 @@
     ./keyboard.nix
     ./packages.nix
     ./security.nix
-    ./stylix.nix
     ./users.nix
     #./virtualization.nix
   ];
