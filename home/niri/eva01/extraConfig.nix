@@ -13,5 +13,11 @@
       };
       variable-refresh-rate = "on-demand";
     };
+
+    layout = {
+      shadow = {
+        enable = true;
+      };
+    };
   };
 }

@@ -36,5 +36,11 @@
         action.spawn = [ "brightnessctl" "set" "5%-" ];
       };
     };
+
+    layout = {
+      shadow = {
+        enable = false;
+      };
+    };
   };
 }

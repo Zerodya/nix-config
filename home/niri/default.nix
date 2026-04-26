@@ -68,10 +68,6 @@
       border = {
         enable = false;
       };
-      
-      shadow = {
-        enable = false;
-      };
     };
     
     # Animations
@@ -281,7 +277,7 @@
       "Print".action.screenshot-screen = [];
       "Mod+Print".action.screenshot = {};
 
-      "Pause".action.spawn = [ "/home/alpha/Downloads/wl-freeze/wl-freeze" "-a" ];
+      "Pause".action.spawn = [ "wl-freeze" "-a" ];
       
       # Quit / Suspend / Turn off screen
       "Mod+Shift+E" = {
