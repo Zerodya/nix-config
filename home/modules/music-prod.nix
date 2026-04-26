@@ -61,6 +61,8 @@ in
     # Yabridge
     pkgs.yabridge
     pkgs.yabridgectl
+
+    pkgs.openutau
   ];
 
   # Symlink merged directories to standard locations
