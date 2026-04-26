@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox;  
+    package = pkgs.firefox;
+    configPath = "${config.home.homeDirectory}/.mozilla/firefox";
 
     # Declare “profiles” to manage multiple profiles
     profiles = {
