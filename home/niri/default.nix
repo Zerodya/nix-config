@@ -18,6 +18,10 @@
   ];
 
   programs.niri.settings = {
+    includes = lib.mkAfter [
+        (./blur.kdl)
+      ];
+
     hotkey-overlay.skip-at-startup = true;
     prefer-no-csd = true;
     
