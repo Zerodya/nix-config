@@ -81,6 +81,10 @@ in
     wantedBy = [ "multi-user.target" ];
   };
 
+  # Steam Controller
+  hardware.steam-hardware.enable = true;
+  programs.steam.extest.enable = true;
+
   # LACT
   services.lact.enable = true;
   hardware.amdgpu.overdrive = {
