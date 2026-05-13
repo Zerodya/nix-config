@@ -19,7 +19,6 @@
     signal-desktop
 
     # Media
-    spotify
     feishin
     pear-desktop
     freetube
@@ -30,6 +29,7 @@
     # Media Editing
     krita
     kdePackages.kdenlive
+    upscayl
 
     # Uni
     teams-for-linux
