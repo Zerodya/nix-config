@@ -19,9 +19,14 @@ ui:
 
 plugins: musicbrainz fromfilename fetchart lastgenre lyrics
 
+
 lastgenre:
     source: album
-    whitelist: no
+    count: 6
+    canonical: /var/lib/beets/.config/beets/genres.yaml
+    whitelist: /var/lib/beets/.config/beets/whitelist.txt
+    force: yes
+    keep_existing: no
     auto: yes
 
 lyrics:

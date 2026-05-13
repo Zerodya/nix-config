@@ -11,7 +11,9 @@ in
     "a+ ${music-dir} - - - - f:g:music:rw" # ensure music group can write files in the music directory
 
     # Beets config
-    "C ${beets-home}.config/beets/config.yaml 0640 beets music - ${./beets-config.yaml}"
+    "L+ ${beets-home}.config/beets/config.yaml - beets music - ${./beets-config.yaml}"
+    "L+ ${beets-home}.config/beets/genres.yaml - beets music - ${./beets-genres.yaml}"
+    "L+ ${beets-home}.config/beets/whitelist.txt - beets music - ${./beets-whitelist.txt}"
   ];
   users.groups.music.members = [ "alpha" "navidrome" "slskd" "beets" "olivetin" ];
 
