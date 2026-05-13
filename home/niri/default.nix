@@ -11,6 +11,8 @@
     
     # Utilities
     wl-gammarelay-rs
+    linux-wallpaperengine
+    mpvpaper
   ];
 
   imports = [
@@ -115,6 +117,7 @@
     
     # Window rules
     window-rules = [
+      # Corner radius
       {
         geometry-corner-radius = {
           top-left = 20.0;
@@ -124,15 +127,26 @@
         };
         clip-to-geometry = true;
       }
+      # Reaper to workspace 6
       {
-        matches = [ { app-id = "REAPER"; } ];
+        matches = [{ app-id = "REAPER"; }];
         open-on-workspace = "6";
       }
+      # Floating Steam popup windows
       {
-        matches = [ { app-id = "^steam$"; } ];
-        excludes = [ { title = "^Steam$"; } ];
+        matches = [{ app-id = "^steam$"; }];
+        excludes = [{ title = "^Steam$"; }];
         open-floating = true;
       }
+      # Steam notifications in bottom right corner
+      {
+      matches = [{ app-id = "^steam$"; title = "^notificationtoasts_\\d+_desktop$"; }];
+      default-floating-position = {
+        x = 6;
+        y = 6;
+        relative-to = "bottom-right";
+      };
+    }
     ];
     
     # Overview

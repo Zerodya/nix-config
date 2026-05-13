@@ -83,6 +83,9 @@
     # Plugins
     plugins = {
       dankActions.enable = true;
+      audioInhibit.enable = true;
+      linuxWallpaperEngine.enable = true;
+      mpvpaperWallpaper.enable = true;
     };
 
     # Core features
