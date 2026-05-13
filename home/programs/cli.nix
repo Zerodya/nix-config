@@ -6,6 +6,9 @@
     btop-rocm
     fastfetch
 
+    # Suspend programs
+    wl-freeze
+
     # Nix language server
     nil
     nixfmt
