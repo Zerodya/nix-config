@@ -39,6 +39,8 @@
   "modalAnimationSpeed": 1,
   "modalCustomAnimationDuration": 150,
   "enableRippleEffects": true,
+  "animationVariant": 0,
+  "motionEffect": 0,
   "m3ElevationEnabled": true,
   "m3ElevationIntensity": 12,
   "m3ElevationOpacity": 30,
@@ -134,6 +136,16 @@
       "id": "darkMode",
       "enabled": true,
       "width": 50
+    },
+    {
+      "id": "idleInhibitor",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "colorPicker",
+      "enabled": true,
+      "width": 50
     }
   ],
   "showWorkspaceIndex": false,
@@ -151,7 +163,7 @@
   "dwlShowAllTags": false,
   "workspaceActiveAppHighlightEnabled": false,
   "workspaceColorMode": "default",
-  "workspaceOccupiedColorMode": "none",
+  "workspaceOccupiedColorMode": "sec",
   "workspaceUnfocusedColorMode": "default",
   "workspaceUrgentColorMode": "default",
   "workspaceFocusedBorderEnabled": false,
@@ -250,6 +262,8 @@
   "monoFontFamily": "Fira Code",
   "fontWeight": 400,
   "fontScale": 1,
+  "textRenderType": 1,
+  "textRenderQuality": 0,
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
   "notepadFontSize": 14,
@@ -316,6 +330,7 @@
   "matugenTemplatePywalfox": false,
   "matugenTemplateZenBrowser": false,
   "matugenTemplateVesktop": true,
+  "matugenTemplateVencord": true,
   "matugenTemplateEquibop": false,
   "matugenTemplateGhostty": false,
   "matugenTemplateKitty": true,
@@ -342,6 +357,7 @@
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
+  "dockHideOnFullscreen": true,
   "dockGroupByApp": false,
   "dockRestoreSpecialWorkspaceOnClick": false,
   "dockOpenOnOverview": false,
@@ -366,6 +382,9 @@
   "dockMaxVisibleApps": 0,
   "dockMaxVisibleRunningApps": 0,
   "dockShowOverflowBadge": true,
+  "dockShowTrash": false,
+  "dockTrashFileManager": "default",
+  "dockTrashCustomCommand": "",
   "notificationOverlayEnabled": false,
   "notificationPopupShadowEnabled": true,
   "notificationPopupPrivacyMode": false,
@@ -438,6 +457,9 @@
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
+  "updaterIntervalSeconds": 86400,
+  "updaterIncludeFlatpak": false,
+  "updaterAllowAUR": true,
   "displayNameMode": "system",
   "screenPreferences": {},
   "showOnLastDisplay": {},
@@ -452,6 +474,7 @@
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
+  "connectedFrameBarStyleBackups": {},
   "barConfigs": [
     {
       "id": "default",
@@ -631,5 +654,20 @@
   "clipboardEnterToPaste": false,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],
-  "configVersion": 5
+  "frameEnabled": true,
+  "frameThickness": 2,
+  "frameRounding": 20,
+  "frameColor": "",
+  "frameOpacity": 1,
+  "frameScreenPreferences": [
+    "all"
+  ],
+  "frameBarSize": 40,
+  "frameShowOnOverview": true,
+  "frameBlurEnabled": false,
+  "frameCloseGaps": true,
+  "frameLauncherEmergeSide": "bottom",
+  "frameLauncherArcExtender": false,
+  "frameMode": "separate",
+  "configVersion": 11
 }
