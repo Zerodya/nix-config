@@ -66,4 +66,12 @@
     mode = "0400";
   };
 
+  # DeepL translate
+  sops.secrets.deepl = {
+    sopsFile = ../../../../secrets/music/deepl.yaml;
+    key = "api-key";  
+    mode = "0400";
+    owner = "beets";
+  };
+
 }

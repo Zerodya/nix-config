@@ -4,6 +4,10 @@ let
   beets-home = "/var/lib/beets/";
 in 
 {
+  imports = [
+    ./translate-lyrics.nix
+  ];
+
   systemd.tmpfiles.rules = [
     # Permissions
     "d ${music-dir} 0770 ${username} music - -" # ensure the music directory exists and with correct permissions
@@ -78,16 +82,4 @@ in
     home = "${beets-home}";
     createHome = true;
   };
-
-  # ===== OliveTin =====
-  #services.olivetin = {
-  #  enable = true;
-  #  user = "olivetin";
-  #  group = "music";
-#
-  #  settings.ListenAddressSingleHTTPFrontend = "0.0.0.0:8000";
-  #  settings = {
-  #    # ...
-  #  };
-  #};
 }

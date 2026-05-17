@@ -17,7 +17,7 @@ match:
 ui:
     color: yes
 
-plugins: musicbrainz fromfilename fetchart lastgenre lyrics
+plugins: musicbrainz fromfilename fetchart lastgenre lyrics hook
 
 
 lastgenre:
@@ -34,3 +34,8 @@ lyrics:
     fallback: ''
     sources: lrclib
     synced: yes
+
+hook:
+  hooks:
+    - event: import
+      command: translate-lyrics
