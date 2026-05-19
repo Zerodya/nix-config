@@ -1,6 +1,7 @@
 directory: /mnt/storage/music
 
 import:
+    languages: en
     move: yes
     copy: no
     write: yes
@@ -17,8 +18,8 @@ match:
 ui:
     color: yes
 
-plugins: musicbrainz fromfilename fetchart lastgenre lyrics hook
 
+plugins: musicbrainz fromfilename fetchart lastgenre lyrics hook
 
 lastgenre:
     source: album
