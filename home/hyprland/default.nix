@@ -164,8 +164,8 @@
       "$mod, F12, exec, steamos"
 
       # Shell IPC commands
-      "$mod, D, exec, caelestia-shell ipc call drawers toggle launcher"
-      "$mod, E, exec, caelestia-shell ipc call drawers toggle session"
+      "$mod, D, exec, dms ipc launcher toggle"
+      "$mod, E, exec, dms ipc powermenu toggle"
 
       # Window operations
       "$mod, Q, killactive,"

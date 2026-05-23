@@ -11,7 +11,6 @@
 
     # Environment
     ./dankmaterialshell
-    #./caelestia-shell
     #./hyprland
     ./niri
     ./wallpapers

@@ -57,12 +57,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Caelestia Shell
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # CachyOS kernel
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
