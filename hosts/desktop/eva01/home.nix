@@ -3,6 +3,7 @@
     ../../../home/home.nix
     
     # Modules
+    ../../../home/modules/coding.nix
     ../../../home/modules/gaming-software.nix
     ../../../home/modules/infosec.nix
     ../../../home/modules/music-prod.nix
