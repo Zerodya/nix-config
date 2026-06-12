@@ -22,10 +22,19 @@
         # Search engine config
         search = {
           force = true;
-          default = "searxng";
-          order = [ "searxng" "nix-pkgs" "nixos-wiki" "ddg" ];
+          default = "degoog";
+          order = [ "degoog" "searxng" "nix-pkgs" "nixos-wiki" "ddg" ];
 
           engines = {
+            degoog = {
+              urls = [
+                { template = "https://degoog.org/search?q={searchTerms}"; }
+              ];
+              icon = "https://degoog.org/public/favicon/favicon.ico";
+              updateInterval = 86400000; # 24h
+              definedAliases = [ "@degoog" ];
+            };
+
             searxng = {
               urls = [
                 { template = "https://searx.zerodya.net/search?q={searchTerms}"; }
