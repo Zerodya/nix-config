@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     # Network
     nmap
+    wireshark
 
     # Binary
     gdb
