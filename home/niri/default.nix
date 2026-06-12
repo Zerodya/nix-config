@@ -132,6 +132,11 @@
         matches = [{ app-id = "REAPER"; }];
         open-on-workspace = "6";
       }
+      # Floating KDEConnect file transfer
+      {
+        matches = [{ app-id = "org.kde.kdeconnect.daemon"; }];
+        open-floating = true;
+      }
       # Floating Steam popup windows
       {
         matches = [{ app-id = "^steam$"; }];
@@ -152,7 +157,11 @@
     # Overview
     layer-rules = [
       {
-        matches = [ { namespace="^quickshell$"; } ];
+        matches = [{ namespace="^quickshell$"; }];
+        place-within-backdrop = true;
+      }
+      {
+        matches = [{ namespace="^mpvpaper$"; }];
         place-within-backdrop = true;
       }
     ];
