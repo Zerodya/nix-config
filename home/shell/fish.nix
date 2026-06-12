@@ -99,21 +99,41 @@
       eva-deletegen = {
         # Delete specific NixOS generations
         body = ''
-          # List generations
-          sudo nix-env -p /nix/var/nix/profiles/system --list-generations
-
-          # Prompt user for generations to delete
-          echo "Enter the generation numbers to delete:"
-          read generations
-
-          # Check if user provided input
-          if test -z "$generations"
-              echo "No generations specified. Aborting."
+          set -l profile /nix/var/nix/profiles/system
+      
+          echo "Available generations:"
+          sudo nix-env -p $profile --list-generations
+          echo ""
+      
+          echo "Nix may mark a broken generation as '(current)' even if you didn't boot into it."
+          echo "Which generation are you actually running? (Press Enter to leave it unchanged)"
+          echo -n "> "
+          read current_gen
+      
+          if test -n "$current_gen"
+            echo "Switching profile to generation $current_gen..."
+            sudo nix-env -p $profile --switch-generation $current_gen
+            or begin
+              echo "Failed to switch generation."
               return 1
+            end
           end
-
-          # Run garbage collection to delete specified generations
-          sudo nix-collect-garbage --delete-generations $generations
+      
+          echo ""
+          echo "Enter generation numbers to delete (space-separated):"
+          echo -n "> "
+          read generations
+        
+          if test -z "$generations"
+            echo "No generations specified. Aborting."
+            return 1
+          end
+      
+          echo "Deleting generations $generations..."
+          sudo nix-env -p $profile --delete-generations (string split -n " " $generations)
+      
+          echo "Regenerating bootloader entries..."
+          sudo /run/current-system/bin/switch-to-configuration boot
         '';
       };
 
