@@ -3,6 +3,7 @@
 {
   imports = [
     # Tunnels
+    ./fitness/cloudflared.nix
     ./music/cloudflared.nix
     ./searx/cloudflared.nix
   ];

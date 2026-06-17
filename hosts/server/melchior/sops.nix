@@ -1,6 +1,7 @@
 { 
   imports = [
     # Import all secrets modules here
+    ./fitness/secrets.nix
     ./music/secrets.nix
     ./netdata/secrets.nix
     ./searx/secrets.nix

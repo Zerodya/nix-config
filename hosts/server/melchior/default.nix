@@ -13,9 +13,10 @@
       ./sops.nix
 
       # Modules
-      #../../../system/modules/containers.nix
+      ../../../system/modules/containers.nix
 
       # Services
+      ./fitness/default.nix
       #./minecraft/default.nix
       ./music/default.nix
       ./netdata/default.nix
