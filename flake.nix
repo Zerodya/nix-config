@@ -25,6 +25,9 @@
 
     # Secret management
     sops-nix.url = "github:Mic92/sops-nix";
+
+    # Podman Quadlet
+    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
     
     # Hyprland-git
     hyprland.url = "github:hyprwm/Hyprland";
@@ -75,6 +78,7 @@
     nixos-hardware,
     impermanence,
     sops-nix,
+    quadlet-nix,
     nix-cachyos-kernel,
     flatpaks,
     jovian,
@@ -194,6 +198,7 @@
 
           determinate.nixosModules.default # Determinate Systems Nix
           sops-nix.nixosModules.sops # Secret management
+          quadlet-nix.nixosModules.quadlet # Podman Quadlet
         ];
       };
 
@@ -225,6 +230,7 @@
           determinate.nixosModules.default # Determinate Systems Nix
           impermanence.nixosModules.impermanence # Impermanence
           sops-nix.nixosModules.sops # Secret management
+          quadlet-nix.nixosModules.quadlet # Podman Quadlet
         ];
       };
 

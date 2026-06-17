@@ -1244,6 +1244,21 @@
         "type": "github"
       }
     },
+    "quadlet-nix": {
+      "locked": {
+        "lastModified": 1779658505,
+        "narHash": "sha256-hbVBnj18VyoFRNE5mKzYeKRat/INBxnIEIIATfF1JsA=",
+        "owner": "SEIAROTg",
+        "repo": "quadlet-nix",
+        "rev": "d536933bf89334bf9ccb036e84131793712965b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SEIAROTg",
+        "repo": "quadlet-nix",
+        "type": "github"
+      }
+    },
     "quickshell": {
       "inputs": {
         "nixpkgs": [
@@ -1281,6 +1296,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_8",
         "nur": "nur",
+        "quadlet-nix": "quadlet-nix",
         "quickshell": "quickshell",
         "sops-nix": "sops-nix"
       }
