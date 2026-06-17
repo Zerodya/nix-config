@@ -2,7 +2,7 @@
 {
   imports = [ 
     inputs.niri.nixosModules.niri
-    inputs.dms-plugin-registry.modules.default
+    inputs.dms-plugin-registry.nixosModules.default
   ];
 
 
