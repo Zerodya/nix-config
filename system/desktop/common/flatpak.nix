@@ -7,8 +7,14 @@
     };
 
     packages = [
-      "flathub:app/com.github.tchx84.Flatseal//stable" # Flatseal
-      "flathub:app/com.usebottles.bottles//stable" # Bottles
+      # Flatseal
+      "flathub:app/com.github.tchx84.Flatseal//stable"
+
+      # Bottles
+      "flathub:app/com.usebottles.bottles//stable" 
+      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.gamescope//24.08" # Gamescope
+      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.MangoHud//24.08" # MangoHUD
+      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt//24.08" # vkBasalt
     ];
   };
 }
