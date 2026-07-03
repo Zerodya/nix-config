@@ -17,14 +17,9 @@
     protontricks
     protonplus
 
-    # DirectX
-    directx-headers
-
-    # Vulkan / OpenGL
+    # Vulkan
     vulkan-loader
-    vulkan-headers
     vulkan-tools
-    clinfo
 
     # Emulators
     ryubing
