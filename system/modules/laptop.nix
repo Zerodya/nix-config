@@ -46,6 +46,23 @@
   };
   services.power-profiles-daemon.enable = false; # Conflicts with tlp
 
+  # Fans
+  services.thinkfan = {
+    enable = true;
+
+    # [fan_level, low_temp, high_temp]
+    # 0=off, 1-7=increasing, 127=auto, 254=disengaged/max
+    levels = [
+      [ 0   0   45 ]   # fan off below 45°C
+      [ 1   40  55 ]   # low speed at 45-55°C
+      [ 3   50  65 ]   # medium at 55-65°C
+      [ 5   60  75 ]   # high at 65-75°C
+      [ 7   70  85 ]   # max regulated at 70-85°C
+      [ 127 80  32767 ] # auto fallback above 80°C
+    ];
+  };
+
+
   # Temperature management daemon
   services.thermald.enable = true;
 
