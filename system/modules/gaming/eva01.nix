@@ -1,5 +1,4 @@
-{pkgs, jovian, lib, config, username, ...}:
-
+{ pkgs, jovian, username, lib, config, ... }:
 let
   steamForGamescope = pkgs.steam.override {
     extraEnv = {
@@ -8,18 +7,7 @@ let
     };
   };
 in
-
 {
-  programs.steam = {
-    enable = true;
-    extraCompatPackages = with pkgs; [proton-ge-bin];
-    package = pkgs.steam.override {
-      extraEnv = {
-        MANGOHUD = "1";
-      };
-    };
-  };
-
   # SteamDeck UI in Gamescope
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "steamos" ''
@@ -58,12 +46,6 @@ in
     '')
   ];
 
-  # Gamescope
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true;
-  };
-
   # Decky Loader
   jovian = {
     decky-loader.enable = true;
@@ -81,9 +63,15 @@ in
     wantedBy = [ "multi-user.target" ];
   };
 
-  # Steam Controller
-  hardware.steam-hardware.enable = true;
-  programs.steam.extest.enable = true;
+  # Sunshine
+  services.sunshine = {
+    enable = true;
+    openFirewall = true;
+    capSysAdmin = true;
+  };
+
+  # Waydroid Android emulator
+  virtualisation.waydroid.enable = true;
 
   # LACT
   services.lact.enable = true;
@@ -98,24 +86,4 @@ in
     package = pkgs.openrgb-with-all-plugins; 
     motherboard = "amd";
   };
-
-  # Sunshine
-  services.sunshine = {
-    enable = true;
-    openFirewall = true;
-    capSysAdmin = true;
-  };
-
-  # Waydroid Android emulator
-  virtualisation.waydroid.enable = true;
-
-  services.flatpak = {
-    packages = [
-      # Gaming runtimes for Bottles
-      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.gamescope//24.08" # Gamescope
-      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.MangoHud//24.08" # MangoHUD
-      "flathub:runtime/org.freedesktop.Platform.VulkanLayer.vkBasalt//24.08" # vkBasalt
-    ];
-  };
-
 }
