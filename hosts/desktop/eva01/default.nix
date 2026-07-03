@@ -8,7 +8,8 @@
       ../../../system/desktop/environment/default.nix
 
       # Modules
-      ../../../system/modules/gaming.nix 
+      ../../../system/modules/gaming/default.nix
+      ../../../system/modules/gaming/eva01.nix
       ../../../system/modules/rt-audio.nix
       ../../../system/modules/ollama-rocm.nix
       #../../../system/modules/android-studio.nix
@@ -42,6 +43,7 @@
       "vm.swappiness" = 10; # Prefers ram over swap
       "vm.max_map_count" = 2147483642; # SteamOS default
     };
+    blacklistedKernelModules = [ "tdx" ];
   };
 
   # nix-cachyos-kernel binary cache
