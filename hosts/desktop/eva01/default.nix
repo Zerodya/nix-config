@@ -10,9 +10,9 @@
       # Modules
       ../../../system/modules/gaming/default.nix
       ../../../system/modules/gaming/eva01.nix
-      ../../../system/modules/rt-audio.nix
+      ../../../system/modules/denuvowo-hypervisor.nix
       ../../../system/modules/ollama-rocm.nix
-      #../../../system/modules/android-studio.nix
+      ../../../system/modules/rt-audio.nix
   ];
 
   networking.hostName = desktop;
