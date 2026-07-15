@@ -25,6 +25,9 @@
 
   # NetworkManager
   networking.networkmanager.enable = true;
+
+  # CUPS print service
+  services.printing.enable = true;
   
   # Zram swap
   zramSwap = {
