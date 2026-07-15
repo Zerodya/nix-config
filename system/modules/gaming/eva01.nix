@@ -48,7 +48,7 @@ in
 
   # Decky Loader
   jovian = {
-    decky-loader.enable = true;
+    decky-loader.enable = false;
     decky-loader.user = "${username}";
     steam.user = "${username}";
   };
