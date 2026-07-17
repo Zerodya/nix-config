@@ -40,7 +40,7 @@
 
     # File Editing / IDE
     vscodium-fhs
-    sublime4
+    kdePackages.kate
     obsidian
     
     # To-do 
