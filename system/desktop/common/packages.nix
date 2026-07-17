@@ -8,7 +8,7 @@
       "steam-run"
     ];
     permittedInsecurePackages = [
-      "openssl-1.1.1w"
+      "electron-40.10.5" # vesktop, wait for PR: https://github.com/NixOS/nixpkgs/pull/542528
     ];
   };
 
