@@ -22,6 +22,7 @@
   programs.niri.settings = {
     includes = lib.mkAfter [
         (./blur.kdl)
+        "dms/colors.kdl"
       ];
 
     hotkey-overlay.skip-at-startup = true;
