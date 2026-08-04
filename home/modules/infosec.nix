@@ -5,12 +5,23 @@
     nmap
     wireshark
 
-    # Binary
+    # Disassemblers
+    ghidra
+    ghidra-extensions.kaiju
+    ghidra-extensions.ret-sync
+    cutter
+    cutterPlugins.rz-ghidra
+
+    # Debuggers
     gdb
-    ghidra-bin
-    wxhexeditor
-    okteta
     pince
+    strace
+    ltrace
+    file
+
+    # Hex editors
+    okteta
+    imhex
 
     # Bruteforcing
     seclists
