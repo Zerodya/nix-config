@@ -12,7 +12,7 @@ let
     import uvicorn
 
     app = FastAPI()
-    TTS_BASE_URL = "http://127.0.0.1:8002"
+    TTS_BASE_URL = "http://127.0.0.1:9002"
 
     def sanitize_latex(text):
         # Decodifica HTML entities se presenti
@@ -119,45 +119,51 @@ let
 
 
     if __name__ == "__main__":
-        uvicorn.run(app, host="127.0.0.1", port=8001)
+        uvicorn.run(app, host="127.0.0.1", port=9001)
   '';
 in
 {
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-rocm;
+    loadModels = [ "llama3.2" ];
+
+    rocmOverrideGfx = "10.3.0"; # RX 6700XT
+
+    environmentVariables = {
+      HCC_AMDGPU_TARGET = "gfx1031"; # RX 6700XT
+    };
+  };
+
   services.open-webui = {
     enable = true;
     port = 11111;
     environment = {
       AUDIO_TTS_ENGINE = "openai";
-      AUDIO_TTS_OPENAI_API_BASE_URL = "http://127.0.0.1:8001/v1";
+      AUDIO_TTS_OPENAI_API_BASE_URL = "http://127.0.0.1:9001/v1";
       AUDIO_TTS_OPENAI_API_KEY = "sk-local";
       AUDIO_TTS_MODEL = "tts-1";
       AUDIO_TTS_VOICE = "it-IT-ElsaNeural";
 
       TTS_ENGINE = "openai";
-      TTS_OPENAI_API_BASE_URL = "http://127.0.0.1:8001/v1";
+      TTS_OPENAI_API_BASE_URL = "http://127.0.0.1:9001/v1";
       TTS_OPENAI_API_KEY = "sk-local";
       TTS_MODEL = "tts-1";
       TTS_VOICE = "it-IT-ElsaNeural";
 
       AUDIO_STT_ENGINE = "openai";
-      AUDIO_STT_OPENAI_API_BASE_URL = "http://127.0.0.1:8000/v1";
+      AUDIO_STT_OPENAI_API_BASE_URL = "http://127.0.0.1:9000/v1";
       AUDIO_STT_OPENAI_API_KEY = "sk-local";
       AUDIO_STT_MODEL = "whisper-1";
 
       STT_ENGINE = "openai";
-      STT_OPENAI_API_BASE_URL = "http://127.0.0.1:8000/v1";
+      STT_OPENAI_API_BASE_URL = "http://127.0.0.1:9000/v1";
       STT_OPENAI_API_KEY = "sk-local";
       STT_MODEL = "whisper-1";
 
       ENABLE_VOICE_CALL = "true";
       ENABLE_CONFERENCE_MODE = "true";
     };
-  };
-
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-rocm;
-    loadModels = [ "llama3.2" ];
   };
 
   hardware.amdgpu.opencl.enable = true;
@@ -168,7 +174,7 @@ in
   virtualisation.oci-containers.containers.whisper-stt = {
     image = "fedirz/faster-whisper-server:latest-cpu";
     autoStart = true;
-    ports = [ "127.0.0.1:8000:8000" ];
+    ports = [ "127.0.0.1:9000:9000" ];
     environment = {
       WHISPER_MODEL = "small";
       WHISPER_LANGUAGE = "it";
@@ -180,7 +186,7 @@ in
   virtualisation.oci-containers.containers.openai-edge-tts = {
     image = "docker.io/travisvn/openai-edge-tts:latest";
     autoStart = true;
-    ports = [ "127.0.0.1:8002:5050" ]; 
+    ports = [ "127.0.0.1:9002:5050" ]; 
     environment = {
       DEFAULT_VOICE = "it-IT-ElsaNeural";
       DEFAULT_LANGUAGE = "it-IT";
