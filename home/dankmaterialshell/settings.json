@@ -591,7 +591,14 @@
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
-  "connectedFrameBarStyleBackups": {},
+  "connectedFrameBarStyleBackups": {
+    "default": {
+      "shadowIntensity": 0,
+      "squareCorners": true,
+      "gothCornersEnabled": true,
+      "borderEnabled": false
+    }
+  },
   "barConfigs": [
     {
       "id": "default",
@@ -634,7 +641,7 @@
         },
         {
           "id": "cpuUsage",
-          "enabled": false,
+          "enabled": true,
           "minimumWidth": true
         },
         {
@@ -659,13 +666,13 @@
       "bottomGap": 0,
       "transparency": 0.8,
       "widgetTransparency": 1,
-      "squareCorners": true,
+      "squareCorners": false,
       "noBackground": false,
       "maximizeWidgetIcons": false,
       "maximizeWidgetText": false,
       "removeWidgetPadding": false,
       "widgetPadding": 8,
-      "gothCornersEnabled": true,
+      "gothCornersEnabled": false,
       "gothCornerRadiusOverride": true,
       "gothCornerRadiusValue": 20,
       "borderEnabled": false,
@@ -807,7 +814,7 @@
   "frameLauncherEmergeSide": "bottom",
   "frameLauncherArcExtender": false,
   "frameLauncherEdgeHover": false,
-  "frameMode": "separate",
+  "frameMode": "connected",
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
   "frameBarInsetPadding": -1,
