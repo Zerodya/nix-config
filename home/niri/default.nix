@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   # Packages
@@ -20,10 +20,9 @@
   ];
 
   programs.niri.settings = {
-    includes = lib.mkAfter [
-        (./blur.kdl)
-        "dms/colors.kdl"
-      ];
+    includes = with config.lib.niri.include; [
+      (optional "${config.xdg.configHome}/niri/dms/colors.kdl")
+    ];
 
     hotkey-overlay.skip-at-startup = true;
     prefer-no-csd = true;
@@ -106,6 +105,10 @@
       };
     };
 
+    blur = {
+      enable = true;
+    };
+
     # Persistent workspaces
     workspaces = {
       "1" = {};
@@ -152,11 +155,17 @@
         y = 6;
         relative-to = "bottom-right";
       };
-    }
+      }
     ];
     
     # Overview
     layer-rules = [
+      {
+        matches = [{ namespace="^dms"; }];
+        background-effect = {
+          xray = false;
+        };
+      }
       {
         matches = [{ namespace="^quickshell$"; }];
         place-within-backdrop = true;

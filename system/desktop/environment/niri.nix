@@ -12,20 +12,9 @@
 
   nixpkgs.overlays = [ inputs.niri.overlays.niri ];
   
-  # Use niri-unstable from cache
-  programs.niri = 
-    let
-      niriPkgs = inputs.niri-pkgs.packages.${pkgs.stdenv.hostPlatform.system};
-    in
-  {
+  programs.niri = {
     enable = true;
-    package = niriPkgs.niri-unstable;
-  };
-
-  # Binary cache
-  nix.settings = {
-    substituters = [ "https://niri.cachix.org" ];
-    trusted-public-keys = [ "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964=" ];
+    package = pkgs.niri-stable;
   };
 
   # Portal setup
