@@ -8,7 +8,7 @@
   "runUserMatugenTemplates": true,
   "matugenTargetMonitor": "",
   "popupTransparency": 0.5,
-  "dockTransparency": 1,
+  "dockTransparency": 0.85,
   "widgetBackgroundColor": "sch",
   "widgetBackgroundCustomColor": "#6750A4",
   "widgetBackgroundCustomStrength": 0.5,
@@ -29,6 +29,24 @@
   "mangoLayoutRadiusOverride": -1,
   "mangoLayoutBorderSize": -1,
   "mangoTrackpadNaturalScrolling": true,
+  "mouseAccelProfile": "default",
+  "mouseAccelSpeed": 0,
+  "mouseLeftHanded": false,
+  "mouseMiddleEmulation": false,
+  "mouseNaturalScroll": false,
+  "mouseScrollFactor": 1,
+  "mouseScrollMethod": "default",
+  "touchpadAccelProfile": "default",
+  "touchpadAccelSpeed": 0,
+  "touchpadDisableOnExternalMouse": false,
+  "touchpadDisableWhileTyping": true,
+  "touchpadDragLock": false,
+  "touchpadMiddleEmulation": false,
+  "touchpadNaturalScroll": true,
+  "touchpadScrollFactor": 1,
+  "touchpadScrollMethod": "default",
+  "touchpadTapAndDrag": true,
+  "touchpadTapToClick": true,
   "firstDayOfWeek": 1,
   "showWeekNumber": false,
   "calendarBackend": "auto",
@@ -83,7 +101,7 @@
   "enabledGpuPciIds": [],
   "showSystemTray": true,
   "systemTrayIconTintMode": "none",
-  "systemTrayIconTintSaturation": 50,
+  "systemTrayIconTintSaturation": 15,
   "systemTrayIconTintStrength": 135,
   "showClock": true,
   "showNotificationButton": true,
@@ -393,27 +411,6 @@
   "fadeToDpmsEnabled": true,
   "fadeToDpmsGracePeriod": 30,
   "launchPrefix": "",
-  "brightnessDevicePins": {},
-  "wifiNetworkPins": {},
-  "bluetoothDevicePins": {
-    "preferredDevice": [
-      "88:C9:E8:06:9B:6F",
-      "78:EF:92:0D:49:5A"
-    ]
-  },
-  "audioInputDevicePins": {
-    "preferredInput": [
-      "alsa_input.usb-Macronix_Razer_Barracuda_X_2.4_1234-00.mono-fallback",
-      "alsa_input.usb-IK_Multimedia_iRig_HD_2-00.mono-fallback"
-    ]
-  },
-  "audioOutputDevicePins": {
-    "preferredOutput": [
-      "bluez_output.88_C9_E8_06_9B_6F.1",
-      "alsa_output.pci-0000_0a_00.4.analog-stereo",
-      "alsa_output.usb-Macronix_Razer_Barracuda_X_2.4_1234-00.analog-stereo"
-    ]
-  },
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
@@ -464,11 +461,11 @@
   "dockGroupByApp": false,
   "dockRestoreSpecialWorkspaceOnClick": false,
   "dockOpenOnOverview": false,
-  "dockPosition": 1,
-  "dockSpacing": 4,
-  "dockBottomGap": 0,
+  "dockPosition": 3,
+  "dockSpacing": 8,
+  "dockBottomGap": -100,
   "dockMargin": 0,
-  "dockIconSize": 40,
+  "dockIconSize": 48,
   "dockIndicatorStyle": "circle",
   "dockBorderEnabled": false,
   "dockBorderColor": "surfaceText",
@@ -507,6 +504,8 @@
   "enableU2f": false,
   "u2fMode": "or",
   "lockPamPath": "",
+  "lockScreenSecurityKeyShortcut": "Ctrl+Q",
+  "lockScreenSecurityKeyShortcutEnabled": false,
   "lockPamInlineFprint": false,
   "lockPamInlineU2f": false,
   "lockPamExternallyManaged": false,
@@ -523,6 +522,7 @@
   "notificationTimeoutLow": 5000,
   "notificationTimeoutNormal": 5000,
   "notificationTimeoutCritical": 0,
+  "notificationIgnoreAppTimeout": false,
   "notificationCompactMode": false,
   "notificationShowTimeoutBar": false,
   "notificationDedupeEnabled": true,
@@ -634,7 +634,7 @@
         },
         {
           "id": "cpuUsage",
-          "enabled": true,
+          "enabled": false,
           "minimumWidth": true
         },
         {
@@ -693,7 +693,10 @@
       "shadowOpacity": 60,
       "shadowColorMode": "text",
       "shadowCustomColor": "#000000",
-      "clickThrough": false
+      "clickThrough": false,
+      "useOverlayLayer": false,
+      "hoverPopouts": false,
+      "hoverPopoutDelay": 150
     }
   ],
   "desktopClockEnabled": false,
@@ -773,6 +776,9 @@
     },
     "dms_clipboard_search": {
       "trigger": "cb"
+    },
+    "dms_qr_generator": {
+      "trigger": "qrg"
     }
   },
   "clipboardClickToPaste": false,
@@ -805,5 +811,5 @@
   "barInsetPaddingShared": -1,
   "barInsetPaddingSyncAll": false,
   "frameBarInsetPadding": -1,
-  "configVersion": 12
+  "configVersion": 13
 }
