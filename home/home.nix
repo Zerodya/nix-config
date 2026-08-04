@@ -58,6 +58,9 @@
 
     # Wayland for Electron apps
     NIXOS_OZONE_WL = "1";
+
+    # Fix Java apps on Wayland WMs
+    _JAVA_AWT_WM_NONREPARENTING = "1";
   };
 
 }
