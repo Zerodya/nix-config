@@ -11,6 +11,7 @@
         MANGOHUD = "1";
       };
     };
+    protontricks.enable = true;
     extraCompatPackages = with pkgs; [proton-ge-bin];
   };
 

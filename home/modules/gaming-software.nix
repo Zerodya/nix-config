@@ -14,7 +14,6 @@
 
     # Wine/Proton
     winetricks
-    protontricks
     protonplus
 
     # Vulkan
