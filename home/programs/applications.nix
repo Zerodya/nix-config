@@ -41,6 +41,7 @@
     # File Editing / IDE
     vscodium-fhs
     kdePackages.kate
+    zed-editor
     obsidian
     
     # To-do 
