@@ -28,8 +28,9 @@
     oversteer
     sc-controller
 
-    # Native Games
+    # Games
     osu-lazer-bin
+    xivlauncher
   ];
   
 }
