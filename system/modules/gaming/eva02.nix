@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  steamForGamescope = pkgs.steam.override {
+  steamForGamescope = pkgs.millennium-steam.override {
     extraEnv = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.proton-ge-bin.steamcompattool}";
       STEAM_GAMESCOPE_VRR_SUPPORTED = "1";
@@ -14,7 +14,7 @@ in
       #!/usr/bin/env bash
 
       if pgrep -x steam > /dev/null; then
-        ${pkgs.steam}/bin/steam -shutdown
+        ${pkgs.millennium-steam}/bin/steam -shutdown
         
         for i in {1..10}; do
           if ! pgrep -x steam > /dev/null; then
