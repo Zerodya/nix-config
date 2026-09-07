@@ -10,7 +10,6 @@
     konsole
     kate
     kcalc
-    okular
     gwenview
     ark
     kruler

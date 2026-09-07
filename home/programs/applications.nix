@@ -58,8 +58,9 @@
     # Network
     networkmanagerapplet
     
-    # PDF
+    # Documents
     kdePackages.okular
+    foliate
     
     # Screen Rec
     obs-studio
