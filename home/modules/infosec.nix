@@ -16,7 +16,7 @@
     gdb
     pince
     strace
-    ltrace
+    #ltrace
     file
 
     # Hex editors
