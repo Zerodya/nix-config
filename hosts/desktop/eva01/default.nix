@@ -11,7 +11,7 @@
       ../../../system/modules/gaming/default.nix
       ../../../system/modules/gaming/eva01.nix
       ../../../system/modules/denuvowo-hypervisor.nix
-      ../../../system/modules/ollama-rocm.nix
+      #../../../system/modules/ollama-rocm.nix
       ../../../system/modules/rt-audio.nix
   ];
 
