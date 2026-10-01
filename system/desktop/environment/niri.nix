@@ -40,25 +40,53 @@
 
   programs.dms-shell = 
     let
-      # Patch dms flake package
-      dmsPatched = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: {
-        postInstall = (oldAttrs.postInstall or "") + ''
-          # Line 1 == Height for Active workspace and Active appIconSize
-          # Line 2 == Height for Inactive workspace and Inactive appIconSize
-          # Line 3 == Width for no apps
-          # Line 4 == Width for apps
-          substituteInPlace $out/share/quickshell/dms/Modules/DankBar/Widgets/WorkspaceSwitcher.qml \
-            --replace 'Math.max(root.widgetHeight * 1.05, root.appIconSize * 1.6)' 'Math.max(root.widgetHeight * 3.0, root.appIconSize * 2.5)' \
-            --replace 'Math.max(root.widgetHeight * 0.7, root.appIconSize * 1.2)' 'Math.max(root.widgetHeight * 1.5, root.appIconSize * 1.0)' \
-            --replace 'widgetHeight * 0.5' 'widgetHeight * 0.22' \
-            --replace 'widgetHeight * 0.7' 'widgetHeight * 0.22'
+    dmsPatched = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: {
+      postInstall = (oldAttrs.postInstall or "") + ''
+        f=$out/share/quickshell/dms/Modules/DankBar/Widgets/WorkspaceSwitcher.qml
 
-          # Filter out unnamed dynamic workspaces
-          substituteInPlace $out/share/quickshell/dms/Modules/DankBar/Widgets/WorkspaceSwitcher.qml \
-            --replace 'workspaces = workspaces.slice().sort((a, b) => a.idx - b.idx);' 'workspaces = workspaces.filter(ws => ws.name && ws.name !== "").slice().sort((a, b) => a.idx - b.idx);'
-        '';
-      });
-    in  
+        # Length along the bar
+        #   active   = max(barThickness * 3.0, appIconSize * 2.5)
+        #   inactive = max(barThickness * 1.5, appIconSize * 1.0)
+        substituteInPlace $f \
+          --replace-fail 'readonly property real activeRatio: linesStyle ? 1.6 : cardsStyle ? 0.9 : 1.05' \
+                         'readonly property real activeRatio: 3.0' \
+          --replace-fail 'readonly property real activeIconRatio: 1.6' \
+                         'readonly property real activeIconRatio: 2.5' \
+          --replace-fail 'readonly property real iconRatio: 1.2' \
+                         'readonly property real iconRatio: 1.0' \
+          --replace-fail 'Math.max(root.widgetThickness * root.compactRatio, root.appIconSize * root.iconRatio)' \
+                         'Math.max(root.widgetThickness * 1.5, root.appIconSize * root.iconRatio)'
+
+        # Thickness across the bar (pill style without apps, pill style with apps, and "lines" style)
+        substituteInPlace $f \
+          --replace-fail 'readonly property real slimRatio: 0.5' \
+                         'readonly property real slimRatio: 0.22' \
+          --replace-fail 'readonly property real activeSlimRatio: 0.6' \
+                         'readonly property real activeSlimRatio: 0.22' \
+          --replace-fail 'Math.max(widgetThickness * root.compactRatio, root.appIconSize + Theme.spacingXS * 2)' \
+                         'Math.max(widgetThickness * 0.22, root.appIconSize + Theme.spacingXS * 2)' \
+          --replace-fail 'readonly property real lineRatio: 0.12' \
+                         'readonly property real lineRatio: 0.22' \
+          --replace-fail 'readonly property real activeLineRatio: 0.2' \
+                         'readonly property real activeLineRatio: 0.22'
+
+        # Filter out unnamed dynamic workspaces (padding placeholders are kept)
+        substituteInPlace $f \
+          --replace-fail 'function opt(key) {' \
+                         'function namedOnly(list) {
+            return list.filter(ws => ws && (ws.placeholder || (ws.name && ws.name !== "")));
+        }
+
+        function opt(key) {' \
+          --replace-fail 'return hyprlandSlotList(baseList);' \
+                         'return hyprlandSlotList(root.namedOnly(baseList));' \
+          --replace-fail 'return baseList;' \
+                         'return root.namedOnly(baseList);' \
+          --replace-fail 'return padWorkspaces(baseList);' \
+                         'return padWorkspaces(root.namedOnly(baseList));'
+      '';
+    });
+  in
   {
     enable = true;
     systemd.enable = false;
@@ -76,13 +104,5 @@
       linuxWallpaperEngine.enable = true;
       mpvpaperWallpaper.enable = true;
     };
-
-    # Core features
-    enableSystemMonitoring = true;
-    enableVPN = true;
-    enableDynamicTheming = true;
-    enableAudioWavelength = true;
-    enableCalendarEvents = true;
-    enableClipboardPaste = true;
   };
 }
