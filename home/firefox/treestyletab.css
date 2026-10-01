@@ -65,3 +65,13 @@ tab-item:hover .closebox {
 #background{
 	background: #2B2A33 !important;
 } 
+
+/* Fix TreeStyleTab in Firefox 157 */
+@-moz-document url-prefix("chrome://browser/content/webext-panels.xhtml") {
+  #sidebar-panel-header {
+    margin-block-start: 0 !important;
+    padding-block: 6px !important;
+  }
+  .sidebar-panel-heading { margin-block-end: 0 !important; }
+  .sidebar-panel-heading > h4 { margin-block: 2px !important; }
+}

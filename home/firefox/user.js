@@ -269,6 +269,10 @@ user_pref("browser.sessionstore.max_resumed_crashes", -1);
 // Open bookmarks in a new tab instead of overwriting the current page
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 
+// Fix TreeStyleTab in Firefox 157
+user_pref("browser.nova.enabled", false);
+user_pref("sidebar.revamp", false);
+
 /****************************************************************************
  * END: BETTERFOX                                                           *
 ****************************************************************************/
