@@ -72,9 +72,9 @@
 
           # Build the command: include --build-host $system_name unless --locally was requested.
           if test $locally -eq 1
-              nixos-rebuild $rebuild_arg -S --flake "/home/${username}/nix-config/#$system_name" --target-host $system_name $custom_args -L &| nom
+              nixos-rebuild $rebuild_arg --ask-sudo-password --flake "/home/${username}/nix-config/#$system_name" --target-host $system_name $custom_args -L &| nom
           else
-              nixos-rebuild $rebuild_arg -S --flake "/home/${username}/nix-config/#$system_name" --target-host $system_name --build-host $system_name $custom_args -L &| nom
+              nixos-rebuild $rebuild_arg --ask-sudo-password --flake "/home/${username}/nix-config/#$system_name" --target-host $system_name --build-host $system_name $custom_args -L &| nom
           end
 
           # Print newline, then show the diff on the target host (where profiles changed).
