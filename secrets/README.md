@@ -1,4 +1,10 @@
 # Secrets
+
+|  |  |
+| --- | --- |
+| [`music/`](./music/) | Navidrome, slskd, DeepL and the music Cloudflare tunnel |
+| [`searx/`](./searx/) | SearXNG and its Cloudflare tunnel |
+
 This directory and its subdirectories (as defined in [`.sops.yaml`](../.sops.yaml)) contain secrets that will be decrypted by the hosts that require them.
 
 ### Location of sops-nix configs

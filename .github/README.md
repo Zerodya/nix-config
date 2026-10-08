@@ -24,9 +24,8 @@ Other directories:
 - 🔒 **[secrets](/secrets)** ~ contains encrypted sops-nix secrets
 - 📦 **[pkgs](/pkgs)** ~ contains personal packages not available in nixpkgs
 
-You can find more info inside each repository.
+You can find more info in the README inside each directory.
 
-> TODO: Update all READMEs. Documentation in this repo is *VERY* outdated.
 
 ## Screenshots
 <img width="2560" height="1440" alt="niri" src="https://github.com/user-attachments/assets/6f7b21e0-84d1-4f71-a781-0a69c2d99752" />

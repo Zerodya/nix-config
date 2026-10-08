@@ -1,8 +1,12 @@
+# Hosts
+
 |  |  |
 | --- | --- |
-| [`eva01/`](./eva01/) | Configuration for my desktop (Ryzen 5 5600X, Radeon 6700XT, 16GB RAM) |
-| [`eva02/`](./eva02/) | Configuration for my laptop (Thinkpad E15 Gen 1, i5-10210U, 16GB RAM) |
+| [`desktop/`](./desktop/) | Desktop and laptop |
+| [`server/`](./server/) | Home servers |
+| [`other/`](./other/) | Anything else, like the recovery ISO |
 
-This directory contains host-specific configurations. Each host imports: 
-- their system modules from `/system/modules/` in `default.nix`
-- their home modules from `/home/modules/` in `home.nix`
+This directory contains host-specific configurations. Each host is defined in [`flake.nix`](../flake.nix) and has:
+- `default.nix` ~ system config, imports system modules from [`/system/`](../system/)
+- `home.nix` ~ Home-Manager config, imports home modules from [`/home/`](../home/)
+- `hardware-configuration.nix` ~ generated hardware config
