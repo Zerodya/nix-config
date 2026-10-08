@@ -1,11 +1,16 @@
 { lib, pkgs, config, username, ...}:
 let 
   music-dir = "/mnt/storage/music";
+  # slskd -> downloads/complete -> droppedneedle verifies -> downloads/imported -> beets-import -> music-dir
+  # Same filesystem as music-dir, so every step is an atomic move.
+  downloads-dir = "/mnt/storage/downloads";
   beets-home = "/var/lib/beets/";
 in 
 {
   imports = [
     ./translate-lyrics.nix
+    ./droppedneedle.nix
+    ./beets-import.nix
   ];
 
   systemd.tmpfiles.rules = [
@@ -13,6 +18,11 @@ in
     "d ${music-dir} 0770 ${username} music - -" # ensure the music directory exists and with correct permissions
     "a+ ${music-dir} - - - - d:g:music:rwx" # ensure music group can create directories in the music directory
     "a+ ${music-dir} - - - - f:g:music:rw" # ensure music group can write files in the music directory
+    "d ${downloads-dir} 0770 ${username} music - -"
+    "a+ ${downloads-dir} - - - - d:g:music:rwx" # slskd, droppedneedle and beets all move files through here
+    "d ${downloads-dir}/complete 0770 slskd music - -"
+    "d ${downloads-dir}/incomplete 0770 slskd music - -"
+    "d ${downloads-dir}/imported 0770 ${username} music - -"
 
     # Beets config
     "L+ ${beets-home}.config/beets/config.yaml - beets music - ${./beets-config.yaml}"
@@ -25,6 +35,7 @@ in
   networking.firewall = {
     allowedTCPPorts = [ 
       4533 # navidrome
+      8688 # droppedneedle
       5030 # slskd
     ];
     allowedUDPPorts = [ 
@@ -59,16 +70,15 @@ in
       network.address = "0.0.0.0";
       network.port = 5030;
 
-      directories.downloads = "${music-dir}";
+      directories.downloads = "${downloads-dir}/complete";
+      directories.incomplete = "${downloads-dir}/incomplete";
       shares.directories = [ "${music-dir}" ];
     };
 
     environmentFile = config.sops.templates."slskd.env".path;
   };
+  # The module's sandbox makes shares read-only and only the download dirs writable
   systemd.services.slskd.serviceConfig = {
-    # Allow access to music directory
-    ReadOnlyPaths = lib.mkForce [];
-    ReadWritePaths = lib.mkForce [ "${music-dir}" ];
     # Ensure downloaded files are writable by the 'music' group
     UMask = "002"; 
   };

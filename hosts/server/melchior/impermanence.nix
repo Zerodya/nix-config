@@ -91,6 +91,7 @@
       "/var/lib/nixos"
 
       # Services data
+      "/var/lib/containers"
       "/var/lib/navidrome"
       "/var/lib/slskd"
       "/var/lib/beets"

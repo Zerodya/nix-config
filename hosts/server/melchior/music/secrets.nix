@@ -48,6 +48,10 @@
       sopsFile = ../../../../secrets/music/slskd.yaml;
       owner = "slskd";
     };
+    "slskd/apikey" = {
+      sopsFile = ../../../../secrets/music/slskd.yaml;
+      owner = "slskd";
+    };
   };
   sops.templates."slskd.env" = {
     owner = config.services.slskd.user;
@@ -56,6 +60,7 @@
       SLSKD_SLSK_PASSWORD=${config.sops.placeholder."slskd/soulseek/pass"}
       SLSKD_USERNAME=${config.sops.placeholder."slskd/webui/user"}
       SLSKD_PASSWORD=${config.sops.placeholder."slskd/webui/pass"}
+      SLSKD_API_KEY=${config.sops.placeholder."slskd/apikey"}
     '';
   };
 
