@@ -34,6 +34,9 @@
   # Profile icon
   home.file.".face".source = ./.face;
 
+  # Steam's container can't see system fonts or resolve generic aliases, so its UI renders no text
+  xdg.configFile."fontconfig/conf.d/99-steam-fonts.conf".source = ./steam-fonts.conf;
+
   # GTK
   gtk = {
     enable = true;

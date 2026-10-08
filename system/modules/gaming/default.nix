@@ -1,12 +1,10 @@
-{pkgs, inputs, ...}:
+{pkgs, ...}:
 
 {
-  nixpkgs.overlays = [ inputs.millennium.overlays.default ];
-
   # Steam
   programs.steam = {
     enable = true;
-    package = pkgs.millennium-steam.override {
+    package = pkgs.steam.override {
       extraEnv = {
         MANGOHUD = "1";
       };

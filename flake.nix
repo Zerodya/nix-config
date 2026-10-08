@@ -64,9 +64,6 @@
 
     # SteamDeck plugins
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS/development";
-
-    # Steam skins
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
   };
 
   outputs = {
