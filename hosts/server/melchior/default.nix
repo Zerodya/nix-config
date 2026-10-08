@@ -19,7 +19,7 @@
       ./fitness/default.nix
       #./minecraft/default.nix
       ./music/default.nix
-      ./netdata/default.nix
+      ./beszel/default.nix
       #./photos/default.nix
       ./searx/default.nix
   ];

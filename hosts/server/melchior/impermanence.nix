@@ -95,9 +95,7 @@
       "/var/lib/slskd"
       "/var/lib/beets"
       "/var/cache/searx"
-      "/var/lib/netdata"
-      "/var/cache/netdata"
-      "/var/log/netdata"
+      { directory = "/var/lib/private"; mode = "0700"; } # DynamicUser services state (beszel)
     ];
     files = [
       # Sops key
