@@ -55,6 +55,7 @@
       "magnification": false,
       "magnificationScale": 130,
       "magnificationProfile": "parabolic",
+      "magnificationExpand": false,
       "order": [],
       "widgets": [
         {
@@ -76,6 +77,8 @@
     }
   ],
   "currentThemeCategory": "dynamic",
+  "matugenScheme": "scheme-fidelity",
+  "matugenSourceMode": "darkness",
   "dmsWindowsFloatingSeeded": [
     "niri",
     "niri"
@@ -178,6 +181,15 @@
       "w": 7,
       "h": 1,
       "small": true
+    },
+    {
+      "id": "edit",
+      "enabled": true,
+      "w": 1,
+      "h": 1,
+      "small": true,
+      "footer": true,
+      "footerEnd": true
     }
   ],
   "appIdSubstitutions": [],
@@ -391,5 +403,5 @@
   "frameRounding": 20,
   "frameShowOnOverview": true,
   "frameBlurEnabled": false,
-  "configVersion": 36
+  "configVersion": 39
 }
