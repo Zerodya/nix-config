@@ -16,7 +16,6 @@
       ../../../system/modules/containers.nix
 
       # Services
-      ./fitness/default.nix
       #./minecraft/default.nix
       ./music/default.nix
       ./beszel/default.nix
