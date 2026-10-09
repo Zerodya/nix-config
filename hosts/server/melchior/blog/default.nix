@@ -17,7 +17,10 @@ in
     virtualHosts."zerodya.net" = {
       listen = [{ addr = "127.0.0.1"; port = 8095; }];
       root = site;
-      extraConfig = "error_page 404 /404.html;";
+      extraConfig = ''
+        error_page 404 /404.html;
+        absolute_redirect off;
+      '';
     };
   };
 }
