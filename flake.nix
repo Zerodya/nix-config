@@ -64,6 +64,12 @@
 
     # SteamDeck plugins
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS/development";
+
+    # Blog source (zerodya.net)
+    blog = {
+      url = "github:Zerodya/zerodya.net";
+      flake = false;
+    };
   };
 
   outputs = {

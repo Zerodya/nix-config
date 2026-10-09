@@ -50,6 +50,22 @@
         "type": "github"
       }
     },
+    "blog": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791569262,
+        "narHash": "sha256-nwsb61AiPnHR7VSZFDXU7xNQx8JOpmpkRdBlBFmEcmI=",
+        "owner": "Zerodya",
+        "repo": "zerodya.net",
+        "rev": "1c169f02f9495c2e8d73418deb89f3cacd4b520a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Zerodya",
+        "repo": "zerodya.net",
+        "type": "github"
+      }
+    },
     "dank-qml-common": {
       "flake": false,
       "locked": {
@@ -1209,6 +1225,7 @@
     },
     "root": {
       "inputs": {
+        "blog": "blog",
         "determinate": "determinate",
         "dms": "dms",
         "dms-plugin-registry": "dms-plugin-registry",

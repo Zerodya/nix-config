@@ -21,6 +21,7 @@
       ./beszel/default.nix
       #./photos/default.nix
       ./searx/default.nix
+      ./blog/default.nix
   ];
 
   networking.hostName = thinkcentre;

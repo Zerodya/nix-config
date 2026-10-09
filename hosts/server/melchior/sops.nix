@@ -4,6 +4,7 @@
     ./music/secrets.nix
     ./beszel/secrets.nix
     ./searx/secrets.nix
+    ./blog/secrets.nix
   ];
 
   #sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt"; # without impermanence

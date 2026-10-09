@@ -5,6 +5,7 @@
     # Tunnels
     ./music/cloudflared.nix
     ./searx/cloudflared.nix
+    ./blog/cloudflared.nix
   ];
 
   services.cloudflared.enable = true;
