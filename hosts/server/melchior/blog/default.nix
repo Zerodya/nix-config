@@ -20,6 +20,12 @@ in
       extraConfig = ''
         error_page 404 /404.html;
         absolute_redirect off;
+
+        # Static site: only giscus (comments) is third-party; inline styles come from syntax highlighting
+        add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://giscus.app; frame-src https://giscus.app; style-src 'self' 'unsafe-inline' https://giscus.app; img-src 'self' data: https:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+        add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
       '';
     };
   };
