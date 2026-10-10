@@ -114,12 +114,6 @@
       directories = [
         # Fish history
         ".local/share/fish/"
-
-        # Cloudflare credentials
-        { directory = ".cloudflared"; mode = "0700"; }
-
-        # Sops keys
-        { directory = ".config/sops/age"; mode = "0600"; }
       ];
       files = [
 

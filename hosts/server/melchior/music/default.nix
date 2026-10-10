@@ -29,17 +29,15 @@ in
     "L+ ${beets-home}.config/beets/genres.yaml - beets music - ${./beets-genres.yaml}"
     "L+ ${beets-home}.config/beets/whitelist.txt - beets music - ${./beets-whitelist.txt}"
   ];
-  users.groups.music.members = [ "alpha" "navidrome" "slskd" "beets" "olivetin" ];
+  users.groups.music.members = [ "alpha" "navidrome" "slskd" "beets" "droppedneedle" ];
 
   # Ports
   networking.firewall = {
+    # Navidrome is used through its tunnel; only containers (DroppedNeedle) reach it directly
+    interfaces.podman0.allowedTCPPorts = [ 4533 ];
     allowedTCPPorts = [ 
-      4533 # navidrome
       8688 # droppedneedle
-      5030 # slskd
-    ];
-    allowedUDPPorts = [ 
-      5030 # slskd
+      5030 # slskd web UI (Soulseek peer port 50300 stays closed: outbound connections only)
     ];
   };
 
@@ -50,7 +48,7 @@ in
     group = "music";
 
     settings = {
-      Address = "0.0.0.0";
+      Address = "0.0.0.0"; # the firewall only lets the tunnel (localhost) and podman0 in
       Port = 4533;
 
       MusicFolder = "${music-dir}";
@@ -65,11 +63,8 @@ in
     user = "slskd";
     group = "music";
 
-    domain = "0.0.0.0";
+    domain = null; # no nginx vhost, the web UI is served on port 5030
     settings = {
-      network.address = "0.0.0.0";
-      network.port = 5030;
-
       directories.downloads = "${downloads-dir}/complete";
       directories.incomplete = "${downloads-dir}/incomplete";
       shares.directories = [ "${music-dir}" ];

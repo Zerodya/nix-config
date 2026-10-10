@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, ... }:
 let
   version = "v2.15.0";
   port = "8688";
@@ -10,6 +10,11 @@ in
   # You will have to connect Navidrome, Slskd, Last.fm etc. manually.
   # The url for internal services will be http://host.containers.internal:PORT and not http://127.0.0.1:PORT
 
+  users.users.droppedneedle = {
+    isSystemUser = true;
+    group = "music";
+  };
+
   virtualisation.quadlet = {
     enable = true;
     containers.droppedneedle = {
@@ -17,13 +22,12 @@ in
         image = "docker.io/droppedneedle/droppedneedle:${version}";
         publishPorts = [ "0.0.0.0:${port}:${port}" ];
         environments = {
-          PUID = toString config.users.users.${username}.uid;
           UMASK = "002"; # group-writable, same as slskd
           PORT = port;
           TZ = config.time.timeZone;
           SLSKD_DOWNLOADS_PATH = "/data/downloads/complete";
         };
-        # PGID = gid of the 'music' group, which NixOS allocates dynamically
+        # PUID/PGID of the 'droppedneedle' user and 'music' group, which NixOS allocates dynamically
         environmentFiles = [ "/run/droppedneedle.env" ];
         volumes = [
           # Named volumes, created by podman in /var/lib/containers (persisted)
@@ -32,7 +36,8 @@ in
           "droppedneedle-plugins:/app/plugins"
           # Library paths in the UI: /data/downloads/imported FIRST (import target), then /data/music.
           # The beets library is read-only here, beets-import moves albums into it.
-          "${downloads-dir}:/data/downloads"
+          "${downloads-dir}/complete:/data/downloads/complete"
+          "${downloads-dir}/imported:/data/downloads/imported"
           "${music-dir}:/data/music:ro"
         ];
         dropCapabilities = [ "ALL" ];
@@ -44,8 +49,9 @@ in
         noNewPrivileges = true;
       };
       serviceConfig = {
-        ExecStartPre = pkgs.writeShellScript "droppedneedle-pgid" ''
-          echo "PGID=$(${pkgs.getent}/bin/getent group music | ${pkgs.coreutils}/bin/cut -d: -f3)" > /run/droppedneedle.env
+        ExecStartPre = pkgs.writeShellScript "droppedneedle-ids" ''
+          echo "PUID=$(${pkgs.coreutils}/bin/id -u droppedneedle)" > /run/droppedneedle.env
+          echo "PGID=$(${pkgs.getent}/bin/getent group music | ${pkgs.coreutils}/bin/cut -d: -f3)" >> /run/droppedneedle.env
         '';
         Restart = "always";
       };

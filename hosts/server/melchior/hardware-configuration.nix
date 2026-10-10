@@ -34,13 +34,6 @@
       neededForBoot = true;
     };
 
-    "/var/log" = { 
-      device = "/dev/disk/by-uuid/2c1aa9ba-ada3-46f8-bb1d-0471c5af2ec9";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime" ];
-      neededForBoot = true;
-    };
-  
     "/boot" = {
       device = "/dev/disk/by-uuid/B023-7AC4";
       fsType = "vfat";
@@ -50,7 +43,7 @@
     "/mnt/storage" = {
       device = "/dev/disk/by-uuid/86d45fb5-9f89-4867-aac5-4e99a1669c35";
       fsType = "ext4";
-      options = [ "nofail" "rw" "user" "exec" ];
+      options = [ "nofail" "nosuid" "nodev" "noexec" ]; # data only
     };
   };
 

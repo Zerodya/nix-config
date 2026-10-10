@@ -26,7 +26,7 @@
     configureUwsgi = true;
     uwsgiConfig = {
       socket = "/run/searx/searx.sock";
-      http = ":8080";
+      http = "127.0.0.1:8080";
       chmod-socket = "660";
     };
 
