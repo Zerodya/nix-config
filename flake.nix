@@ -244,6 +244,9 @@
 
       # ~~ Recovery ISO ~~
       ${recovery-iso} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit recovery-iso;
+        };
         system = "x86_64-linux";
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
