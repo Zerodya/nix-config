@@ -38,6 +38,12 @@
   # Enable SSD TRIM timer https://www.reddit.com/r/NixOS/comments/rbzhb1/if_you_have_a_ssd_dont_forget_to_enable_fstrim/
   services.fstrim.enable = true;
 
+  # Resolve .local hostnames (e.g. ritsuko.local)
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+  };
+
   # SSH aliases for my servers
   programs.ssh = {
     extraConfig = ''
@@ -48,11 +54,11 @@
         IdentityFile ~/.ssh/id_melchior
         IdentitiesOnly yes
 
-      Host maya
-        HostName 192.168.1.250
+      Host ritsuko
+        HostName ritsuko.local
         Port 22
         User root
-        IdentityFile ~/.ssh/id_maya
+        IdentityFile ~/.ssh/id_ritsuko
         IdentitiesOnly yes
     '';
   };

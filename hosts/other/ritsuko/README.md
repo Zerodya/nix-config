@@ -1,5 +1,5 @@
-# Maya
-> ### The subtle but resourceful systems operator
+# Ritsuko
+> ### The brilliant scientist who keeps the MAGI running
 Minimal rescue system meant to be run from a live USB to help troubleshooting problems.
 
 ## Features
@@ -11,7 +11,7 @@ Minimal rescue system meant to be run from a live USB to help troubleshooting pr
 
 1. Build the ISO:
 ```
-nix build ~/nix-config#nixosConfigurations.maya.config.system.build.isoImage
+nix build ~/nix-config#nixosConfigurations.ritsuko.config.system.build.isoImage
 ```
 
 2. Image will be in `results/iso`. Copy it to a Ventoy USB or flash it directly.

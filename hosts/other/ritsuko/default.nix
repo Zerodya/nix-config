@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, recovery-iso, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  networking.hostName = "maya";
+  networking.hostName = "${recovery-iso}";
   time.timeZone = "Europe/Rome";
 
   # SSH
@@ -25,22 +25,14 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ7tSjPE3l7mcQsWNXx3Df5w3Kr840XQBAWdISUSuVRh alpha@eva01" # My desktop
   ];
 
-  # Static IP so you know where to find it
-  networking = {
-    useDHCP = false;
-
-    interfaces.eno1 = {
-      ipv4.addresses = [{
-        address = "192.168.1.250"; # Static IP
-        prefixLength = 24;
-      }];
+  # The installer's NetworkManager gets an IP via DHCP; announce it as ritsuko.local so it's found on any network and NIC
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    publish = {
+      enable = true;
+      addresses = true;
     };
-    defaultGateway = {
-      address = "192.168.1.1";
-      interface = "eno1";
-    };
-
-    nameservers = [ "1.1.1.1" "8.8.8.8" ];
   };
 
   # Essential tools for recovery
@@ -73,7 +65,7 @@
   # ISO image settings
   isoImage.makeEfiBootable = true;
   isoImage.makeUsbBootable = true;
-  isoImage.volumeID = "NIXOS_MAYA_RECOVERY";
+  isoImage.volumeID = "NIXOS_RITSUKO_RECOVERY";
 
   system.stateVersion = "24.11";
 }
