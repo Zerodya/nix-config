@@ -23,27 +23,18 @@
         search = {
           force = true;
           default = "degoog";
-          order = [ "degoog" "searxng" "nix-pkgs" "nixos-wiki" "ddg" ];
+          order = [ "degoog" "nix-pkgs" "nixos-wiki" "ddg" ];
 
           engines = {
             degoog = {
               urls = [
-                { template = "https://degoog.org/search?q={searchTerms}"; }
+                { template = "https://search.zerodya.net/search?q={searchTerms}"; }
               ];
-              icon = "https://degoog.org/public/favicon/favicon.ico";
+              icon = "https://search.zerodya.net/public/favicon/favicon.ico";
               updateInterval = 86400000; # 24h
               definedAliases = [ "@degoog" ];
-            };
-
-            searxng = {
-              urls = [
-                { template = "https://searx.zerodya.net/search?q={searchTerms}"; }
-              ];
-              icon = "https://searx.zerodya.net/favicon.ico";
-              updateInterval = 86400000; # 24h
-              definedAliases = [ "@searxng" ];
               suggestUrls = [
-                { template = "https://searx.zerodya.net/autosuggest?q={searchTerms}"; }
+                { template = "https://search.zerodya.net/api/suggest/opensearch?q={searchTerms}"; }
               ];
             };
 

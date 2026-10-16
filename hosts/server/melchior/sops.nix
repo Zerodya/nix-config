@@ -3,7 +3,7 @@
     # Import all secrets modules here
     ./music/secrets.nix
     ./beszel/secrets.nix
-    ./searx/secrets.nix
+    ./degoog/secrets.nix
     ./blog/secrets.nix
   ];
 

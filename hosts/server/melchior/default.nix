@@ -20,7 +20,7 @@
       ./music/default.nix
       ./beszel/default.nix
       #./photos/default.nix
-      ./searx/default.nix
+      ./degoog/default.nix
       ./blog/default.nix
   ];
 

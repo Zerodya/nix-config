@@ -65,6 +65,12 @@
     # SteamDeck plugins
     jovian.url = "github:Jovian-Experiments/Jovian-NixOS/development";
 
+    # Degoog search engine
+    degoog = {
+      url = "github:degoog-org/degoog";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Blog source (zerodya.net)
     blog = {
       url = "github:Zerodya/zerodya.net";

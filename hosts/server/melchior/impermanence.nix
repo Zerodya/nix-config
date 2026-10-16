@@ -95,8 +95,7 @@
       "/var/lib/navidrome"
       "/var/lib/slskd"
       "/var/lib/beets"
-      "/var/cache/searx"
-      { directory = "/var/lib/private"; mode = "0700"; } # DynamicUser services state (beszel)
+      { directory = "/var/lib/private"; mode = "0700"; }
     ];
     files = [
       # Sops key

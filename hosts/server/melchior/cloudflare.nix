@@ -4,7 +4,7 @@
   imports = [
     # Tunnels
     ./music/cloudflared.nix
-    ./searx/cloudflared.nix
+    ./degoog/cloudflared.nix
     ./blog/cloudflared.nix
   ];
 
