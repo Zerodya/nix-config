@@ -9,14 +9,12 @@
     ghidra
     ghidra-extensions.kaiju
     ghidra-extensions.ret-sync
-    cutter
-    cutterPlugins.rz-ghidra
 
     # Debuggers
     gdb
-    pince
+    #pince
     strace
-    #ltrace
+    ltrace
     file
 
     # Hex editors
