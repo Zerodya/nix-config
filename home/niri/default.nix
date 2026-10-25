@@ -187,8 +187,8 @@
         action.spawn = "kitty";
         hotkey-overlay.title = "Open Terminal";
       };
-      "Mod+S" = {
-        action.spawn = "nautilus";
+      "Mod+F" = {
+        action.spawn = "dfiles";
         hotkey-overlay.title = "Open Files";
       };
       "Mod+P" = {
@@ -205,7 +205,7 @@
       };
 
       # Shell IPC
-      "Mod+D" = {
+      "Mod+X" = {
         action.spawn = [ "dms" "ipc" "launcher" "toggle"];
         hotkey-overlay.title = "Toggle Launcher";
       };
@@ -224,11 +224,11 @@
         repeat = false;
         hotkey-overlay.title = "Close Window";
       };
-      "Mod+X" = {
+      "Mod+Z" = {
         action.toggle-window-floating = {};
         hotkey-overlay.title = "Toggle Floating";
       };
-      "Mod+F" = {
+      "Mod+M" = {
         action.maximize-column = {};
         hotkey-overlay.title = "Maximize";
       };
@@ -237,7 +237,7 @@
         hotkey-overlay.title = "Fullscreen";
       };
 
-      # Overview
+      # Overview (bare Mod tap is remapped to Mod+backspace by keyd)
       "Mod+backspace" = { 
         action.toggle-overview = {};
         repeat = false;
@@ -248,8 +248,10 @@
       "Alt+Shift+Tab" = { action.focus-window-up-or-column-left = {}; };
       
       # Column operations
-      "Mod+Z" = { action.focus-column-right = {}; };
-      "Mod+less" = { action.focus-column-left = {}; };
+      "Mod+D" = { action.focus-column-right = {}; };
+      "Mod+A" = { action.focus-column-left = {}; };
+      "Mod+S" = { action.focus-window-or-workspace-down = {}; };
+      "Mod+W" = { action.focus-window-or-workspace-up = {}; };
       "Mod+Shift+Z" = { action.move-column-right = {}; };
       "Mod+Shift+less" = { action.move-column-left = {}; };
       "Mod+WheelScrollDown" = { action.focus-column-right = {}; };
