@@ -1,9 +1,7 @@
  { config, pkgs, ... }:
  
 let
-  cpuid-fault-emulation = pkgs.callPackage ../../pkgs/cpuid-fault-emulation {
-    kernel = config.boot.kernelPackages.kernel;
-  };
+  cpuid-fault-emulation = config.boot.kernelPackages.callPackage ../../pkgs/cpuid-fault-emulation { };
 in
 {
   # Disable UMIP

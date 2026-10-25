@@ -1,4 +1,4 @@
- { stdenv, kernel }:
+ { stdenv, kernel, kernelModuleMakeFlags }:
  
 stdenv.mkDerivation {
   pname = "cpuid_fault_emulation";
@@ -19,11 +19,18 @@ stdenv.mkDerivation {
       --replace '$(shell uname -r)' '${kernel.modDirVersion}'
   '';
  
-  installPhase = ''
-    install -D cpuid_fault_emulation.ko \
-      $out/lib/modules/${kernel.modDirVersion}/extra/cpuid_fault_emulation.ko
-  '';
+  # modules_install signs the module with kmodigest (produces the .ko.cer nixpkgs expects)
+  makeFlags = kernelModuleMakeFlags ++ [
+    "INSTALL_MOD_PATH=${placeholder "out"}"
+    "INSTALL_MOD_DIR=extra"
+    "DEPMOD=true"
+  ];
+  installTargets = [ "modules_install" ];
+  installFlags = [
+    "-C"
+    "${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
+    "M=$(PWD)"
+  ];
  
   meta.platforms = [ "x86_64-linux" ];
 }
- 
