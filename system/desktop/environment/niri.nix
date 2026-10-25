@@ -3,6 +3,7 @@
   imports = [ 
     inputs.niri.nixosModules.niri
     inputs.dms-plugin-registry.nixosModules.default
+    inputs.dfiles.nixosModules.dux-files
   ];
 
 
@@ -101,5 +102,11 @@
       linuxWallpaperEngine.enable = true;
       mpvpaperWallpaper.enable = true;
     };
+  };
+
+  # Dux Files
+  programs.dux-files = {
+    enable = true;
+    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
   };
 }

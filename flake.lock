@@ -106,6 +106,22 @@
         "type": "github"
       }
     },
+    "dank-qml-common_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792829559,
+        "narHash": "sha256-8J9RuGpmYCFRcpLlRQunqL0FqjsNSzlsK/QFZV2hm1A=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-qml-common",
+        "rev": "bb917ea0718892c875ca0955939f63b31dc64e1e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duxlabs-dev",
+        "repo": "dux-qml-common",
+        "type": "github"
+      }
+    },
     "degoog": {
       "inputs": {
         "bun2nix": "bun2nix",
@@ -187,9 +203,30 @@
         "url": "https://install.determinate.systems/determinate-nixd/tag/v3.24.0/x86_64-linux"
       }
     },
-    "dms": {
+    "dfiles": {
       "inputs": {
         "dank-qml-common": "dank-qml-common",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792831670,
+        "narHash": "sha256-yqYf1mayqqSgGgHXDaWcN4P/xs8TcuV3QuLeQpTy8Ww=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-files",
+        "rev": "5908e136ee1516f2909be9a4681da29ad569af39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duxlabs-dev",
+        "repo": "dux-files",
+        "type": "github"
+      }
+    },
+    "dms": {
+      "inputs": {
+        "dank-qml-common": "dank-qml-common_2",
         "flake-compat": "flake-compat_2",
         "nixpkgs": [
           "nixpkgs"
@@ -1296,6 +1333,7 @@
         "blog": "blog",
         "degoog": "degoog",
         "determinate": "determinate",
+        "dfiles": "dfiles",
         "dms": "dms",
         "dms-plugin-registry": "dms-plugin-registry",
         "flatpaks": "flatpaks",
