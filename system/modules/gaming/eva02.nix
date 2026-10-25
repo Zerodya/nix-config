@@ -2,7 +2,6 @@
 let
   steamForGamescope = pkgs.steam.override {
     extraEnv = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "${pkgs.proton-ge-bin.steamcompattool}";
       STEAM_GAMESCOPE_VRR_SUPPORTED = "1";
     };
   };
