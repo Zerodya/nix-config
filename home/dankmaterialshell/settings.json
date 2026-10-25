@@ -188,8 +188,8 @@
       "w": 1,
       "h": 1,
       "small": true,
-      "footer": true,
-      "footerEnd": true
+      "col": 7,
+      "row": 7
     }
   ],
   "appIdSubstitutions": [],
@@ -378,7 +378,7 @@
       "popupGapsManual": 37,
       "maximizeDetection": true,
       "scrollEnabled": true,
-      "scrollXBehavior": "column",
+      "scrollXBehavior": "focusWindow",
       "scrollYBehavior": "workspace",
       "shadowIntensity": 0,
       "shadowOpacity": 60,
@@ -413,5 +413,5 @@
   "frameRounding": 20,
   "frameShowOnOverview": true,
   "frameBlurEnabled": false,
-  "configVersion": 39
+  "configVersion": 42
 }
