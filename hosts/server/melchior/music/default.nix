@@ -1,4 +1,4 @@
-{ lib, pkgs, config, username, ...}:
+{ pkgs, config, username, ...}:
 let 
   music-dir = "/mnt/storage/music";
   # slskd -> downloads/complete -> droppedneedle verifies -> downloads/imported -> beets-import -> music-dir
@@ -52,6 +52,8 @@ in
       Port = 4533;
 
       MusicFolder = "${music-dir}";
+
+      Plugins.Enabled = false;
     };
 
     environmentFile = config.sops.templates."navidrome.env".path;
