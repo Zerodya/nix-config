@@ -4,7 +4,9 @@ let
   # Some Reapack extensions need this to work
   reaper-wrapped = pkgs.symlinkJoin {
     name = "reaper";
-    paths = [ pkgs.reaper ];
+    # Reaper 7.82's binary is 2MB-aligned; patchelf's default 4K page size makes
+    # overlapping LOAD segments that segfault in ld.so (glibc 2.44)
+    paths = [ (pkgs.reaper.overrideAttrs { patchelfFlags = [ "--page-size" "2097152" ]; }) ];
     buildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/reaper \
