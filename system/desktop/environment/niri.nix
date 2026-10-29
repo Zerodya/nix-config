@@ -36,10 +36,10 @@
 
 
   ###########################
-  #    DankMaterialShell    #
+  #         DuxShell        #
   ###########################
 
-  programs.dms-shell = 
+  programs.dux-shell = 
     let
     dmsPatched = inputs.dms.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (oldAttrs: {
       postInstall = (oldAttrs.postInstall or "") + ''
