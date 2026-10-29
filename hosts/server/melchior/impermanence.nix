@@ -95,6 +95,13 @@
       "/var/lib/navidrome"
       "/var/lib/slskd"
       "/var/lib/beets"
+      "/var/lib/immich"
+      "/var/cache/immich" # ML models, avoids re-downloading them every boot
+      "/var/lib/postgresql"
+      "/var/lib/redis-immich"
+      "/var/lib/tailscale"
+      "/root/.config/borg" # repo security info, borg refuses an "unknown" unencrypted repo without it
+      "/root/.cache/borg"
       { directory = "/var/lib/private"; mode = "0700"; }
     ];
     files = [

@@ -9,6 +9,7 @@
 
       # Configuration
       ./cloudflare.nix
+      ./tailscale.nix
       ./impermanence.nix
       ./sops.nix
 
@@ -19,7 +20,7 @@
       #./minecraft/default.nix
       ./music/default.nix
       ./beszel/default.nix
-      #./photos/default.nix
+      ./photos/default.nix
       ./degoog/default.nix
       ./blog/default.nix
   ];

@@ -45,6 +45,13 @@
       fsType = "ext4";
       options = [ "nofail" "nosuid" "nodev" "noexec" ]; # data only
     };
+
+    # External 320GB "Backup" disk
+    "/mnt/backups" = {
+      device = "/dev/disk/by-uuid/4cca6bbd-b11d-4763-a4fc-ad4ca774f52c";
+      fsType = "ext4";
+      options = [ "nofail" "nosuid" "nodev" "noexec" ]; # data only
+    };
   };
 
   swapDevices =
