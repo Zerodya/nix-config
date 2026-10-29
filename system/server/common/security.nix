@@ -17,7 +17,7 @@
   # SSH hardening
   services.openssh = {
     enable = true;
-    ports = [ 5432 ];
+    ports = [ 22 ];
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;

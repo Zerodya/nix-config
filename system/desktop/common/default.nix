@@ -49,7 +49,7 @@
     extraConfig = ''
       Host melchior
         HostName 192.168.1.201
-        Port 5432
+        Port 22
         User ${username}
         IdentityFile ~/.ssh/id_melchior
         IdentitiesOnly yes
