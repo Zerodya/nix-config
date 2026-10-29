@@ -140,6 +140,7 @@
           nur.modules.nixos.default # Nix User Repository
           flatpaks.nixosModules.default # Declarative Flatpak
           jovian.nixosModules.default # SteamDeck plugins
+          sops-nix.nixosModules.sops # Secret management
 
           # Old version of tonelib-gfx
           { nixpkgs.overlays = [( final: prev: {tonelib-gfx-478 = final.callPackage ./pkgs/tonelib-gfx-4.7.8 {};} )]; }

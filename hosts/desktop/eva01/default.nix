@@ -3,6 +3,7 @@
 {
   imports = [
       ./hardware-configuration.nix
+      ./sops.nix
 
       # Desktop
       ../../../system/desktop/environment/default.nix
