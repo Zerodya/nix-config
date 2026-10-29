@@ -64,6 +64,14 @@
     '';
   };
 
+  # audiomuse
+  sops.secrets."audiomuse/postgres" = {
+    sopsFile = ../../../../secrets/music/audiomuse.yaml;
+  };
+  sops.templates."audiomuse.env".content = ''
+    POSTGRES_PASSWORD=${config.sops.placeholder."audiomuse/postgres"}
+  '';
+
   # cloudflared
   sops.secrets.cloudflared-music = {
     sopsFile = ../../../../secrets/music/cloudflared-music.yaml;

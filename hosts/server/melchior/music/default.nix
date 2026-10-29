@@ -11,6 +11,7 @@ in
     ./translate-lyrics.nix
     ./droppedneedle.nix
     ./beets-import.nix
+    ./audiomuse.nix
   ];
 
   systemd.tmpfiles.rules = [
@@ -53,8 +54,11 @@ in
 
       MusicFolder = "${music-dir}";
 
-      Plugins.Enabled = false;
+      # Sonic similarity (Instant Mix, Radio) from AudioMuse-AI first, then the defaults
+      Agents = "audiomuseai,deezer,lastfm,listenbrainz";
     };
+    # Also makes <package>/share/plugins exist: without any plugin navidrome crashes trying to mkdir it in the store
+    withPlugins = p: [ p.audiomuseai ];
 
     environmentFile = config.sops.templates."navidrome.env".path;
   };
