@@ -30,7 +30,8 @@
     enable = true;
     nssmdns4 = true;
     publish = {
-      enable = true;
+      disable-publishing = false;
+      disable-user-service-publishing = false;
       addresses = true;
     };
   };
