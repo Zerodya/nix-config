@@ -6,6 +6,8 @@
     inputs.dfiles.nixosModules.dux-files
   ];
 
+  disabledModules = [ "programs/dux-files.nix" ];
+
 
   ###########################
   #          Niri           #
@@ -76,12 +78,8 @@
     }
 
     function recordOf(entry) {' \
-          --replace-fail 'return hyprlandSlotList(baseList);' \
-                         'return hyprlandSlotList(root.namedOnly(baseList));' \
-          --replace-fail 'return baseList;' \
-                         'return root.namedOnly(baseList);' \
-          --replace-fail 'return padWorkspaces(baseList);' \
-                         'return padWorkspaces(root.namedOnly(baseList));'
+          --replace-fail 'const slots = slotList(baseList);' \
+                         'const slots = slotList(root.namedOnly(baseList));'
       '';
     });
   in

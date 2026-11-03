@@ -20,9 +20,7 @@
   ];
 
   programs.niri.settings = {
-    includes = with config.lib.niri.include; [
-      (optional "${config.xdg.configHome}/niri/dms/colors.kdl")
-    ];
+    includes = [ "${config.xdg.configHome}/niri/dms/colors.kdl" ]; # non-store paths are optional by default
 
     hotkey-overlay.skip-at-startup = true;
     prefer-no-csd = true;
@@ -252,8 +250,8 @@
       "Mod+A" = { action.focus-column-left = {}; };
       "Mod+S" = { action.focus-window-or-workspace-down = {}; };
       "Mod+W" = { action.focus-window-or-workspace-up = {}; };
-      "Mod+Shift+Z" = { action.move-column-right = {}; };
-      "Mod+Shift+less" = { action.move-column-left = {}; };
+      "Mod+Shift+D" = { action.move-column-right = {}; };
+      "Mod+Shift+A" = { action.move-column-left = {}; };
       "Mod+WheelScrollDown" = { action.focus-column-right = {}; };
       "Mod+WheelScrollUp" = { action.focus-column-left = {}; };
       "Mod+C" = { action.switch-preset-column-width = {}; };
