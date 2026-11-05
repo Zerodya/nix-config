@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.git = {
     enable = true;
@@ -7,4 +9,8 @@
     };
     signing.format = null;
   };
+
+  home.packages = with pkgs; [
+    gh
+  ];
 }

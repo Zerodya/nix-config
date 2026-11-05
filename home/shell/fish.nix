@@ -33,16 +33,54 @@
       eva-update = {
         # Assumes flake is located in ~/nix-config/
         body = ''
-          if test (count $argv) -ne 2
-              echo "Usage: eva-update <nixos-rebuild-arg> <system-name>"
+          set flake /home/${username}/nix-config
+
+          sudo nix flake update --flake $flake/
+          or return 1
+
+          if git -C $flake diff --quiet HEAD -- flake.lock
+              echo "flake.lock is already up to date"
+              return 0
+          end
+
+          # The update above listed every changed input. Nothing leaves this machine without a yes.
+          read -P "Push these input updates? [y/N] " answer
+          if not contains -- "$answer" y Y yes
+              git -C $flake restore --source=HEAD --staged --worktree -- flake.lock
+              echo "Cancelled, flake.lock restored"
               return 1
           end
 
-          set rebuild_arg $argv[1]
-          set system_name $argv[2]
+          # Commit only flake.lock, leaving anything else staged as it is.
+          git -C $flake commit -m 'chore: update flake.lock' -- flake.lock
+          and git -C $flake push origin main
+          or return 1
 
-          sudo nix flake update --flake '/home/${username}/nix-config/'
-          and eva-rebuild $rebuild_arg $system_name
+          # Wait for .github/workflows/cache.yml to fill the binary cache.
+          set repo Zerodya/nix-config
+          set sha (git -C $flake rev-parse HEAD)
+
+          # The run takes a few seconds to show up after a push.
+          set run_id
+          while test -z "$run_id"
+              sleep 5
+              set run_id (gh run list --repo $repo --workflow cache.yml --commit $sha --json databaseId --jq '.[0].databaseId // empty')
+              or return 1
+          end
+
+          gh run watch $run_id --repo $repo --exit-status --compact --interval 30
+        '';
+      };
+
+      eva-upgrade = {
+        body = ''
+          if test (count $argv) -lt 2
+              echo "Usage: eva-upgrade <nixos-rebuild-arg> <system-name> [custom arguments...]"
+              return 1
+          end
+
+          eva-update
+          and eva-rebuild $argv
         '';
       };
 
