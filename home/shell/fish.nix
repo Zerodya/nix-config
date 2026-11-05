@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -57,18 +57,28 @@
           or return 1
 
           # Wait for .github/workflows/cache.yml to fill the binary cache.
-          set repo Zerodya/nix-config
-          set sha (git -C $flake rev-parse HEAD)
+          set api "https://api.github.com/repos/Zerodya/nix-config/actions/workflows/cache.yml/runs?head_sha="(git -C $flake rev-parse HEAD)
 
           # The run takes a few seconds to show up after a push.
-          set run_id
-          while test -z "$run_id"
-              sleep 5
-              set run_id (gh run list --repo $repo --workflow cache.yml --commit $sha --json databaseId --jq '.[0].databaseId // empty')
-              or return 1
+          echo "Waiting for the binary cache build to start..."
+          set url
+          while test -z "$url"
+              sleep 10
+              set url (${pkgs.curl}/bin/curl -s $api | jq -r '.workflow_runs[0].html_url // empty')
+          end
+          echo "Watch the build: $url"
+
+          set conclusion
+          while test -z "$conclusion"
+              # Unauthenticated API limit is 60 requests per hour.
+              sleep 120
+              set conclusion (${pkgs.curl}/bin/curl -s $api | jq -r '.workflow_runs[0].conclusion // empty')
           end
 
-          gh run watch $run_id --repo $repo --exit-status --compact --interval 30
+          if test "$conclusion" != success
+              echo "Binary cache build finished with: $conclusion"
+              return 1
+          end
         '';
       };
 
