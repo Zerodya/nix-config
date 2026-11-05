@@ -4,6 +4,12 @@
   # Experimental
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Personal binary cache, built by .github/workflows/cache.yml
+  nix.settings = {
+    substituters = [ "https://zerodya.cachix.org" ];
+    trusted-public-keys = [ "zerodya.cachix.org-1:CNDDaeg2hvxeVUkx2IhH7QApZvFgIDF870bdWQqVq6w=" ];
+  };
+
   # Time and Locale
   time.timeZone = "Europe/Rome";
   i18n.defaultLocale = "en_US.UTF-8";

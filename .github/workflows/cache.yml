@@ -1,0 +1,62 @@
+name: Binary cache
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - flake.lock
+      - system/desktop/environment/niri.nix
+      - .github/workflows/cache.yml
+  workflow_dispatch:
+
+# Runs queue instead of cancelling, so a kernel build is never thrown away
+concurrency:
+  group: cache
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Free disk space
+        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc /opt/hostedtoolcache
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Same Nix as the hosts, so store paths match
+      - uses: DeterminateSystems/determinate-nix-action@92957199488000b908fdad19f63711000965d8f3 # v3.24.1
+        with:
+          diagnostic-endpoint: ""
+
+      - name: Install cachix from nixpkgs
+        run: |
+          nix profile add --inputs-from . nixpkgs#cachix
+          cachix use zerodya
+
+      # Each target is pushed as soon as it's built, so a failure keeps earlier work.
+      # Kernel is last because it takes hours. Its dev output lets hosts build
+      # out-of-tree modules (zenpower, cpuid-fault-emulation) without rebuilding it.
+      - name: Build and push
+        shell: bash
+        env:
+          CACHIX_AUTH_TOKEN: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          CACHIX_SIGNING_KEY: ${{ secrets.CACHIX_SIGNING_KEY }}
+        run: |
+          failed=0
+          for target in \
+            'config.sops.package' \
+            'config.programs.dux-shell.quickshell.package' \
+            'config.programs.dux-shell.package' \
+            'config.programs.dux-files.package' \
+            'pkgs.xwayland-satellite-unstable' \
+            'config.programs.niri.package' \
+            'config.boot.kernelPackages.kernel^*'
+          do
+            nix build --no-link --print-out-paths ".#nixosConfigurations.eva01.$target" | cachix push zerodya || failed=1
+          done
+          exit $failed

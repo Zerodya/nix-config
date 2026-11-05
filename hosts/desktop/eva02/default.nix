@@ -51,12 +51,6 @@
     scheduler = "scx_lavd";
   };
 
-  # nix-cachyos-kernel binary cache
-  nix.settings = {
-    substituters = [ "https://attic.xuyh0120.win/lantian" ];
-    trusted-public-keys = [ "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc=" ];
-  };
-
   # Graphics
   hardware.graphics = {
     enable = true; # Mesa

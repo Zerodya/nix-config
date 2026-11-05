@@ -20,6 +20,8 @@
     package = pkgs.niri-stable;
   };
 
+  niri-flake.cache.enable = false;
+
   # Portal setup
   xdg.portal = {
     config.niri.default = ["gnome" "gtk"];
