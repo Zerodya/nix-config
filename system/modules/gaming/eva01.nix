@@ -62,11 +62,29 @@ in
     wantedBy = [ "multi-user.target" ];
   };
 
-  # Sunshine
-  services.sunshine = {
+  # Moonshine
+  services.moonshine = {
     enable = true;
-    openFirewall = true;
-    capSysAdmin = true;
+    user = "${username}";
+    firewallInterfaces = [ "enp4s0" ];
+    extraPackages = [ config.programs.steam.package ];
+    settings = {
+      name = "eva01";
+      address = "0.0.0.0";
+      application = [
+        {
+          title = "Steam";
+          command = [ "steam" "steam://open/bigpicture" ];
+        }
+      ];
+      application_scanner = [
+        {
+          type = "steam";
+          library = "$HOME/.local/share/Steam";
+          command = [ "steam" "-bigpicture" "steam://rungameid/{game_id}" ];
+        }
+      ];
+    };
   };
 
   # Waydroid Android emulator
