@@ -36,7 +36,7 @@
 
     allowReboot = true;
     rebootWindow = {
-      lower = "04:30";
+      lower = "04:00";
       upper = "05:00";
     };
   };

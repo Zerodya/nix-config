@@ -23,7 +23,8 @@ in
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 8090 ];
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ 8090 ];
+  networking.firewall.interfaces.eno1.allowedTCPPorts = [ 8090 ]; # LAN
 
   # ===== Failed service alerts =====
   # Every service gets OnFailure=notify-discord@<unit>, following the systemd.unit(5) example

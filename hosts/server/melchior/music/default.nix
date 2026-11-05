@@ -35,11 +35,11 @@ in
   # Ports
   networking.firewall = {
     # Navidrome is used through its tunnel; only containers (DroppedNeedle) reach it directly
-    interfaces.podman0.allowedTCPPorts = [ 4533 ];
-    allowedTCPPorts = [ 
-      8688 # droppedneedle
-      5030 # slskd web UI (Soulseek peer port 50300 stays closed: outbound connections only)
-    ];
+    # slskd web UI (Soulseek peer port 50300 stays closed: outbound connections only)
+    interfaces.podman0.allowedTCPPorts = [ 4533 5030 ];
+    interfaces.tailscale0.allowedTCPPorts = [ 5030 ];
+    interfaces.eno1.allowedTCPPorts = [ 5030 ]; # LAN
+    allowedTCPPorts = [ 8688 ]; # droppedneedle
   };
 
   # ===== Navidrome =====

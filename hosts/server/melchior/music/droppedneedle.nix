@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  version = "v2.15.0";
+  digest = "sha256:6d58d829cc5aa29e5de95933ba1ce46f249ccf7ef3ed437c643231b771d711c5"; # v2.15.0
   port = "8688";
   music-dir = "/mnt/storage/music";
   downloads-dir = "/mnt/storage/downloads";
@@ -19,7 +19,7 @@ in
     enable = true;
     containers.droppedneedle = {
       containerConfig = {
-        image = "docker.io/droppedneedle/droppedneedle:${version}";
+        image = "docker.io/droppedneedle/droppedneedle@${digest}";
         publishPorts = [ "0.0.0.0:${port}:${port}" ];
         environments = {
           UMASK = "002"; # group-writable, same as slskd
