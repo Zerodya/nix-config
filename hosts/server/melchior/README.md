@@ -4,6 +4,7 @@
 | --- | --- |
 | [`beszel/`](./beszel/) | Beszel monitoring dashboard, Discord alerts for failed services |
 | [`degoog/`](./degoog/) | Degoog search engine aggregator |
+| [`homepage/`](./homepage/) | Homepage dashboard with all services and stats, LAN only |
 | [`minecraft/`](./minecraft/) | Minecraft server (disabled) |
 | [`music/`](./music/) | Navidrome, slskd, droppedneedle and beets import pipeline, lyrics translation |
 | [`photos/`](./photos/) | Immich, reachable over Tailscale and the LAN, Borg backups to the external disk |

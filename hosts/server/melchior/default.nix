@@ -23,6 +23,7 @@
       ./photos/default.nix
       ./degoog/default.nix
       ./blog/default.nix
+      ./homepage/default.nix
   ];
 
   networking.hostName = thinkcentre;
