@@ -46,9 +46,9 @@
   };
 
   # sched_ext kernel scheduler
-  services.scx = { 
+  services.scx-loader = { 
     enable = true;
-    scheduler = "scx_lavd";
+    config.default_sched = "scx_lavd";
   };
 
   # Graphics
