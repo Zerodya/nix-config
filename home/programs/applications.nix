@@ -10,7 +10,7 @@
     baobab # disk usage analyzer
 
     # Browsers
-    brave
+    ungoogled-chromium
     tor-browser
     
     # Chats
