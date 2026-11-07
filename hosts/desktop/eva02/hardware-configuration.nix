@@ -10,7 +10,6 @@
 
   boot = {
     initrd = {
-      systemd.enable = true; # Use systemd instead of the script-based stage 1 initrd
       availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" ];
       kernelModules = [ ];
     };
