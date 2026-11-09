@@ -139,8 +139,26 @@
       }
       # Floating KDEConnect file transfer
       {
-        matches = [{ app-id = "org.kde.kdeconnect.daemon"; }];
+        matches = [
+          { app-id = "org.kde.kdeconnect.daemon"; }
+          { app-id = "org.kde.kdeconnect.handler"; }
+        ];
         open-floating = true;
+      }
+      # KDEConnect presentation pointer overlay
+      {
+        matches = [{ app-id = "org.kde.kdeconnect.daemon"; title = "^KDE Connect Daemon$"; }];
+        open-floating = true;
+        open-fullscreen = false;
+        default-floating-position = { x = 0; y = 0; relative-to = "top-left"; };
+        default-column-width.proportion = 1.0;
+        default-window-height.proportion = 1.0;
+        tiled-state = true;
+        focus-ring.enable = false;
+        border.enable = false;
+        shadow.enable = false;
+        draw-border-with-background = false;
+        background-effect.blur = false;
       }
       # Floating Steam popup windows
       {
