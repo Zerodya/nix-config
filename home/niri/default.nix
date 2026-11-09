@@ -129,9 +129,12 @@
         };
         clip-to-geometry = true;
       }
-      # Reaper to workspace 6
+      # Reaper and Guitar Pro to workspace 6
       {
-        matches = [{ app-id = "REAPER"; }];
+        matches = [
+          { app-id = "REAPER"; }
+          { app-id = "steam_proton"; title = "^Guitar Pro"; }
+        ];
         open-on-workspace = "6";
       }
       # Floating KDEConnect file transfer
