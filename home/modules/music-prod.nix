@@ -14,6 +14,7 @@ let
           pkgs.gtk3 pkgs.gdk-pixbuf pkgs.libepoxy pkgs.fontconfig
           pkgs.freetype pkgs.libpng pkgs.zlib pkgs.glib pkgs.cairo
           pkgs.pango pkgs.harfbuzz pkgs.libjpeg pkgs.stdenv.cc.cc
+          pkgs.pipewire.jack # same as pw-jack, replaces services.pipewire.jack.enable
         ]}"
     '';
   };
