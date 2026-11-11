@@ -9,7 +9,6 @@
     mangohud
     lsfg-vk
     lsfg-vk-ui
-    deadlock-mod-manager
 
     # Wine/Proton
     winetricks
