@@ -2,6 +2,7 @@
 {
   imports = [ 
     inputs.niri.nixosModules.niri
+    inputs.nirinit.nixosModules.nirinit
     inputs.dms-plugin-registry.nixosModules.default
     inputs.dfiles.nixosModules.dux-files
   ];
@@ -21,6 +22,21 @@
   };
 
   niri-flake.cache.enable = false;
+
+  # Save open windows and restore them to their workspaces at login
+  services.nirinit = {
+    enable = true;
+    # Already launched by spawn-at-startup (eva01)
+    settings.skip.apps = [
+      "signal"
+      "steam"
+      "REAPER"
+      "steam_proton"
+      "org.rncbc.qpwgraph"
+      "com.github.wwmm.easyeffects"
+      "org.openrgb.OpenRGB"
+    ];
+  };
 
   # Portal setup
   xdg.portal = {

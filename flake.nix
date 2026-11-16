@@ -41,6 +41,10 @@
       url = "github:epireyn/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nirinit = {
+      url = "github:amaanq/nirinit";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # DankMaterialShell
     dms = {
