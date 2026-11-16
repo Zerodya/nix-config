@@ -61,6 +61,11 @@
   programs.appimage = {
     enable = true;
     binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+        pkgs.libgpg-error
+      ];
+    };
   };
 
   # Run FHS binaries (example usage: LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH steam-run ./my_application )
