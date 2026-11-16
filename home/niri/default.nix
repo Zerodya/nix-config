@@ -236,6 +236,10 @@
         action.spawn = [ "dms" "ipc" "clipboard" "toggle" ];
         hotkey-overlay.title = "Toggle Clipboard";
       };
+      "Mod+N" = {
+        action.spawn = [ "dms" "ipc" "notepad" "toggle" ];
+        hotkey-overlay.title = "Toggle Notepad";
+      };
       
       # Window operations
       "Mod+Q" = {
