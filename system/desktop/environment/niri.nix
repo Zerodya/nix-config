@@ -121,8 +121,5 @@
   };
 
   # Dux Files
-  programs.dux-files = {
-    enable = true;
-    quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
-  };
+  programs.dux-files.enable = true;
 }
