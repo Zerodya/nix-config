@@ -43,6 +43,9 @@
     enable = true;
     nssmdns4 = true;
   };
+  # openresolv's hook SIGHUPs avahi at boot before it installs signal handlers,
+  # killing it and leaving a stale pid file that breaks the next start
+  networking.resolvconf.extraConfig = "avahi_daemon_pidfile=/nonexistent";
 
   # SSH aliases for my servers
   programs.ssh = {
