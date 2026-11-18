@@ -58,7 +58,16 @@ in
       Agents = "audiomuseai,deezer,lastfm,listenbrainz";
     };
     # Also makes <package>/share/plugins exist: without any plugin navidrome crashes trying to mkdir it in the store
-    withPlugins = p: [ p.audiomuseai ];
+    # Upstream's release instead of p.audiomuseai: nixpkgs rebuilds give the .ndp a new hash, and navidrome
+    # disables a plugin whenever its hash changes. Keep the version aligned with the AudioMuse image.
+    withPlugins = _: [
+      (pkgs.linkFarm "audiomuseai" {
+        "share/plugins/audiomuseai.ndp" = pkgs.fetchurl {
+          url = "https://github.com/NeptuneHub/AudioMuse-AI-NV-plugin/releases/download/v10/audiomuseai.ndp";
+          hash = "sha256-wTjprxbwl9jNB6yVf7iknZGn2gZuW0oUV8rb1HmqEKc=";
+        };
+      })
+    ];
 
     environmentFile = config.sops.templates."navidrome.env".path;
   };
