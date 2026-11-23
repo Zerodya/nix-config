@@ -100,6 +100,7 @@
       "/var/lib/postgresql"
       "/var/lib/redis-immich"
       "/var/lib/tailscale"
+      "/var/lib/libvirt" # VulnHub VM disks and definitions
       "/root/.config/borg" # repo security info, borg refuses an "unknown" unencrypted repo without it
       "/root/.cache/borg"
       { directory = "/var/lib/private"; mode = "0700"; }

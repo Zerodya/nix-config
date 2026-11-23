@@ -1,4 +1,4 @@
-{ pkgs, desktop, config, inputs, ... }:
+{ pkgs, lib, desktop, config, inputs, ... }:
 
 {
   imports = [
@@ -17,6 +17,22 @@
   ];
 
   networking.hostName = desktop;
+
+  # Manage the lab VMs on melchior and balthasar (qemu+ssh://<host>/system)
+  programs.virt-manager.enable = true;
+
+  # Static LAN IP (the labs' firewalls allow only this address) and routes to the labs
+  networking.networkmanager.ensureProfiles.profiles.lan = let lan = import ../../lan.nix; in {
+    connection = { id = "lan"; type = "ethernet"; interface-name = "enp4s0"; autoconnect-priority = 100; };
+    ipv4 = {
+      method = "manual";
+      address1 = "${lan.eva01}/24,${lan.gateway}";
+      dns = lib.concatStringsSep ";" config.networking.nameservers;
+      route1 = "${lan.labs.melchior}.0/24,${lan.melchior}";
+      route2 = "${lan.labs.balthasar}.0/24,${lan.balthasar}";
+    };
+    ipv6.method = "auto";
+  };
 
   # Kernel
   nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];

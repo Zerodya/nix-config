@@ -24,6 +24,7 @@
       ./degoog/default.nix
       ./blog/default.nix
       ./homepage/default.nix
+      ./vulnhub/default.nix
   ];
 
   networking.hostName = thinkcentre;

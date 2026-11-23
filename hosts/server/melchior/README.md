@@ -8,6 +8,7 @@
 | [`minecraft/`](./minecraft/) | Minecraft server (disabled) |
 | [`music/`](./music/) | Navidrome, slskd, droppedneedle and beets import pipeline, lyrics translation |
 | [`photos/`](./photos/) | Immich, reachable over Tailscale and the LAN, Borg backups to the external disk |
+| [`vulnhub/`](./vulnhub/) | Libvirt with an isolated `vulnhub` network for VulnHub boxes, managed from virt-manager over SSH |
 
 ThinkCentre M720q home server. Each subdirectory is a service imported in [`default.nix`](./default.nix), with its own `secrets.nix` and `cloudflared.nix` where needed. Top-level files hold host-wide config:
 - [`cloudflare.nix`](./cloudflare.nix) ~ Cloudflare tunnels for exposed services

@@ -79,6 +79,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Declarative libvirt (VulnHub lab on melchior)
+    NixVirt = {
+      url = "https://flakehub.com/f/AshleyYakeley/NixVirt/*.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Blog source (zerodya.net)
     blog = {
       url = "github:Zerodya/zerodya.net";
@@ -109,6 +115,7 @@
 
     pi4 = "casper";
     thinkcentre = "melchior";
+    optiplex = "balthasar";
 
     recovery-iso = "ritsuko";
   in 
@@ -246,6 +253,37 @@
 
           determinate.nixosModules.default # Determinate Systems Nix
           impermanence.nixosModules.impermanence # Impermanence
+          sops-nix.nixosModules.sops # Secret management
+          quadlet-nix.nixosModules.quadlet # Podman Quadlet
+        ];
+      };
+
+      # ~~ Server | OptiPlex 7010, GOAD-Light lab ~~
+      ${optiplex} = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+          inherit username;
+          inherit optiplex; # pass hostname
+        };
+        system = "x86_64-linux";
+
+        modules = [
+          ./system/core/default.nix # Core config
+          ./system/server/common/default.nix # Server common config
+
+          ./hosts/server/${optiplex}/default.nix # Host specific system config
+
+          home-manager.nixosModules.home-manager {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./hosts/server/${optiplex}/home.nix; # Host specific home config
+            home-manager.extraSpecialArgs = {
+              inherit inputs;
+              inherit username;
+            };
+          }
+
+          determinate.nixosModules.default # Determinate Systems Nix
           sops-nix.nixosModules.sops # Secret management
           quadlet-nix.nixosModules.quadlet # Podman Quadlet
         ];

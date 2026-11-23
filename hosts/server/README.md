@@ -2,6 +2,7 @@
 
 |  |  |
 | --- | --- |
+| [`balthasar/`](./balthasar/) | OptiPlex 7010, GOAD-Light Active Directory lab, powered on only to practice |
 | [`casper/`](./casper/) | Raspberry Pi 4B (WIP, no services yet) |
 | [`melchior/`](./melchior/) | ThinkCentre M720q, main home server |
 
