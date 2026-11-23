@@ -29,6 +29,7 @@
       "smartAutoHide": false,
       "useOverlayLayer": false,
       "editOnRightClick": false,
+      "showEditWidgetsInContextMenu": true,
       "showOnFullscreen": false,
       "openOnOverview": false,
       "groupByApp": false,
@@ -93,95 +94,108 @@
       "id": "user",
       "enabled": true,
       "w": 5,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 0
     },
     {
       "id": "settings",
       "enabled": true,
       "w": 1,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 5,
+      "row": 0
     },
     {
       "id": "lock",
       "enabled": true,
       "w": 1,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 6,
+      "row": 0
     },
     {
       "id": "power",
       "enabled": true,
       "w": 1,
       "h": 1,
-      "small": true
+      "small": true,
+      "col": 7,
+      "row": 0
     },
     {
       "id": "volumeSlider",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 1
     },
     {
       "id": "brightnessSlider",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 1
     },
     {
       "id": "wifi",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 2
     },
     {
       "id": "bluetooth",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 2
     },
     {
       "id": "audioOutput",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 3
     },
     {
       "id": "audioInput",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 3
     },
     {
       "id": "nightMode",
       "enabled": true,
       "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 0,
+      "row": 4
     },
     {
       "id": "darkMode",
       "enabled": true,
       "w": 4,
-      "h": 1
-    },
-    {
-      "id": "idleInhibitor",
-      "enabled": true,
-      "w": 4,
-      "h": 1
+      "h": 1,
+      "col": 4,
+      "row": 4
     },
     {
       "id": "colorPicker",
       "enabled": true,
       "w": 4,
-      "h": 1
-    },
-    {
-      "id": "runningApps",
-      "enabled": true,
-      "w": 7,
       "h": 1,
-      "small": true
+      "col": 4,
+      "row": 5
     },
     {
       "id": "edit",
@@ -191,6 +205,17 @@
       "small": true,
       "col": 7,
       "row": 7
+    },
+    {
+      "id": "diskUsage",
+      "enabled": true,
+      "w": 4,
+      "h": 1,
+      "instanceId": "mwmcsnc07swm8xuf8urtxqd5v6ypgv",
+      "mountPath": "/",
+      "showMountPath": false,
+      "col": 0,
+      "row": 6
     }
   ],
   "appIdSubstitutions": [],
@@ -573,7 +598,7 @@
   "frameRounding": 20,
   "frameShowOnOverview": true,
   "frameBlurEnabled": false,
-  "configVersion": 43,
+  "configVersion": 44,
   "centeringMode": "index",
   "niriOverviewLauncherStyle": "full",
   "dankLauncherV2Size": "compact",
@@ -581,5 +606,6 @@
   "rememberLastQuery": false,
   "frameLauncherEmergeSide": "bottom",
   "frameLauncherArcExtender": false,
-  "frameLauncherEdgeHover": false
+  "frameLauncherEdgeHover": false,
+  "displayProfileAutoSelect": false
 }
