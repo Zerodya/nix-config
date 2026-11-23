@@ -89,6 +89,7 @@
 
       # System state
       "/var/lib/nixos"
+      "/var/lib/systemd" # credential.secret decrypts libvirt's secrets key, timer stamps
 
       # Services data
       "/var/lib/containers"
