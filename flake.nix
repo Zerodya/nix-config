@@ -146,8 +146,8 @@
           jovian.nixosModules.default # SteamDeck plugins
           sops-nix.nixosModules.sops # Secret management
 
-          # Old version of tonelib-gfx
-          { nixpkgs.overlays = [( final: prev: {tonelib-gfx-478 = final.callPackage ./pkgs/tonelib-gfx-4.7.8 {};} )]; }
+          # Personal packages
+          { nixpkgs.overlays = [( final: prev: {tonelib-gfx-478 = final.callPackage ./pkgs/tonelib-gfx-4.7.8 {}; keypeek = final.callPackage ./pkgs/keypeek {};} )]; }
         ];
       };
 
@@ -182,8 +182,8 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-e14-intel # Hardware module
           flatpaks.nixosModules.default # Declarative Flatpak
 
-          # Old version of tonelib-gfx
-          { nixpkgs.overlays = [( final: prev: {tonelib-gfx-478 = final.callPackage ./pkgs/tonelib-gfx-4.7.8 {};} )]; }
+          # Personal packages
+          { nixpkgs.overlays = [( final: prev: {tonelib-gfx-478 = final.callPackage ./pkgs/tonelib-gfx-4.7.8 {}; keypeek = final.callPackage ./pkgs/keypeek {};} )]; }
         ];
       };
 
